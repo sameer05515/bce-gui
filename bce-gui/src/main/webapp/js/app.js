@@ -4,7 +4,9 @@ var app = angular.module('topicMgmtApp', [ 'ngRoute', 'ngAnimate',
 app.constant("topicMgmtAppConfig", {
 	"restServices" : "http://127.0.0.1:8080/RestServices/rest",
 	"interviewMgmtServices":"http://127.0.0.1:8080/interview-mgmt/rest",
-	"maxInterviewMgmtRatingValue":"10"
+	"maxInterviewMgmtRatingValue":"10",
+	"maxTopicMgmtRatingValue":"10",
+	"taskMgmtService":"http://127.0.0.1:8080/task-mgmt-service/"
 });
 
 app.directive('checkList', function() {
