@@ -15,17 +15,17 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when("/links", {templateUrl: "partials/link-mgmt/links-list.html"/* , controller: "repeatController" */})
 	.when("/questions-single-view", {templateUrl: "partials/categories/questionsSingleView.html" , controller: "questionsSingleViewController" })
     // categories
-    .when("/question-report", {templateUrl: "partials/categories/showAllCategories.html", controller: "showAllCategoriesController"})
-	.when("/categories-list", {templateUrl: "partials/categories/showAllCategories-list.html", controller: "showAllCategoriesController-list"})
-	.when("/categories/:id", {templateUrl: "partials/categories/showCategory.html", controller: "showCategoryController"})
+    .when("/question-report", {templateUrl: "partials/interview-mgmt/categories/showAllCategories.html", controller: "showAllCategoriesController"})
+	.when("/categories-list", {templateUrl: "partials/interview-mgmt/categories/showAllCategories-list.html", controller: "showAllCategoriesController-list"})
+	.when("/categories/:id", {templateUrl: "partials/interview-mgmt/categories/showCategory.html", controller: "showCategoryController"})
 	
 	// questions    
-	.when("/categories/:catID/questions", {templateUrl: "partials/questions/showAllQuestions-list.html", controller: "showAllQuestionsController-list"})
-	.when("/categories/:catID/questions/:quesID", {templateUrl: "partials/questions/showQuestion.html", controller: "showQuestionController"})
+	.when("/categories/:catID/questions", {templateUrl: "partials/interview-mgmt/questions/showAllQuestions-list.html", controller: "showAllQuestionsController-list"})
+	.when("/categories/:catID/questions/:quesID", {templateUrl: "partials/interview-mgmt/questions/showQuestion.html", controller: "showQuestionController"})
 	
 	// answers    
-	.when("/categories/:catID/questions/:quesID/answers", {templateUrl: "partials/answers/showAllAnswers-list.html", controller: "showAllAnswersController-list"})
-	.when("/categories/:catID/questions/:quesID/answers/:ansID", {templateUrl: "partials/answers/showAnswer.html", controller: "showAnswerController"})
+	.when("/categories/:catID/questions/:quesID/answers", {templateUrl: "partials/interview-mgmt/answers/showAllAnswers-list.html", controller: "showAllAnswersController-list"})
+	.when("/categories/:catID/questions/:quesID/answers/:ansID", {templateUrl: "partials/interview-mgmt/answers/showAnswer.html", controller: "showAnswerController"})
 	
 	// groups
     .when("/groups", {templateUrl: "partials/groups/showAllGroups.html", controller: "showAllGroupsController"})
