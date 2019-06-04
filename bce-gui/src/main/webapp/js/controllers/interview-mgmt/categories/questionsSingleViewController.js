@@ -1,135 +1,177 @@
 //questionsSingleView
 
 app
-		.controller(
-				'questionsSingleViewController',
-				function($scope, $http,$log, topicMgmtAppConfig,InterviewManagementServices) {
+.controller(
+		'questionsSingleViewController',
+		function($scope, $http, $log, topicMgmtAppConfig,
+				InterviewManagementServices) {
 
-					$scope.topicObj = {
-						"title" : "my title",
-						"description" : ""
-					};
-					$scope.topicsList = [];
-					$scope.topic = {};
-					var counter = 1;
-					$scope.filteredItems = [];
-					$scope.showList = true;
+			$scope.topicObj = {
+					"title" : "my title",
+					"description" : ""
+			};
+			$scope.topicsList = [];
+			$scope.topic = {};
+			var counter = 1;
+			$scope.filteredItems = [];
+			$scope.showList = true;
+			$scope.counterrr = 0;
 
-					$scope.showTopicsList = function() {
-						$scope.showList = !$scope.showList;
-						if ($scope.showList) {
-							document.getElementById('topicDetailsDiv').classList
-									.add('col-lg-8');
-							document.getElementById('topicDetailsDiv').classList
-									.remove('col-lg-12');
-						} else {
-							document.getElementById('topicDetailsDiv').classList
-									.add('col-lg-12');
-							document.getElementById('topicDetailsDiv').classList
-									.remove('col-lg-8');
-						}
-					};
+			$scope.showTopicsList = function() {
+				$scope.showList = !$scope.showList;
+				if ($scope.showList) {
+					document.getElementById('topicDetailsDiv').classList
+					.add('col-lg-8');
+					document.getElementById('topicDetailsDiv').classList
+					.remove('col-lg-12');
+				} else {
+					document.getElementById('topicDetailsDiv').classList
+					.add('col-lg-12');
+					document.getElementById('topicDetailsDiv').classList
+					.remove('col-lg-8');
+				}
+			};
 
-					$scope.fetchTopicList = function() {
-                        InterviewManagementServices.fetchAnswersJson()
-                        .success(function(data) {
+			$scope.fetchTopicList = function() {
+				InterviewManagementServices
+				.fetchAnswersJson()
+				.success(
+						function(data) {
 							// alert("Success : "+data);
 							$scope.topicsList = data;
-                            // $scope.sortBy($scope.propertyName);
-                            
-                            $log
-									.log("Successfully fetched category list "
-											+ " : "
-											+ angular
-													.toJson($scope.topicsList));
+							// $scope.sortBy($scope.propertyName);
+
+							$log
+							.log("Successfully fetched category list "
+									+ " : "
+									+ angular
+									.toJson($scope.topicsList));
 
 						}).error(function(data) {
-                            $log.log("Error : " + data);
+							$log.log("Error : " + data);
 							// alert("Error : " + data);
 						});
-					};
+			};
 
-					$scope.idSelectedVote = null;
-					$scope.setSelected = function(idSelectedVote) {
-						$scope.idSelectedVote = idSelectedVote;
-					};
+			$scope.idSelectedVote = null;
+			$scope.setSelected = function(idSelectedVote) {
+				$scope.idSelectedVote = idSelectedVote;
+			};
 
-					$scope.showAt = function(indexVal) {
-						counter = indexVal;
-						$scope.topic = $scope.filteredItems[counter];
-						$scope.setSelected($scope.topic.id);
-						// counter = (counter >= $scope.filteredItems.length -
-						// 1) ? 0
-						// : (counter + 1);
-					};
+			$scope.showAt = function(indexVal) {
+				$scope.counterrr = indexVal;
+				$scope.topic = $scope.filteredItems[$scope.counterrr];
+				$scope.setSelected($scope.topic.id);
+				// $scope.counterrr = ($scope.counterrr >=
+				// $scope.filteredItems.length -
+				// 1) ? 0
+				// : ($scope.counterrr + 1);
+			};
 
-					$scope.next = function() {
-						counter = (counter >= $scope.filteredItems.length - 1) ? 0
-								: (counter + 1);
-						$scope.topic = $scope.filteredItems[counter];
-						$scope.setSelected($scope.topic.id);
-					};
+			$scope.next = function() {
+				console.log("Inside next function=>>>> $scope.counterrr == "
+						+ $scope.counterrr);
+				$scope.counterrr = ($scope.counterrr >= $scope.filteredItems.length - 1) ? 0
+						: ($scope.counterrr + 1);
+				$scope.topic = $scope.filteredItems[$scope.counterrr];
+				$scope.setSelected($scope.topic.id);
+			};
 
-					$scope.previous = function() {
-						counter = (counter == 0) ? ($scope.filteredItems.length - 1)
-								: (counter - 1);
-						$scope.topic = $scope.filteredItems[counter];
-						$scope.setSelected($scope.topic.id);
-					};
+			$scope.previous = function() {
+				$scope.counterrr = ($scope.counterrr == 0) ? ($scope.filteredItems.length - 1)
+						: ($scope.counterrr - 1);
+				$scope.topic = $scope.filteredItems[$scope.counterrr];
+				$scope.setSelected($scope.topic.id);
+			};
 
-					// ///////////////////////
+			// ///////////////////////////////////////////////////
+			$scope.timerStarted = false;
+			$scope.timerID = null;
 
-					// Initialization
-					$scope.onKeyDownResult = "";
-					$scope.onKeyUpResult = "";
-					$scope.onKeyPressResult = "";
+			/*
+			 * var nextAltFn= function(){ //$scope.next();
+			 * console.log("aaaaaaa=>>>>"); };
+			 */
 
-					// Utility functions
+			$scope.slideShowStart = function() {
+				$scope.timerStarted = true;
+				$scope.timerID = setTimeout(function nextAltFn() {
+					$scope.next();
+					console.log("aaaaaaa=>>>> $scope.counterrr == "
+							+ $scope.counterrr);
+					$scope.timerID = setTimeout(nextAltFn, 5000);
+				}, 5000);
+				console
+				.log("Timer started : timerID "
+						+ $scope.timerID);
+				console.log("timerStarted " + $scope.timerStarted);
+			};
 
-					var getKeyboardEventResult = function(keyEvent,
-							keyEventDesc) {
-						return keyEventDesc
-								+ " (keyCode: "
-								+ (window.event ? keyEvent.keyCode
-										: keyEvent.which) + ")";
-					};
+			$scope.slideShowCancel = function() {
+				$scope.timerStarted = false;
+				clearTimeout($scope.timerID);
+				$scope.timerID = null;
 
-					// Event handlers
-					$scope.onKeyDown = function($event) {
-						$scope.onKeyDownResult = getKeyboardEventResult($event,
-								"Key down");
-					};
+				console
+				.log("Timer stopped : timerID "
+						+ $scope.timerID);
+				console.log("timerStarted " + $scope.timerStarted);
+			};
+			// //////////////////////////////////////////////////
 
-					$scope.onKeyUp = function($event) {
-						$scope.onKeyUpResult = getKeyboardEventResult($event,
-								"Key up");
-					};
+			// ///////////////////////
 
-					$scope.onKeyPress = function($event) {
-						$scope.onKeyPressResult = getKeyboardEventResult(
-								$event, "Key press");
-					};
+			// Initialization
+			$scope.onKeyDownResult = "";
+			$scope.onKeyUpResult = "";
+			$scope.onKeyPressResult = "";
 
-					// ////////////////////////
+			// Utility functions
 
-					// //////////////////////
-					$scope.propertyName = 'dateLastModified';
-					$scope.reverse = true;
-					// $scope.friends = friends;
+			var getKeyboardEventResult = function(keyEvent,
+					keyEventDesc) {
+				return keyEventDesc
+				+ " (keyCode: "
+				+ (window.event ? keyEvent.keyCode
+						: keyEvent.which) + ")";
+			};
 
-					$scope.sortBy = function(propertyName) {
-						$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse
-								: false;
-						$scope.propertyName = propertyName;
+			// Event handlers
+			$scope.onKeyDown = function($event) {
+				$scope.onKeyDownResult = getKeyboardEventResult($event,
+				"Key down");
+			};
 
-						$scope.showAt(1);
-					};
+			$scope.onKeyUp = function($event) {
+				$scope.onKeyUpResult = getKeyboardEventResult($event,
+						"Key up");
+			};
 
-					$scope.init = function() {
-						$scope.fetchTopicList();
-						$scope.showTopicsList();
-					};
+			$scope.onKeyPress = function($event) {
+				$scope.onKeyPressResult = getKeyboardEventResult(
+						$event, "Key press");
+			};
 
-					$scope.init();
+			// ////////////////////////
 
-				});
+			// //////////////////////
+			$scope.propertyName = 'categoryId';
+			$scope.reverse = true;
+			// $scope.friends = friends;
+
+			$scope.sortBy = function(propertyName) {
+				$scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse
+						: false;
+				$scope.propertyName = propertyName;
+
+				$scope.showAt(1);
+			};
+
+			$scope.init = function() {
+				$scope.fetchTopicList();
+				$scope.showTopicsList();
+			};
+
+			$scope.init();
+
+		});

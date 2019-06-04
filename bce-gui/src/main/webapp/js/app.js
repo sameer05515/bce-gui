@@ -2,11 +2,11 @@ var app = angular.module('topicMgmtApp', [ 'ngRoute', 'ngAnimate',
 		'angularTrix', 'ngSanitize' ]);
 
 app.constant("topicMgmtAppConfig", {
-	"restServices" : "http://127.0.0.1:8080/RestServices/rest",
-	"interviewMgmtServices":"http://127.0.0.1:8080/interview-mgmt/rest",
+	"restServices" : "http://127.0.0.1:8888/RestServices/rest",
+	"interviewMgmtServices":"http://127.0.0.1:8888/interview-mgmt/rest",
 	"maxInterviewMgmtRatingValue":"10",
 	"maxTopicMgmtRatingValue":"10",
-	"taskMgmtService":"http://127.0.0.1:8080/task-mgmt-service/"
+	"taskMgmtService":"http://127.0.0.1:8888/task-mgmt-service/"
 });
 
 app.directive('checkList', function() {
