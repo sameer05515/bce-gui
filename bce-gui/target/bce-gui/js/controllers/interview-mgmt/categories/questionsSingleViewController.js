@@ -52,6 +52,27 @@ app
 							// alert("Error : " + data);
 						});
 			};
+			
+			$scope.fetchQuestionForCategory = function() {
+				InterviewManagementServices
+				.fetchAnswersJson()
+				.success(
+						function(data) {
+							// alert("Success : "+data);
+							$scope.topicsList = data;
+							// $scope.sortBy($scope.propertyName);
+
+							$log
+							.log("Successfully fetched category list "
+									+ " : "
+									+ angular
+									.toJson($scope.topicsList));
+
+						}).error(function(data) {
+							$log.log("Error : " + data);
+							// alert("Error : " + data);
+						});
+			};
 
 			$scope.idSelectedVote = null;
 			$scope.setSelected = function(idSelectedVote) {
@@ -66,6 +87,11 @@ app
 				// $scope.filteredItems.length -
 				// 1) ? 0
 				// : ($scope.counterrr + 1);
+			};
+			
+			$scope.reload = function() {
+				
+				$scope.showAt($scope.counterrr);
 			};
 
 			$scope.next = function() {
