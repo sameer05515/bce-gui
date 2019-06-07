@@ -111,6 +111,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 	
 	// Vocabulary
     .when("/vocabulary/new", {templateUrl: "partials/vocabulary/addWord.html" , controller: "addWordController" })
+    .when("/vocabulary/export", {templateUrl: "partials/vocabulary/exportWords.html" , controller: "exportWordController" })
+    .when("/vocabulary/import", {templateUrl: "partials/vocabulary/importWords.html" , controller: "importWordController" })
     .when("/vocabulary/:id", {templateUrl: "partials/vocabulary/updateWord.html" , controller: "updateWordController" })
     .when("/vocabulary", {templateUrl: "partials/vocabulary/showAllWords.html" , controller: "showAllWordsController" })
     .when("/multipleSectionController",{templateUrl: "partials/topics/multipleSectionController.html", controller: "multipleSectionController"})

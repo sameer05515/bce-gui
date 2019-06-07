@@ -1,6 +1,6 @@
 //updateWordController
 
-app.controller('updateWordController', function($scope,$http,$location,topicMgmtAppConfig) {
+app.controller('updateWordController', function($scope,$http,$location,$routeParams,topicMgmtAppConfig) {
 	$scope.wordObj={"title":"my word",
 			"meaning":["meaning1"],
 			"example":["example 1"]};

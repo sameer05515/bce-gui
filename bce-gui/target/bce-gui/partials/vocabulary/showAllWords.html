@@ -15,6 +15,30 @@
 
 
 	<div class="row">
+
+		<div class="col-lg-12">
+			<a class="btn btn-xs btn-primary" ng-click="previous()"> <i
+				class="fa fa-plus">previous</i>
+			</a> <a class="btn btn-xs btn-primary" ng-click="next()"> <i
+				class="fa fa-plus">next</i>
+			</a> <a class="btn btn-xs btn-primary" ng-click="reload()"> <i
+				class="fa fa-plus">reload</i>
+			</a> <a class="btn btn-xs btn-primary" ng-if="!timerStarted"
+				ng-click="slideShowStart()"><i class="fa fa-plus">Show
+					slideshow</i></a> <a class="btn btn-xs btn-primary" ng-if="timerStarted"
+				ng-click="slideShowCancel()"><i class="fa fa-plus">Cancel
+					slideshow</i></a> <a class="btn btn-xs btn-primary"
+				ng-click="showTopicsList()"> <i class="fa fa-plus">Show List</i>
+			</a>
+			
+			<a class="btn btn-xs btn-primary"
+				ng-click="export()"> <i class="fa fa-plus">Export</i>
+			</a>
+			
+			<a class="btn btn-xs btn-primary"
+				ng-click="import()"> <i class="fa fa-plus">Import</i>
+			</a>
+		</div>
 		<div class="col-lg-12">
 			<h3>List of all words</h3>
 		</div>
@@ -58,14 +82,16 @@
 				</tr>
 				<tr>
 					<td>meanings</td>
-					<td >
-						<h1 data-ng-repeat="meaning in word.meanings">{{meaning.id}} : : {{meaning.meaning}}</h1>
+					<td>
+						<h1 data-ng-repeat="meaning in word.meanings">{{meaning.id}}
+							: : {{meaning.meaning}}</h1>
 					</td>
 				</tr>
 				<tr>
 					<td>examples</td>
-					<td >
-						<h1 data-ng-repeat="example in word.examples">{{example.id}} : : {{example.example}}</h1>
+					<td>
+						<h1 data-ng-repeat="example in word.examples">{{example.id}}
+							: : {{example.example}}</h1>
 					</td>
 				</tr>
 			</table>
