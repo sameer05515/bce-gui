@@ -4,7 +4,7 @@ app.controller('addWordController', function($scope,$http,$location,topicMgmtApp
 	$scope.wordObj={"title":"my word","type":"Verb",
 			"meaning":[{"value":"meaning1"}],
 			"example":[{"value":"example1"}]};
-	$scope.types = ["Nown", "Pronoun", "Adjective","Verb"];
+	$scope.types = ["Noun", "Pronoun", "Adjective","Verb"];
 	
 	$scope.addNewMeaning = function() {
 		var newItemNo = $scope.wordObj.meaning.length+1;
