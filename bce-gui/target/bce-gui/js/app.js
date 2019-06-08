@@ -6,8 +6,10 @@ app.constant("topicMgmtAppConfig", {
 	"interviewMgmtServices":"http://127.0.0.1:8888/interview-mgmt/rest",
 	"maxInterviewMgmtRatingValue":"10",
 	"maxTopicMgmtRatingValue":"10",
+	"maxLinkMgmtRatingValue":"10",
 	"taskMgmtService":"http://127.0.0.1:8888/task-mgmt-service/",
-	"wordMeaningService":"http://127.0.0.1:8888/word-meaning-mongodb-services/"
+	"wordMeaningService":"http://127.0.0.1:8888/word-meaning-mongodb-services/",
+	"linkMgmtService":"http://127.0.0.1:8888/link-mgmt-mongodb-services/"
 });
 
 app.directive('checkList', function() {

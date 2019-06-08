@@ -32,14 +32,29 @@
 			<ul class="example-animate-container">
 
 
-				<li class="animate-repeat" ng-repeat="lg in groups1">
+				<li class="animate-repeat" ng-repeat="lg in LinksList">
 					<div class="row">
-						<div class="col-md-12 link-block">[{{$index + 1}}] {{lg}}</div>
+						<div class="col-md-12 link-block">
+							<span>[{{$index + 1}}] : <a href="{{lg.url}}">{{lg.url}}</a><br />
+							</span> <span class="col-md-12" ng-bind-html="lg.linkDescription"> </span><br />
+							<p>
+								<i class="fa fa-clock-o"></i> Last Modified on <b><span
+									ng-bind="lg.lastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							</p>
+
+							<p>
+								<i class="fa fa-clock-o"></i> Created on <b><span
+									ng-bind="lg.createdDate| date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							</p>
+							<a class="btn btn-xs btn-primary" href="#/links/{{lg._id}}">Edit
+								<i class="fa fa-angle-right"></i>
+							</a>
+						</div>
 					</div>
 
 				</li>
 
-				<li class="animate-repeat">{{groups1}}</li>
+				<!-- <li class="animate-repeat">{{LinksList}}</li> -->
 
 			</ul>
 		</div>
