@@ -13,8 +13,26 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when("/contact", {templateUrl: "partials/contact.html"/* , controller: "PshortDescriptionCtrl" */})
 
 
+	/** ####################################################################################################################### */    
+
+	/**
+	 *    LINK MANAGEMENT ROUTES START
+	 *   
+	 *   */
+	
 	// links
-	.when("/links", {templateUrl: "partials/link-mgmt/links-list.html"/* , controller: "repeatController" */})
+	.when("/links", {templateUrl: "partials/link-mgmt/links-list.html" , controller: "links-list-controller" })
+	.when("/links/link", {templateUrl: "partials/link-mgmt/create-link.html" , controller: "create-link-controller" })
+	.when("/links/group", {templateUrl: "partials/link-mgmt/create-link-group.html" , controller: "create-link-group-controller" })
+	.when("/links/:id", {templateUrl: "partials/link-mgmt/update-link.html" , controller: "update-link-controller" })
+	
+
+	/**
+	 *    LINK MANAGEMENT ROUTES END
+	 *   
+	 *   */
+
+	/** ####################################################################################################################### */
 
 	/** ####################################################################################################################### */    
 
@@ -75,7 +93,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 	 *    TOPIC MANAGEMENT ROUTES END
 	 *   
 	 *   */
-	
+
 	/** ####################################################################################################################### */
 
 	// groups
@@ -101,48 +119,48 @@ app.config(['$routeProvider', function ($routeProvider) {
 	/*.when("/vocabulary/new", {templateUrl: "partials/vocabulary/addWord.html" , controller: "addWordController" })
 	.when("/vocabulary/:id", {templateUrl: "partials/vocabulary/updateWord.html" , controller: "updateWordController" })
 	.when("/vocabulary", {templateUrl: "partials/vocabulary/showAllWords.html" , controller: "showAllWordsController" })*/
-	
+
 	/** ####################################################################################################################### */
-    
-    /**
+
+	/**
 	 *    VOCABULARY MANAGEMENT ROUTES START
 	 *   
 	 *   */
-	
+
 	// Vocabulary
-    .when("/vocabulary/new", {templateUrl: "partials/vocabulary/addWord.html" , controller: "addWordController" })
-    .when("/vocabulary/export", {templateUrl: "partials/vocabulary/exportWords.html" , controller: "exportWordController" })
-    .when("/vocabulary/import", {templateUrl: "partials/vocabulary/importWords.html" , controller: "importWordController" })
-    .when("/vocabulary/:id", {templateUrl: "partials/vocabulary/updateWord.html" , controller: "updateWordController" })
-    .when("/vocabulary", {templateUrl: "partials/vocabulary/showAllWords.html" , controller: "showAllWordsController" })
-    .when("/multipleSectionController",{templateUrl: "partials/topics/multipleSectionController.html", controller: "multipleSectionController"})
-    
-    /**
+	.when("/vocabulary/new", {templateUrl: "partials/vocabulary/addWord.html" , controller: "addWordController" })
+	.when("/vocabulary/export", {templateUrl: "partials/vocabulary/exportWords.html" , controller: "exportWordController" })
+	.when("/vocabulary/import", {templateUrl: "partials/vocabulary/importWords.html" , controller: "importWordController" })
+	.when("/vocabulary/:id", {templateUrl: "partials/vocabulary/updateWord.html" , controller: "updateWordController" })
+	.when("/vocabulary", {templateUrl: "partials/vocabulary/showAllWords.html" , controller: "showAllWordsController" })
+	.when("/multipleSectionController",{templateUrl: "partials/topics/multipleSectionController.html", controller: "multipleSectionController"})
+
+	/**
 	 *    VOCABULARY MANAGEMENT ROUTES END
 	 *   
 	 *   */
-    
-    
-    /** ####################################################################################################################### */
-    
-    /**
+
+
+	/** ####################################################################################################################### */
+
+	/**
 	 *    TASK MANAGEMENT ROUTES START
 	 *   
 	 *   */
-    
-    // Tasks
-    .when("/tasks/new", {templateUrl: "partials/task-mgmt/tasks/createTask.html" , controller: "createTaskController" })
-    .when("/tasks/:id", {templateUrl: "partials/task-mgmt/tasks/updateTask.html" , controller: "updateTaskController" })
-    .when("/tasks-list", {templateUrl: "partials/task-mgmt/tasks/showAllTasks-list.html" , controller: "showAllTasksController-list" })
-    .when("/tasks-list/:id", {templateUrl: "partials/task-mgmt/tasks/showTask.html", controller: "showTaskController"})
-    
-    /**
+
+	// Tasks
+	.when("/tasks/new", {templateUrl: "partials/task-mgmt/tasks/createTask.html" , controller: "createTaskController" })
+	.when("/tasks/:id", {templateUrl: "partials/task-mgmt/tasks/updateTask.html" , controller: "updateTaskController" })
+	.when("/tasks-list", {templateUrl: "partials/task-mgmt/tasks/showAllTasks-list.html" , controller: "showAllTasksController-list" })
+	.when("/tasks-list/:id", {templateUrl: "partials/task-mgmt/tasks/showTask.html", controller: "showTaskController"})
+
+	/**
 	 *    TASK MANAGEMENT ROUTES END
 	 *   
 	 *   */
-	
+
 	/** ####################################################################################################################### */
-	
+
 
 	// else 404
 	.otherwise("/404", {templateUrl: "../../partials/404.html"/* , controller: "PshortDescriptionCtrl" */});

@@ -1,50 +1,47 @@
 <!-- <div ng-controller="repeatController"> -->
 <div class="container">
-  Following {{friends.length}} links are registered. They are:
-  <input type="search" ng-model="q" placeholder="filter links..." aria-label="filter friends" />
-  <ul class="example-animate-container">
-    <!-- <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
-      
-	  
-	  <div class="link-block">
-			  
-			<div class="row">
-				<div class="col-md-12">
-					[{{$index + 1}}] 
-					<a href="{{friend.link}}">
-						<span> {{friend.shortDescription}} </span>
-					</a>
-				</div>		
-			</div>			
-			
-			<div class="row">
-				<div class="col-md-9 col-md-offset-1">
-					<span> {{friend.longDescription}} </span>
-				</div>		
-			</div>
-	  </div>  
-		
-    </li> 
-	
-    <li class="animate-repeat" ng-if="results.length == 0">
-      <strong>No results found...</strong>
-    </li> -->
-	
-	<li class="animate-repeat" ng-repeat="lg in groups1">
-		<div class="row">
-			<div class="col-md-12 link-block">
-				[{{$index + 1}}] {{lg}}
-			</div>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<i class="fa fa-file-text fa-4x"></i>
+			<h1 class="page-header">
+				All Links <small>: A Brief overview</small>
+			</h1>
+			<ol class="breadcrumb">
+				<li><a href="">Home/Link</a></li>
+				<li class="active">All Links</li>
+			</ol>
 		</div>
-	
-	</li>
-	
-	<li class="animate-repeat">
-		 {{groups1}}
-	</li> 
-	
-	<!-- <li class="animate-repeat" ng-if="linksfromxml.length != 0">
-		 {{linksfromxml}}
-	</li> -->
-  </ul>
+	</div>
+	<!-- /.row -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>All Links</h3>
+		</div>
+
+	</div>
+	<!-- /.row -->
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12">
+
+			Following {{friends.length}} links are registered. They are: <input
+				type="search" ng-model="q" placeholder="filter links..."
+				aria-label="filter friends" />
+			<ul class="example-animate-container">
+
+
+				<li class="animate-repeat" ng-repeat="lg in groups1">
+					<div class="row">
+						<div class="col-md-12 link-block">[{{$index + 1}}] {{lg}}</div>
+					</div>
+
+				</li>
+
+				<li class="animate-repeat">{{groups1}}</li>
+
+			</ul>
+		</div>
+	</div>
 </div>
