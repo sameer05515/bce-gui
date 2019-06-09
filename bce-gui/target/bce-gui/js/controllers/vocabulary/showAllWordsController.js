@@ -6,6 +6,24 @@ app.controller('showAllWordsController', function($scope,$http, $log,$location,t
 			"example":["example 1"]};
 	
 	$scope.wordList=[];
+	$scope.showList = true;
+	$scope.filteredItems = [];
+	
+	$scope.showTopicsList = function() {
+		$scope.showList = !$scope.showList;
+		$log.log("$scope.showList : "+$scope.showList);
+		if ($scope.showList) {
+			document.getElementById("topicDetailsDiv").classList
+			.add("col-lg-8");
+			document.getElementById("topicDetailsDiv").classList
+			.remove("col-lg-12");
+		} else {
+			document.getElementById("topicDetailsDiv").classList
+			.add("col-lg-12");
+			document.getElementById("topicDetailsDiv").classList
+			.remove("col-lg-8");
+		}
+	};
 	
 	
 	$scope.fetchAllWordList=function(){

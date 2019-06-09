@@ -1,6 +1,6 @@
 //addWordController
 
-app.controller('addWordController', function($scope,$http,$location,topicMgmtAppConfig) {
+app.controller('addWordController', function($scope,$http,$location,topicMgmtAppConfig,WordMeaningServices) {
 	$scope.wordObj={"title":"my word","type":"Verb",
 			"meaning":[{"value":"meaning1"}],
 			"example":[{"value":"example1"}]};
@@ -28,6 +28,19 @@ app.controller('addWordController', function($scope,$http,$location,topicMgmtApp
 	};
 	
 	$scope.savewordObj=function(){
+		$log.log("going to save word : "
+				+ angular.toJson($scope.linkObj));
+
 		
+		
+
+		WordMeaningServices.saveWord($scope.wordObj)
+				.success(function(data) {
+
+					$location.path('/vocabulary');
+				}).error(function(data, status) {
+					$log.log("Error"+data);
+
+				});
 	};
 });
