@@ -1,6 +1,6 @@
 //addWordController
 
-app.controller('importWordController', function($scope,$http,$location,topicMgmtAppConfig,WordMeaningServices) {
+app.controller('importWordController', function($scope,$http,$log,$location,topicMgmtAppConfig,WordMeaningServices) {
 	$scope.wordObj={"title":"my word",
 			"meaning":[{"value":"meaning1"}],
 			"example":[{"value":"example1"}]};
