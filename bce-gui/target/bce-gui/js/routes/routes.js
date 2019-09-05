@@ -153,6 +153,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when("/tasks/:id", {templateUrl: "partials/task-mgmt/tasks/updateTask.html" , controller: "updateTaskController" })
 	.when("/tasks-list", {templateUrl: "partials/task-mgmt/tasks/showAllTasks-list.html" , controller: "showAllTasksController-list" })
 	.when("/tasks-list/:id", {templateUrl: "partials/task-mgmt/tasks/showTask.html", controller: "showTaskController"})
+	.when("/task/configuration", {templateUrl: "partials/task-mgmt/tasks/taskConfiguration.html", controller: "taskConfigurationController"})
+	
 
 	/**
 	 *    TASK MANAGEMENT ROUTES END

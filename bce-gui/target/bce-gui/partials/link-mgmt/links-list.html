@@ -17,6 +17,13 @@
 
 	<div class="row">
 		<div class="col-lg-12">
+			<a class="btn btn-xs btn-primary" href="#/links/link">Create Link
+			</a>
+			
+			<a class="btn btn-xs btn-primary" href="#/links/group">Create Group
+			</a>
+		</div>
+		<div class="col-lg-12">
 			<h3>All Links</h3>
 		</div>
 
@@ -36,7 +43,8 @@
 					<div class="row">
 						<div class="col-md-12 link-block">
 							<span>[{{$index + 1}}] : <a href="{{lg.url}}">{{lg.url}}</a><br />
-							</span> <span class="col-md-12" ng-bind-html="lg.linkDescription"> </span><br />
+							</span> <span class="col-md-12" ng-bind-html="lg.linkDescription">
+							</span><br />
 							<p>
 								<i class="fa fa-clock-o"></i> Last Modified on <b><span
 									ng-bind="lg.lastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>

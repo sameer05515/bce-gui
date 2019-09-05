@@ -27,10 +27,12 @@
 
 			<a class="btn btn-xs btn-primary" href="#/tasks/new">Create New
 				Task<i class="fa fa-angle-right"></i>
+			</a> <a class="btn btn-xs btn-primary">Export Task<i
+				class="fa fa-angle-right"></i>
 			</a>
-			
-			<a class="btn btn-xs btn-primary">Export
-				Task<i class="fa fa-angle-right"></i>
+			<!-- configuration -->
+			<a class="btn btn-xs btn-primary" href="#/task/configuration">Task
+				Configuration<i class="fa fa-angle-right"></i>
 			</a>
 		</div>
 		<!-- /well -->
@@ -97,13 +99,14 @@
 								</p>
 
 								<p>
-									<b>Task Description (Why and what to achieve) :</b> <span ng-bind-html="topic.taskDescription"></span>
+									<b>Task Description (Why and what to achieve) :</b> <span
+										ng-bind-html="topic.taskDescription"></span>
 								</p>
 
 								<p>
 									<b>Activity Type :</b> {{topic.activityType}}
 								</p>
-								
+
 								<p>
 									<b>Box :</b> {{topic.box}}
 								</p>
