@@ -24,8 +24,12 @@
 			You are typing "{{searchText}}" <br /> Number of filtered items:
 			{{filteredItems.length}} <br />
 			<p ng-hide="filteredItems.length">There is no result</p>
-
-			<a class="btn btn-xs btn-primary" ng-click="showCreateSection()"
+			<br /> 
+			
+			
+			
+			
+			 <a class="btn btn-xs btn-primary" ng-click="showCreateSection()"
 				ng-if="!showCreateNewCategorySection">Create New Category<i
 				class="fa fa-angle-right"></i>
 			</a>
@@ -160,29 +164,27 @@
 
 									<div class="col-md-12 questionsDisplay"
 										data-ng-repeat="ques in topic.questions">
-										
+
 										{{ques}}
-										
+
 										<h3>
 											Question :[{{$index + 1}}] <span star-rating
 												rating-value="ques.rating" edit-star-rating="false"
 												max="maxRatingValue"></span> <i class="fa fa-clock-o"></i>
 											Last Modified on <b><span
 												ng-bind="ques.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
-												
-												<i class="fa fa-clock-o"></i>
-											Last Read on <b><span
+
+											<i class="fa fa-clock-o"></i> Last Read on <b><span
 												ng-bind="ques.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
-												Total Reads <b><span>{{ques.totalRead}}</span></b>
-											<font color="red"><span ng-bind-html="ques.question"></span></font>
+											Total Reads <b><span>{{ques.totalRead}}</span></b> <font
+												color="red"><span ng-bind-html="ques.question"></span></font>
 										</h3>
 
 										<a class="btn btn-xs btn-primary"
 											href="#/categories/{{ques.linkedCatID}}/questions/{{ques.questionID}}"
-											ng-if="true">Show Details</a>
-										<a class="btn btn-xs btn-primary"
-											ng-click="alert('not implemented yet')"
-											ng-if="true">Read</a>
+											ng-if="true">Show Details</a> <a
+											class="btn btn-xs btn-primary"
+											ng-click="alert('not implemented yet')" ng-if="true">Read</a>
 										<!-- <a class="btn btn-xs btn-primary"
 											ng-click="alert('not implemented yet')"
 											ng-if="true">Edit</a>

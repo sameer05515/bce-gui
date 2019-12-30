@@ -11,7 +11,7 @@ angular
                 $scope.errorMessage = "";
                 $scope.searchFolder = "";
 
-                $scope.mytestuurl = "http://127.0.0.1:8888/sharedServicesProvider/pdfContentViewer.jsp?fileName=D:/ebooks/GAUNTLT/curl-7.43.0/curl-7.43.0/docs/libcurl/opts/CURLOPT_DNS_USE_GLOBAL_CACHE.pdf";
+                $scope.mytestuurl = "http://127.0.0.1:8080/sharedServicesProvider/pdfContentViewer.jsp?fileName=D:/ebooks/GAUNTLT/curl-7.43.0/curl-7.43.0/docs/libcurl/opts/CURLOPT_DNS_USE_GLOBAL_CACHE.pdf";
 
                 var searchFolderStr = $scope.searchFolder;
                 $scope.filteredItems = [];

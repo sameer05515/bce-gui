@@ -34,7 +34,7 @@
 							$scope.loadResult =function() {
 								
 								$scope.errorMessage = "Loading data...";
-								var urrrlll="http://127.0.0.1:8888/FileService/fileService.jsp?fileName="+$scope.foldername+"";
+								var urrrlll="http://127.0.0.1:8080/FileService/fileService.jsp?fileName="+$scope.foldername+"";
 								$http(
 										{
 											method : 'POST',
@@ -134,7 +134,7 @@ angular
                 var urrrlll = "http://127.0.0.1:9999/FileService/fileService.jsp";
                 $http({
                         method: "POST",
-                        /* url : 'http://127.0.0.1:8888/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
+                        /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
                         url: urrrlll,
 
                         params: {

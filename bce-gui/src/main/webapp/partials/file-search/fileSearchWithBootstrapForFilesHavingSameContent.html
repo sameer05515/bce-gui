@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <title>File Introspector</title>
 
-    <script src="http://127.0.0.1:8888/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="http://127.0.0.1:8080/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
 
-    <script src="http://127.0.0.1:8888/angular-1.5.5/angular.min.js"></script>
+    <script src="http://127.0.0.1:8080/angular-1.5.5/angular.min.js"></script>
     <link rel="stylesheet" href="../css/style-for-multiple-search.css">
-    <link rel="stylesheet" href="http://127.0.0.1:8888/bootstrap-3.3.6-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://127.0.0.1:8888/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8080/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8080/font-awesome-4.6.3/css/font-awesome.min.css">
     <script src="../controller/fileSearchWithBootstrapForFilesHavingSameContent.js"></script>
 
 
-    <script src="http://127.0.0.1:8888/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="http://127.0.0.1:8888/jquery-ui-1.11.4.custom/jquery-ui.css">
+    <script src="http://127.0.0.1:8080/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://127.0.0.1:8080/jquery-ui-1.11.4.custom/jquery-ui.css">
 
-    <script src="http://127.0.0.1:8888/axis-master/dist/axis.min.js"></script>
-    <script src="http://127.0.0.1:8888/angular-filter-0.5.14/angular-filter.js"></script>
+    <script src="http://127.0.0.1:8080/axis-master/dist/axis.min.js"></script>
+    <script src="http://127.0.0.1:8080/angular-filter-0.5.14/angular-filter.js"></script>
 
 </head>
 
@@ -162,7 +162,7 @@
 						 <ul>
 						 
 						 <li data-ng-repeat="filejjj in filess.similarFileList">
-											<a data-ng-model="testAnchor[this]" data-ng-click="ppp('http://127.0.0.1:8888/FileService/my.jsp?documentId='+filejjj.filePath,filejjj.filePath,$index,filejjj)">
+											<a data-ng-model="testAnchor[this]" data-ng-click="ppp('http://127.0.0.1:8080/FileService/my.jsp?documentId='+filejjj.filePath,filejjj.filePath,$index,filejjj)">
 												[{{$index + 1}}]
 
 												<!-- <span class="loadMessage">
@@ -205,7 +205,7 @@
                                     <!-- <a href="{{file.filePath}}">
 											{{file.name}}
 										</a> -->
-                                    <a data-ng-model="testAnchor[this]" data-ng-click="ppp('http://127.0.0.1:8888/FileService/my.jsp?documentId='+file.filePath,file.filePath,$index,file)">
+                                    <a data-ng-model="testAnchor[this]" data-ng-click="ppp('http://127.0.0.1:8080/FileService/my.jsp?documentId='+file.filePath,file.filePath,$index,file)">
                                         [{{$index + 1}}]
 
                                         <!-- <span class="loadMessage">

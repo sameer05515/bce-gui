@@ -16,6 +16,32 @@ app
 			$scope.filteredItems = [];
 			$scope.showList = true;
 			$scope.counterrr = 0;
+			
+			$scope.categoryList=[];
+			
+			///////////
+			$scope.fetchCategoryList = function(){
+				InterviewManagementServices.fetchCategoriesList()
+				.success(function(data) {
+					
+					angular.forEach(data,function(categoryyy,key){
+						categoryyy.showEditCategorySection=false;
+						categoryyy.showAddQuestionSection=false;
+						this.push(categoryyy);
+					},$scope.categoryList)
+					
+					$log
+					.log("Successfully fetched category list - questionsSingleViewController "
+							+ " : "
+							+ angular
+									.toJson($scope.categoryList));
+
+					//$scope.next();
+				}).error(function(data) {
+					$log.log("Error : " + data);
+				});
+			};
+			//////////
 
 			$scope.showTopicsList = function() {
 				$scope.showList = !$scope.showList;
@@ -196,6 +222,7 @@ app
 			$scope.init = function() {
 				$scope.fetchTopicList();
 				$scope.showTopicsList();
+				$scope.fetchCategoryList();
 			};
 
 			$scope.init();
