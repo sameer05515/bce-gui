@@ -36,6 +36,26 @@
 			You are typing "{{searchText}}" <br /> Number of filtered items:
 			{{filteredItems.length}} <br />
 			<p ng-hide="filteredItems.length">There is no result</p>
+			
+			<!-- <select ng-model="selectedCategorySelect" ng-options="x.catgoryName for x in categoryList">
+				<option value="">select</option>
+			</select> -->
+			
+			<!-- <label for="repeatSelect"> Select Category: </label>
+			<select name="repeatSelect" id="repeatSelect" ng-model="selectedCategorySelect">
+		      <option ng-repeat="option in categoryList" value="{{option.catId}}">{{option.catgoryName}}</option>
+		    </select>
+		    
+		    <span ng-bind-html="selectedCategorySelect.catgoryName"></span> -->
+		    
+		    
+			
+			<!-- <select ng-model="selectedCategorySelect">
+			<option ng-repeat="x for x in topicsList" value="{{x.questionName}}">{{x.questionName | limitTo: 10}}</option>
+			</select>-->
+			
+			<!-- {{categoryList|json}} --> 
+			
 			<!-- ############################## -->
 
 			<!-- <strong>KEY DOWN RESULT:</strong> {{onKeyDownResult}}<br /> <strong>KEY
