@@ -155,6 +155,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 	.when("/tasks-list/:id", {templateUrl: "partials/task-mgmt/tasks/showTask.html", controller: "showTaskController"})
 	.when("/task/configuration", {templateUrl: "partials/task-mgmt/tasks/taskConfiguration.html", controller: "taskConfigurationController"})
 	
+	
+	// Words
+	.when("/word-mgmt", {templateUrl: "partials/word-mgmt/word-mgmt-dashboard.html", controller: "word-mgmt-dashboardController"})
 
 	/**
 	 *    TASK MANAGEMENT ROUTES END
