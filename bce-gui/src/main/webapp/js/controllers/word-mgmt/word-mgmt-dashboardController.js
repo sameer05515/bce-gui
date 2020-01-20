@@ -23,6 +23,62 @@ app
 						} ]
 					};
 					$scope.types = [ "noun", "pronoun", "adjective", "verb" ];
+					
+					/**METADATA Start */
+					$scope.settings={
+							"showAddNewWordSection":true
+					};
+					
+					$scope.showSection= function(sectionName){
+						if(!sectionName){
+							if(sectionName=='AddNewWord'){
+								$scope.settings.showAddNewWordSection=true;
+							}
+						}
+					};
+					
+					$scope.pageFormData={
+							searchText:"",
+							searchedItems:[]
+					};
+					
+					$scope.search= function(searchTxt){
+						
+						$scope.pageFormData.searchedItems=[];
+						
+						$http({
+                            method: "GET",
+                            url: topicMgmtAppConfig.wordMeaningDbBackupService+'words',
+                            params: {
+                            	name: searchTxt
+                            }
+                        })
+                        .success(function (data) {
+                            /* $scope.fileNames = data;
+												$scope.errorMessage = ""; */
+                            if (data.status == "200") {
+//                                alert(
+//                                    "sucessfully moved file" +
+//                                    fileKaPath +
+//                                    " with name "+nayaMovingFileName+
+//                                    " data.status : " +
+//                                    data.status
+//                                );
+                            	
+                            	$scope.pageFormData.searchedItems=data.data;
+                            } else if (data.status == "fail") {
+                                alert(
+                                    "Error : Message " +
+                                    data.message +
+                                    " data.status : " +
+                                    data.status
+                                );
+                            }
+                        })
+                        .error(function (data) {
+                            alert("Error : " + data);
+                        });
+					};
 
 					/*$scope.addNewMeaning = function() {
 						var newItemNo = $scope.wordObj.meaning.length + 1;

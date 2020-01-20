@@ -12,5 +12,29 @@
 		</div>
 	</div>
 	
+	<div class="row">
+		<div class="well col-lg-12">
+			<h4>Word Search:</h4>
+			
+			<div class="input-group">
+				<input type="text" data-ng-model="pageFormData.searchText" class="form-control"/>
+				
+				<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
+				ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
+			</a>
+			</div>
+			<!-- /input-group -->
+			You are typing "{{searchText}}" <br /> Number of filtered items:
+			{{pageFormData.searchedItems.length}} <br />
+			<p ng-hide="pageFormData.searchedItems.length">There is no result</p>
+			<br />
+			
+			<a class="btn btn-xs btn-primary" ng-click="showSection('AddNewWord')"
+				ng-if="settings.showAddNewWordSection">Add New Word<i
+				class="fa fa-angle-right"></i>
+			</a>
+			
+		</div>
+	</div>
 
 </div>

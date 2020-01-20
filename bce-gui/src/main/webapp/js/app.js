@@ -9,7 +9,8 @@ app.constant("topicMgmtAppConfig", {
 	"maxLinkMgmtRatingValue":"10",
 	"taskMgmtService":"http://127.0.0.1:8080/task-mgmt-service/",
 	"wordMeaningService":"http://127.0.0.1:8080/word-meaning-mongodb-services/",
-	"linkMgmtService":"http://127.0.0.1:8080/link-mgmt-mongodb-services/"
+	"linkMgmtService":"http://127.0.0.1:8080/link-mgmt-mongodb-services/",
+	"wordMeaningDbBackupService":"http://127.0.0.1:8080/word-meaning-db-backup-service/"
 });
 
 app.directive('checkList', function() {
