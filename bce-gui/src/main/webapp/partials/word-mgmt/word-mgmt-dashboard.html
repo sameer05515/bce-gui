@@ -24,7 +24,7 @@
 			</a>
 			</div>
 			<!-- /input-group -->
-			You are typing "{{searchText}}" <br /> Number of filtered items:
+			You are typing "{{pageFormData.lastSearchedWord}}" <br /> Number of filtered items:
 			{{pageFormData.searchedItems.length}} <br />
 			<p ng-hide="pageFormData.searchedItems.length">There is no result</p>
 			<br />
@@ -46,6 +46,17 @@
 			               
             </div>
 		
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="well col-lg-12">
+			<!-- ng-repeat="templateWordData in pageFormData.searchedItems" -->
+			<div ng-style="stylesData.templateParentDescriptionStyle" 			 
+			ng-show="{{settings.showAddNewWordSection}}" 
+			ng-include="'templates/word-mgmt/addWordData_item_renderer.html'">
+			               
+            </div>
 		</div>
 	</div>
 

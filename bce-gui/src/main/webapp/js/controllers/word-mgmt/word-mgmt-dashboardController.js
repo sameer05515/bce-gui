@@ -63,6 +63,11 @@ app
 					
 					$scope.pageFormData={
 							searchText:"",
+							lastSearchedWord:"",
+							templateAddWordData:{
+								"word" : "zephyr",
+								"type" : "noun"
+							},
 							searchedItems:[]
 					};
 					
@@ -90,6 +95,7 @@ app
 //                                );
                             	
                             	$scope.pageFormData.searchedItems=data.data;
+                            	scope.pageFormData.lastSearchedWord=searchTxt;
                             	$scope.showSection($scope.settings.sectionNames.SearchedWordItemData);
                             } else if (data.status == "fail") {
                                 alert(
@@ -105,42 +111,5 @@ app
                         });
 					};
 
-					/*$scope.addNewMeaning = function() {
-						var newItemNo = $scope.wordObj.meaning.length + 1;
-						$scope.wordObj.meaning.push({
-							"value" : ""
-						});
-					};*/
-
-					/*$scope.removeMeaning = function() {
-						var lastItem = $scope.wordObj.meaning.length - 1;
-						$scope.wordObj.meaning.splice(lastItem);
-					};*/
-
-					// removeExample()
-					/*$scope.addNewExample = function() {
-						var newItemNo = $scope.wordObj.example.length + 1;
-						$scope.wordObj.example.push({
-							"value" : ""
-						});
-					};*/
-
-					/*$scope.removeExample = function() {
-						var lastItem = $scope.wordObj.example.length - 1;
-						$scope.wordObj.example.splice(lastItem);
-					};*/
-
-					/*$scope.savewordObj = function() {
-						$log.log("going to save word : "
-								+ angular.toJson($scope.linkObj));
-
-						WordMeaningServices.saveWord($scope.wordObj).success(
-								function(data) {
-
-									$location.path('/vocabulary');
-								}).error(function(data, status) {
-							$log.log("Error" + data);
-
-						});
-					};*/
+					
 				});
