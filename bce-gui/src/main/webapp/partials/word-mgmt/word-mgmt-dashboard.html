@@ -29,11 +29,23 @@
 			<p ng-hide="pageFormData.searchedItems.length">There is no result</p>
 			<br />
 			
-			<a class="btn btn-xs btn-primary" ng-click="showSection('AddNewWord')"
+			<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)"
 				ng-if="settings.showAddNewWordSection">Add New Word<i
 				class="fa fa-angle-right"></i>
 			</a>
 			
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="well col-lg-12">
+			<div ng-style="stylesData.templateParentDescriptionStyle" 
+			ng-repeat="templateWordData in pageFormData.searchedItems" 
+			ng-show="{{settings.showSearchedItemsData}}" 
+			ng-include="'templates/word-mgmt/wordData_item_renderer.html'">
+			               
+            </div>
+		
 		</div>
 	</div>
 

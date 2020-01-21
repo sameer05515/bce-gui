@@ -26,13 +26,37 @@ app
 					
 					/**METADATA Start */
 					$scope.settings={
-							"showAddNewWordSection":true
+							"showAddNewWordSection":true,
+							"showSearchedItemsData":true,
+							"sectionNames":{
+								"AddNewWord":"AddNewWord",
+								"SearchedWordItemData":"SearchedWordItemData"
+							}
+					};
+					
+					
+					$scope.stylesData={
+							"templateParentDescriptionStyle": {
+								
+								"padding": "5px"
+								
+						   },
+						   "templateSearchedWordDataDescriptionStyle": {
+								"color": "green",
+								"font-size": "15px",
+								"padding": "5px",
+								"border-style": "solid",
+								"border-color": "green"
+						   }
 					};
 					
 					$scope.showSection= function(sectionName){
 						if(!sectionName){
-							if(sectionName=='AddNewWord'){
+							if(sectionName==$scope.settings.sectionNames.AddNewWord){
 								$scope.settings.showAddNewWordSection=true;
+							}else if(sectionName==$scope.settings.sectionNames.SearchedWordItemData){
+								$scope.settings.showAddNewWordSection=false;
+								$scope.settings.showSearchedItemsData=true;
 							}
 						}
 					};
@@ -66,6 +90,7 @@ app
 //                                );
                             	
                             	$scope.pageFormData.searchedItems=data.data;
+                            	$scope.showSection($scope.settings.sectionNames.SearchedWordItemData);
                             } else if (data.status == "fail") {
                                 alert(
                                     "Error : Message " +
