@@ -26,7 +26,7 @@ app
 					
 					/**METADATA Start */
 					$scope.settings={
-							"showAddNewWordSection":true,
+							"showAddNewWordSection":false,
 							"showSearchedItemsData":true,
 							"sectionNames":{
 								"AddNewWord":"AddNewWord",
@@ -51,13 +51,18 @@ app
 					};
 					
 					$scope.showSection= function(sectionName){
-						if(!sectionName){
+						alert('showSection called'+' sectionName : '+sectionName);
+						if(sectionName){
 							if(sectionName==$scope.settings.sectionNames.AddNewWord){
 								$scope.settings.showAddNewWordSection=true;
 							}else if(sectionName==$scope.settings.sectionNames.SearchedWordItemData){
 								$scope.settings.showAddNewWordSection=false;
 								$scope.settings.showSearchedItemsData=true;
+							}else{
+								$log.log("invalid section name provided "+sectionName);
 							}
+						}else{
+							$log.log("Empty or null section name provided "+sectionName);
 						}
 					};
 					
@@ -95,7 +100,7 @@ app
 //                                );
                             	
                             	$scope.pageFormData.searchedItems=data.data;
-                            	scope.pageFormData.lastSearchedWord=searchTxt;
+                            	$scope.pageFormData.lastSearchedWord=searchTxt;
                             	$scope.showSection($scope.settings.sectionNames.SearchedWordItemData);
                             } else if (data.status == "fail") {
                                 alert(

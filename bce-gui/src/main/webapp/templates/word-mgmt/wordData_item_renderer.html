@@ -1,9 +1,15 @@
-<div ng-style="stylesData.templateSearchedWordDataDescriptionStyle">
-Word Name:  <span ng-bind-html="templateWordData.word" />
+<div class="row" ng-style="stylesData.templateSearchedWordDataDescriptionStyle">
 
-{{templateWordData|json}}
+<b>Word:</b>  <span ng-bind-html="templateWordData.word" />
+<b>Type:</b>  <span ng-bind-html="templateWordData.type" />
+<b>Unique Name:</b>  <span ng-bind-html="templateWordData.unique_name" />
+<b>Details:</b>  <span ng-bind-html="templateWordData.details" />
+<b>Created On:</b>  <span ng-bind-html="templateWordData.created_on" />
+<b>Updated On:</b>  <span ng-bind-html="templateWordData.updated_on" />
+<b>Last Read:</b>  <span ng-bind-html="templateWordData.last_read" />
 
-<!-- <div ng-repeat="templateQuestionData in templateCategoryData.questions" ng-show="{{settings.showDbBakupLinkData}}" ng-include="'template/questionData_item_renderer.html'">               
-            </div> -->
+<!-- {{templateWordData|json}} -->
+
+
 
 </div> 
