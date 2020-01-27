@@ -23,98 +23,119 @@ app
 						} ]
 					};
 					$scope.types = [ "noun", "pronoun", "adjective", "verb" ];
-					
-					/**METADATA Start */
-					$scope.settings={
-							"showAddNewWordSection":false,
-							"showSearchedItemsData":true,
-							"sectionNames":{
-								"AddNewWord":"AddNewWord",
-								"SearchedWordItemData":"SearchedWordItemData"
-							}
+
+					/** METADATA Start */
+					$scope.settings = {
+						"showAddNewWordSection" : false,
+						"showSearchedItemsData" : true,
+						"sectionNames" : {
+							"AddNewWord" : "AddNewWord",
+							"SearchedWordItemData" : "SearchedWordItemData"
+						},
+						"wordTypes":["noun","pronoun","adjective","verb","adverb","preposition","composition","interrogation"]
 					};
-					
-					
-					$scope.stylesData={
-							"templateParentDescriptionStyle": {
-								
-								"padding": "5px"
-								
-						   },
-						   "templateSearchedWordDataDescriptionStyle": {
-								"color": "green",
-								"font-size": "15px",
-								"padding": "5px",
-								"border-style": "solid",
-								"border-color": "green"
-						   }
-					};
-					
-					$scope.showSection= function(sectionName){
-						alert('showSection called'+' sectionName : '+sectionName);
-						if(sectionName){
-							if(sectionName==$scope.settings.sectionNames.AddNewWord){
-								$scope.settings.showAddNewWordSection=true;
-							}else if(sectionName==$scope.settings.sectionNames.SearchedWordItemData){
-								$scope.settings.showAddNewWordSection=false;
-								$scope.settings.showSearchedItemsData=true;
-							}else{
-								$log.log("invalid section name provided "+sectionName);
-							}
-						}else{
-							$log.log("Empty or null section name provided "+sectionName);
+
+					$scope.stylesData = {
+						"templateParentDescriptionStyle" : {
+
+							"padding" : "5px"
+
+						},
+						"templateSearchedWordDataDescriptionStyle" : {
+							"color" : "green",
+							"font-size" : "15px",
+							"padding" : "5px",
+							"border-style" : "solid",
+							"border-color" : "green"
 						}
 					};
 					
-					$scope.pageFormData={
-							searchText:"",
-							lastSearchedWord:"",
-							templateAddWordData:{
-								"word" : "zephyr",
-								"type" : "noun"
+					$scope.pageFormData = {
+							searchText : "",
+							lastSearchedWord : "",
+							templateAddWordData : {
+								 "id": 431,
+								 "word" : "zephyr",
+								"unique_name": "zephyr",
+								"type" : "noun",
+								"details":"&#x3C;div class=&#x22;lW8rQd&#x22;&#x3E;&#x3C;div class=&#x22;vpx4Fd&#x22;&#x3E;&#x3C;div class=&#x22;pgRvse vdBwhd&#x22;&#x3E;&#x3C;em&#x3E;noun&#x3C;/em&#x3E;&#x3C;/div&#x3E;&#x3C;div class=&#x22;xpdxpnd vk_gy&#x22; data-mh=&#x22;-1&#x22; aria-hidden=&#x22;true&#x22;&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;ol class=&#x22;eQJLDd&#x22;&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;1.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;LITERARY&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a soft gentle breeze.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;2.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;HISTORICAL&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a fine cotton gingham.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;/ol&#x3E;",
+								"created_on": "2019-01-08T18:24:15.000+0000",
+								"updated_on": "2019-01-08T18:24:15.000+0000",
+								"last_read": "2019-01-08T18:24:15.000+0000"
 							},
-							searchedItems:[]
-					};
-					
-					$scope.search= function(searchTxt){
-						
-						$scope.pageFormData.searchedItems=[];
-						
-						$http({
-                            method: "GET",
-                            url: topicMgmtAppConfig.wordMeaningDbBackupService+'words',
-                            params: {
-                            	name: searchTxt
-                            }
-                        })
-                        .success(function (data) {
-                            /* $scope.fileNames = data;
-												$scope.errorMessage = ""; */
-                            if (data.status == "200") {
-//                                alert(
-//                                    "sucessfully moved file" +
-//                                    fileKaPath +
-//                                    " with name "+nayaMovingFileName+
-//                                    " data.status : " +
-//                                    data.status
-//                                );
-                            	
-                            	$scope.pageFormData.searchedItems=data.data;
-                            	$scope.pageFormData.lastSearchedWord=searchTxt;
-                            	$scope.showSection($scope.settings.sectionNames.SearchedWordItemData);
-                            } else if (data.status == "fail") {
-                                alert(
-                                    "Error : Message " +
-                                    data.message +
-                                    " data.status : " +
-                                    data.status
-                                );
-                            }
-                        })
-                        .error(function (data) {
-                            alert("Error : " + data);
-                        });
+							searchedItems : []
+						};
+
+					$scope.showSection = function(sectionName,selection=true) {
+						// alert('settings.showAddNewWordSection'+$scope.settings.showAddNewWordSection);
+
+						$log.log("Going to show section : " + sectionName);
+						if (sectionName != null) {
+							if (sectionName === $scope.settings.sectionNames.AddNewWord) {
+								if(selection){
+									$scope.settings.showAddNewWordSection = true;
+									$scope.settings.showSearchedItemsData = false;
+								}else{
+									
+								}
+								
+							} else if (sectionName === $scope.settings.sectionNames.SearchedWordItemData) {
+								$scope.settings.showAddNewWordSection = false;
+								$scope.settings.showSearchedItemsData = true;
+							} else {
+								$log.log("invalid section name provided "
+										+ sectionName);
+							}
+						} else {
+							$log.log("Empty or null section name provided "
+									+ sectionName);
+						}
 					};
 
 					
+
+					$scope.search = function(searchTxt) {
+
+						$scope.pageFormData.searchedItems = [];
+
+						$http(
+								{
+									method : "GET",
+									url : topicMgmtAppConfig.wordMeaningDbBackupService
+											+ 'words',
+									params : {
+										name : searchTxt
+									}
+								})
+								.success(
+										function(data) {
+											/*
+											 * $scope.fileNames = data;
+											 * $scope.errorMessage = "";
+											 */
+											if (data.status == "200") {
+												// alert(
+												// "sucessfully moved file" +
+												// fileKaPath +
+												// " with name
+												// "+nayaMovingFileName+
+												// " data.status : " +
+												// data.status
+												// );
+
+												$scope.pageFormData.searchedItems = data.data;
+												$scope.pageFormData.lastSearchedWord = searchTxt;
+												$scope
+														.showSection($scope.settings.sectionNames.SearchedWordItemData);
+											} else if (data.status == "fail") {
+												alert("Error : Message "
+														+ data.message
+														+ " data.status : "
+														+ data.status);
+											}
+										}).error(function(data) {
+									alert("Error : " + data);
+								});
+					};
+
 				});

@@ -40,7 +40,7 @@
 		<div class="well col-lg-12">
 			<div class="row" ng-style="stylesData.templateParentDescriptionStyle" 
 			ng-repeat="templateWordData in pageFormData.searchedItems" 
-			ng-show="{{settings.showSearchedItemsData}}" 
+			ng-show="settings.showSearchedItemsData" 
 			ng-include="'templates/word-mgmt/wordData_item_renderer.html'">
 			               
             </div>
@@ -50,13 +50,15 @@
 	
 	<div class="row">
 		<div class="well col-lg-12">
-			<!-- ng-repeat="templateWordData in pageFormData.searchedItems" -->
-			<div ng-style="stylesData.templateParentDescriptionStyle" 			 
-			ng-show="{{settings.showAddNewWordSection}}" 
-			ng-include="'templates/word-mgmt/addWordData_item_renderer.html'">
-			               
+			
+			<div ng-style="stylesData.templateParentDescriptionStyle" 
+			ng-include="'templates/word-mgmt/addWordData_item_renderer.html'"			 
+			ng-show="settings.showAddNewWordSection">			               
             </div>
 		</div>
+		
+		{{pageFormData.templateAddWordData|json}}<br/><br/>
+		{{pageFormData.searchedItems|json}}
 	</div>
 
 </div>

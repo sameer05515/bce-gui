@@ -1,9 +1,30 @@
+<!-- <form class="form-horizontal" ng-submit="submitStudnetForm()">
+	<div class="form-group">
+		<label for="firstName" class="col-sm-3 control-label">First Name</label>
+		<div class="col-sm-6">
+            <input type="text" id="word" class="form-control" ng-model="pageFormData.templateAddWordData.word" />
+        </div>
+	</div>
+</form> -->		
 		
-		
+			
+			
+			
+			<div>
+				<b>Unique Name :</b> 
+			</div>
+			
+			
+			<div >
+				<input type="text" ng-model="pageFormData.templateAddWordData.unique_name"/>
+			</div>
+			
+			
+			
 			<div>
 				<b>Word :</b> 
 			</div>
-			<!-- /.col-lg-12 -->
+			
 			
 			<div >
 				<input type="text" ng-model="pageFormData.templateAddWordData.word"/>
@@ -14,10 +35,22 @@
 			<div >
 				<b>Type :</b> 
 			</div>
-			<!-- /.col-lg-12 -->
+			
 			
 			<div >
-				<input type="text" ng-model="pageFormData.templateAddWordData.type"/>
-			</div>		
+				<!-- <input type="text" ng-model="pageFormData.templateAddWordData.type"/> -->
+				<select ng-model="pageFormData.templateAddWordData.type">
+			        <option value="">--Select --</option>
+			        <option ng-repeat="sel in settings.wordTypes" ng-selected="pageFormData.templateAddWordData.type == sel" value="{{sel}}">{{sel}}</option>
+			    </select>
+			</div>	
+			
+			<div>
+				<b>Description :</b>
+			</div>	
+			
+			<div >
+				<trix-editor angular-trix ng-model="pageFormData.templateAddWordData.details"></trix-editor> 
+			</div>
 		
 		
