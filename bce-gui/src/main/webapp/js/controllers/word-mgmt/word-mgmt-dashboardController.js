@@ -27,7 +27,7 @@ app
 					/** METADATA Start */
 					$scope.settings = {
 						"showAddNewWordSection" : false,
-						"showSearchedItemsData" : true,
+						"showSearchedItemsData" : false,
 						"sectionNames" : {
 							"AddNewWord" : "AddNewWord",
 							"SearchedWordItemData" : "SearchedWordItemData"
@@ -61,7 +61,9 @@ app
 								"details":"&#x3C;div class=&#x22;lW8rQd&#x22;&#x3E;&#x3C;div class=&#x22;vpx4Fd&#x22;&#x3E;&#x3C;div class=&#x22;pgRvse vdBwhd&#x22;&#x3E;&#x3C;em&#x3E;noun&#x3C;/em&#x3E;&#x3C;/div&#x3E;&#x3C;div class=&#x22;xpdxpnd vk_gy&#x22; data-mh=&#x22;-1&#x22; aria-hidden=&#x22;true&#x22;&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;ol class=&#x22;eQJLDd&#x22;&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;1.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;LITERARY&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a soft gentle breeze.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;2.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;HISTORICAL&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a fine cotton gingham.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;/ol&#x3E;",
 								"created_on": "2019-01-08T18:24:15.000+0000",
 								"updated_on": "2019-01-08T18:24:15.000+0000",
-								"last_read": "2019-01-08T18:24:15.000+0000"
+								"last_read": "2019-01-08T18:24:15.000+0000",
+								"meanings":[],
+								"examples":[]
 							},
 							searchedItems : []
 						};
@@ -91,6 +93,31 @@ app
 									+ sectionName);
 						}
 					};
+					
+					$scope.saveWordObj = function (wordObject){
+						
+						$log.log("$scope.groupObj : " + angular.toJson($scope.pageFormData.templateAddWordData));
+						$http(
+								{
+									method : "POST",
+									url : topicMgmtAppConfig.wordMeaningDbBackupService
+											+ 'words',
+									data : angular.toJson($scope.pageFormData.templateAddWordData)
+								})
+								.success(
+										function(data) {
+											if (data.status == "200") {
+												$scope.pageFormData.templateAddWordData = data.data;
+//												$scope.pageFormData.lastSearchedWord = searchTxt;
+//												$scope
+//														.showSection($scope.settings.sectionNames.SearchedWordItemData);
+											} else if (data.status == "fail") {
+												alert("Error : Message " + data.message + " data.status : " + data.status);
+											}
+										}).error(function(data) {
+											alert("Error : " + data.message + "status" + data.status);
+										});
+					};
 
 					
 
@@ -109,33 +136,17 @@ app
 								})
 								.success(
 										function(data) {
-											/*
-											 * $scope.fileNames = data;
-											 * $scope.errorMessage = "";
-											 */
 											if (data.status == "200") {
-												// alert(
-												// "sucessfully moved file" +
-												// fileKaPath +
-												// " with name
-												// "+nayaMovingFileName+
-												// " data.status : " +
-												// data.status
-												// );
-
 												$scope.pageFormData.searchedItems = data.data;
 												$scope.pageFormData.lastSearchedWord = searchTxt;
 												$scope
 														.showSection($scope.settings.sectionNames.SearchedWordItemData);
 											} else if (data.status == "fail") {
-												alert("Error : Message "
-														+ data.message
-														+ " data.status : "
-														+ data.status);
+												alert("Error : Message " + data.message + " data.status : " + data.status);
 											}
 										}).error(function(data) {
-									alert("Error : " + data);
-								});
+											alert("Error : " + data);
+										});
 					};
 
 				});
