@@ -118,6 +118,12 @@ app
 											alert("Error : " + data.message + "status" + data.status);
 										});
 					};
+					
+					$scope.updateWord =function (wordObject){
+						
+						$log.log("Will open a modal popup to edit word : " + angular.toJson(wordObject));
+						
+					};
 
 					
 
