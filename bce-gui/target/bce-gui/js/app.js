@@ -1,5 +1,5 @@
 var app = angular.module('topicMgmtApp', [ 'ngRoute', 'ngAnimate',
-		'angularTrix', 'ngSanitize' ]);
+		'angularTrix', 'ngSanitize','ngTouch','ui.bootstrap' ]);
 
 app.constant("topicMgmtAppConfig", {
 	"restServices" : "http://127.0.0.1:8080/RestServices/rest",

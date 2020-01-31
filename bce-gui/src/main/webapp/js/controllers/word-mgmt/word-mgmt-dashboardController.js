@@ -3,7 +3,7 @@
 app
 		.controller(
 				'word-mgmt-dashboardController',
-				function($scope, $http, $log, $location, topicMgmtAppConfig) {
+				function($scope, $http, $log, $location, topicMgmtAppConfig,$uibModal) {
 					$scope.wordObj = {
 						"_id" : "5b6f9e8c89c9d3246c9dea72",
 						"word" : "zephyr",
