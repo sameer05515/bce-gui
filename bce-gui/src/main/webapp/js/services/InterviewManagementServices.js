@@ -30,6 +30,24 @@ app.factory('InterviewManagementServices', [
 						"/questions");
 			};
 			
+			InterviewManagementServices.markRead = function(linkedCategoryID,linkedQuestionID) {
+
+				return $http.put(topicMgmtAppConfig.interviewMgmtServices + "/categories/" +
+						linkedCategoryID +
+						"/questions/" +
+						linkedQuestionID +
+						"/markread");
+			};
+			
+			InterviewManagementServices.markPrivate = function(linkedCategoryID,linkedQuestionID) {
+
+				return $http.put(topicMgmtAppConfig.interviewMgmtServices + "/categories/" +
+						linkedCategoryID +
+						"/questions/" +
+						linkedQuestionID +
+						"/markprivate");
+			};
+			
 			InterviewManagementServices.fetchAnswersList = function(linkedCategoryID,linkedQuestionID) {
 
 				return $http.get(topicMgmtAppConfig.interviewMgmtServices + "/categories/" +

@@ -37,6 +37,9 @@
 			{{filteredItems.length}} <br />
 			<p ng-hide="filteredItems.length">There is no result</p>
 			
+			<input type="checkbox" ng-model="showPersonalQuestions" />Show
+							Private Topics</b></th>
+			
 			<!-- <select ng-model="selectedCategorySelect" ng-options="x.catgoryName for x in categoryList">
 				<option value="">select</option>
 			</select> -->
@@ -107,7 +110,7 @@
 			<!--####################-->
 
 			<div
-				data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText |orderBy:propertyName:reverse))">
+				data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText |filter:filterPrivateQuestions |orderBy:propertyName:reverse))">
 				<!-- <div class="row resultsDisplay"> -->
 				<div class="row">
 					<div class="row">
@@ -147,7 +150,11 @@
 					<i class="fa fa-angle-right"></i>
 				</a>
 				
-				<a class="btn btn-xs btn-primary" ng-click="saveTopicReads()">Mark as Read today
+				<a class="btn btn-xs btn-primary" ng-click="saveTopicReads(topic.categoryId,topic.questionId)">Mark as Read today
+					<i class="fa fa-angle-right"></i>
+				</a>
+				
+				<a class="btn btn-xs btn-primary" ng-click="makeTopicPrivate(topic.categoryId,topic.questionId)">Make Private
 					<i class="fa fa-angle-right"></i>
 				</a>
 				

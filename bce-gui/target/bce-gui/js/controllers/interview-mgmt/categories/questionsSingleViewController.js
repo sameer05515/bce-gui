@@ -19,6 +19,15 @@ app
 			
 			$scope.categoryList=[];
 			
+			$scope.showPersonalQuestions=false;
+			
+			$scope.filterPrivateQuestions=function(value){
+				
+				var showValue=$scope.showPersonalQuestions;
+				$log.log("value.personal : " + value.personal + " $scope.showPrivateTopics : "+showValue);
+				return (showValue||!value.personal);
+			};
+			
 			///////////
 			$scope.fetchCategoryList = function(){
 				InterviewManagementServices.fetchCategoriesList()
@@ -202,6 +211,49 @@ app
 			$scope.onKeyPress = function($event) {
 				$scope.onKeyPressResult = getKeyboardEventResult(
 						$event, "Key press");
+			};
+			
+			$scope.makeTopicPrivate=function(linkedCategoryID,questionIdToMakePrivate){
+				$log.log("Going to make private : id : " + questionIdToMakePrivate);
+				
+				InterviewManagementServices
+				.markPrivate(linkedCategoryID,questionIdToMakePrivate)
+				.success(
+						function(data) {
+							// alert("Success : "+data);
+//							$scope.topicsList = data;
+							// $scope.sortBy($scope.propertyName);
+
+							$log
+							.log("Successfully makeTopicPrivate read for linkedCategoryID : "+linkedCategoryID
+									+ " : questionForTopicRead : "
+									+ questionIdToMakePrivate);
+
+						}).error(function(data) {
+							$log.log("Error : " + data);
+							// alert("Error : " + data);
+						});
+			};
+			
+			$scope.saveTopicReads=function(linkedCategoryID,questionForTopicRead){
+				$log.log("Going to mark read : id : " + questionForTopicRead);
+				InterviewManagementServices
+				.markRead(linkedCategoryID,questionForTopicRead)
+				.success(
+						function(data) {
+							// alert("Success : "+data);
+//							$scope.topicsList = data;
+							// $scope.sortBy($scope.propertyName);
+
+							$log
+							.log("Successfully marked read for linkedCategoryID : "+linkedCategoryID
+									+ " : questionForTopicRead : "
+									+ questionForTopicRead);
+
+						}).error(function(data) {
+							$log.log("Error : " + data);
+							// alert("Error : " + data);
+						});
 			};
 
 			// ////////////////////////
