@@ -27,6 +27,7 @@ app
 					/** METADATA Start */
 					$scope.settings = {
 						"showAddNewWordSection" : false,
+						"showEditWordSection" : false,
 						"showSearchedItemsData" : false,
 						"sectionNames" : {
 							"AddNewWord" : "AddNewWord",
@@ -54,6 +55,18 @@ app
 							searchText : "",
 							lastSearchedWord : "",
 							templateAddWordData : {
+								 "id": 431,
+								 "word" : "zephyr",
+								"unique_name": "zephyr",
+								"type" : "noun",
+								"details":"&#x3C;div class=&#x22;lW8rQd&#x22;&#x3E;&#x3C;div class=&#x22;vpx4Fd&#x22;&#x3E;&#x3C;div class=&#x22;pgRvse vdBwhd&#x22;&#x3E;&#x3C;em&#x3E;noun&#x3C;/em&#x3E;&#x3C;/div&#x3E;&#x3C;div class=&#x22;xpdxpnd vk_gy&#x22; data-mh=&#x22;-1&#x22; aria-hidden=&#x22;true&#x22;&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;ol class=&#x22;eQJLDd&#x22;&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;1.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;LITERARY&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a soft gentle breeze.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x26;nbsp;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;li&#x3E;&#x3C;div class=&#x22;vmod&#x22;&#x3E;&#x3C;div class=&#x22;thODed Uekwlc XpoqFe&#x22;&#x3E;&#x3C;div data-topic=&#x22;&#x22;&#x3E;&#x3C;div&#x3E;2.&#x3C;/div&#x3E;&#x3C;div&#x3E;&#x3C;div class=&#x22;QIclbb XpoqFe&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;span class=&#x22;mQo3nc hsL7ld&#x22;&#x3E;HISTORICAL&#x3C;/span&#x3E;&#x3C;/div&#x3E;&#x3C;div data-dobid=&#x22;dfn&#x22;&#x3E;a fine cotton gingham.&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;&#x3C;/li&#x3E;&#x3C;/ol&#x3E;",
+								"created_on": "2019-01-08T18:24:15.000+0000",
+								"updated_on": "2019-01-08T18:24:15.000+0000",
+								"last_read": "2019-01-08T18:24:15.000+0000",
+								"meanings":[],
+								"examples":[]
+							},
+							templateEditWordData : {
 								 "id": 431,
 								 "word" : "zephyr",
 								"unique_name": "zephyr",
@@ -119,9 +132,24 @@ app
 										});
 					};
 					
-					$scope.updateWord =function (wordObject){
-						
-						$log.log("Will open a modal popup to edit word : " + angular.toJson(wordObject));
+					$scope.updateWord =function (wordObjectForEdit){
+						if(wordObjectForEdit){
+							$scope.pageFormData.templateEditWordData=wordObjectForEdit;
+							$log.log("Will open a modal popup to edit word : " + angular.toJson($scope.pageFormData.templateEditWordData));
+							$scope.settings.showEditWordSection=true;
+							$scope.titleOfEditWordDialog="Edit word : "+$scope.pageFormData.templateEditWordData.word;
+//							$scope.pageFormData.templateEditWordData=wordObjectForEdit;
+							
+							$("#editWordDialog").dialog({
+//			                    width: 500,
+//			                    height: 200,
+								minWidth: 400,
+			                     minHeight: 'auto',
+			                    resizable: true,
+			                    autoOpen: true,
+			                    dialogClass: 'no-close contentAlertDisplay'
+			                });
+						}						
 						
 					};
 
