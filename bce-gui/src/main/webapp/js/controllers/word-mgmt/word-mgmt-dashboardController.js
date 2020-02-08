@@ -143,14 +143,47 @@ app
 							$("#editWordDialog").dialog({
 //			                    width: 500,
 //			                    height: 200,
+								title:$scope.titleOfEditWordDialog,
 								minWidth: 400,
 			                     minHeight: 'auto',
 			                    resizable: true,
 			                    autoOpen: true,
-			                    dialogClass: 'no-close contentAlertDisplay'
+			                    dialogClass: 'no-close contentAlertDisplay',
+			                    closeX: false,
+			                    modal: true,
+			                    closeOnEscape: false
+			                    
 			                });
 						}						
 						
+					};
+					
+					$scope.updateWordObj=function (wordObjectForEdit){
+						if(wordObjectForEdit){
+							$scope.pageFormData.templateEditWordData=wordObjectForEdit;
+							$log.log("going to edit word : " + angular.toJson($scope.pageFormData.templateEditWordData));
+							$http(
+									{
+										method : "PUT",
+										url : topicMgmtAppConfig.wordMeaningDbBackupService
+												+ 'words',
+										data : angular.toJson($scope.pageFormData.templateEditWordData)
+									})
+									.success(
+											function(data) {
+												if (data.status == "200") {
+													$scope.pageFormData.templateAddWordData = data.data;
+													$('#editWordDialog').dialog('close');
+//													$scope.pageFormData.lastSearchedWord = searchTxt;
+//													$scope
+//															.showSection($scope.settings.sectionNames.SearchedWordItemData);
+												} else if (data.status == "fail") {
+													alert("Error : Message " + data.message + " data.status : " + data.status);
+												}
+											}).error(function(data) {
+												alert("Error : " + data.message + "status" + data.status);
+											});
+						}
 					};
 
 					
