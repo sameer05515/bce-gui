@@ -115,10 +115,12 @@
 				<div class="row">
 					<div class="row">
 						<span ng-class="{selectedTopicRow: topic.id === idSelectedVote}">
-							<a data-ng-click="showAt($index)"> <span
-								ng-bind-html="topic.questionName">
+							<a data-ng-click="showAt($index)"> 
+							<span ng-bind-html="topic.questionName"/>
+								</a> 
+						</span>
 					</div>
-					</a> </span>
+					
 				</div>
 			</div>
 		</div>

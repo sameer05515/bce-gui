@@ -29,6 +29,7 @@ app
 						"showAddNewWordSection" : false,
 						"showEditWordSection" : false,
 						"showSearchedItemsData" : false,
+						"showAllWordsInPagination" : true,
 						"sectionNames" : {
 							"AddNewWord" : "AddNewWord",
 							"SearchedWordItemData" : "SearchedWordItemData"
@@ -78,8 +79,20 @@ app
 								"meanings":[],
 								"examples":[]
 							},
+							pagedData : {
+								"pageSize":100,
+								"pageNo":0,
+								"enablePrevButton":false,
+								"enableNextButton":true,
+								"selectedWordDataItem":{},
+								items:[]
+							},
 							searchedItems : []
 						};
+					
+					$scope.filteredItems = [];
+					$scope.showList = true;
+					$scope.counterrr = 0;
 
 					$scope.showSection = function(sectionName,selection=true) {
 						// alert('settings.showAddNewWordSection'+$scope.settings.showAddNewWordSection);
@@ -215,5 +228,126 @@ app
 											alert("Error : " + data);
 										});
 					};
+					
+					$scope.findPagedData = function(){
+						$scope.pageFormData.pagedData.items = [];
+						$http(
+								{
+									method : "GET",
+									url : topicMgmtAppConfig.wordMeaningDbBackupService
+											+ 'findPagedData',
+									params : {
+										pageNo : $scope.pageFormData.pagedData.pageNo,
+										pageSize : $scope.pageFormData.pagedData.pageSize
+									}
+								})
+								.success(
+										function(data) {
+											if (data.status == "200") {
+												$scope.pageFormData.pagedData.items = data.data;
+												//$scope.pageFormData.lastSearchedWord = searchTxt;
+												$scope
+														.showSection($scope.pageFormData.pagedData.items);
+											} else if (data.status == "fail") {
+												alert("Error : Message " + data.message + " data.status : " + data.status);
+											}
+										}).error(function(data) {
+											alert("Error : " + data);
+										});
+					};
+					
+					$scope.showTopicsList = function() {
+						$scope.showList = !$scope.showList;
+						if ($scope.showList) {
+							document.getElementById('topicDetailsDiv').classList
+							.add('col-lg-8');
+							document.getElementById('topicDetailsDiv').classList
+							.remove('col-lg-12');
+						} else {
+							document.getElementById('topicDetailsDiv').classList
+							.add('col-lg-12');
+							document.getElementById('topicDetailsDiv').classList
+							.remove('col-lg-8');
+						}
+					};
+					
+					$scope.idSelectedVote = null;
+					$scope.setSelected = function(idSelectedVote) {
+						$scope.idSelectedVote = idSelectedVote;
+					};
+
+					$scope.showAt = function(indexVal) {
+						
+						$log.log("loading data for : " + indexVal);
+						$scope.counterrr = indexVal;
+						$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
+						$log.log("going to load word : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem));
+						$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+						// $scope.counterrr = ($scope.counterrr >=
+						// $scope.filteredItems.length -
+						// 1) ? 0
+						// : ($scope.counterrr + 1);
+					};
+					
+					$scope.reload = function() {
+						
+						$scope.showAt($scope.counterrr);
+					};
+
+					$scope.next = function() {
+						console.log("Inside next function=>>>> $scope.counterrr == "
+								+ $scope.counterrr);
+						$scope.counterrr = ($scope.counterrr >= $scope.filteredItems.length - 1) ? 0
+								: ($scope.counterrr + 1);
+						$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
+						$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+					};
+
+					$scope.previous = function() {
+						$scope.counterrr = ($scope.counterrr == 0) ? ($scope.filteredItems.length - 1)
+								: ($scope.counterrr - 1);
+						$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
+						$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+					};
+
+					// ///////////////////////////////////////////////////
+					$scope.timerStarted = false;
+					$scope.timerID = null;
+
+					/*
+					 * var nextAltFn= function(){ //$scope.next();
+					 * console.log("aaaaaaa=>>>>"); };
+					 */
+
+					$scope.slideShowStart = function() {
+						$scope.timerStarted = true;
+						$scope.timerID = setTimeout(function nextAltFn() {
+							$scope.next();
+							console.log("aaaaaaa=>>>> $scope.counterrr == "
+									+ $scope.counterrr);
+							$scope.timerID = setTimeout(nextAltFn, 5000);
+						}, 5000);
+						console
+						.log("Timer started : timerID "
+								+ $scope.timerID);
+						console.log("timerStarted " + $scope.timerStarted);
+					};
+
+					$scope.slideShowCancel = function() {
+						$scope.timerStarted = false;
+						clearTimeout($scope.timerID);
+						$scope.timerID = null;
+
+						console
+						.log("Timer stopped : timerID "
+								+ $scope.timerID);
+						console.log("timerStarted " + $scope.timerStarted);
+					};
+					
+					$scope.init=function(){
+						$scope.findPagedData();
+					};
+					
+					$scope.init();
 
 				});
