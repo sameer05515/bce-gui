@@ -66,6 +66,16 @@
 			<a class="btn btn-xs btn-primary"
 				ng-click="showTopicsList()"> <i class="fa fa-plus">Show List</i>
 			</a>
+			
+			<a class="btn btn-xs btn-primary"
+				ng-click="findPagedData(-1)" ng-disabled="!pageFormData.pagedData.enablePrevButton"> <i class="fa fa-plus">PreviousPage</i>
+			</a>
+			
+			<a class="btn btn-xs btn-primary"
+				ng-click="findPagedData(1)" ng-disabled="!pageFormData.pagedData.enableNextButton"> <i class="fa fa-plus">NextPage</i>
+			</a>
+			
+			<b>Page No: </b>{{pageFormData.pagedData.pageNo+1}} <b>&nbsp;&nbsp;&nbsp;&nbsp;Counter: </b>{{counterrr+1}} <b>&nbsp;&nbsp;&nbsp;&nbsp;Page Size: </b>{{pageFormData.pagedData.pageSize}}
 		</div>
 		
 		<div class="col-lg-4 topicMgmtShowHideAnimation" ng-hide="!showList">

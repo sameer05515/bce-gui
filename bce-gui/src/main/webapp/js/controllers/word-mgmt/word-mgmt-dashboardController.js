@@ -80,7 +80,7 @@ app
 								"examples":[]
 							},
 							pagedData : {
-								"pageSize":100,
+								"pageSize":500,
 								"pageNo":0,
 								"enablePrevButton":false,
 								"enableNextButton":true,
@@ -229,8 +229,15 @@ app
 										});
 					};
 					
-					$scope.findPagedData = function(){
+					$scope.findPagedData = function(directionIndex=0){
 						$scope.pageFormData.pagedData.items = [];
+						if(directionIndex<=0 &&($scope.pageFormData.pagedData.pageNo+directionIndex)<=0){
+							$scope.pageFormData.pagedData.pageNo=0;
+							$scope.pageFormData.pagedData.enablePrevButton=false;
+						}else{
+							$scope.pageFormData.pagedData.pageNo=$scope.pageFormData.pagedData.pageNo+directionIndex;
+							$scope.pageFormData.pagedData.enablePrevButton=true;
+						}
 						$http(
 								{
 									method : "GET",
@@ -246,6 +253,12 @@ app
 											if (data.status == "200") {
 												$scope.pageFormData.pagedData.items = data.data;
 												//$scope.pageFormData.lastSearchedWord = searchTxt;
+												if($scope.pageFormData.pagedData.items.length<=0){
+													$scope.pageFormData.pagedData.items.enableNextButton=false;
+												}else{
+													$scope.pageFormData.pagedData.items.enableNextButton=true;
+												}
+												$scope.showAt(0);
 												$scope
 														.showSection($scope.pageFormData.pagedData.items);
 											} else if (data.status == "fail") {
