@@ -144,7 +144,7 @@ app
 //			                    width: 500,
 //			                    height: 200,
 								title:$scope.titleOfEditWordDialog,
-								minWidth: 400,
+								minWidth: 600,
 			                     minHeight: 'auto',
 			                    resizable: true,
 			                    autoOpen: true,
