@@ -159,6 +159,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 	// Words
 	.when("/word-mgmt", {templateUrl: "partials/word-mgmt/word-mgmt-dashboard.html", controller: "word-mgmt-dashboardController"})
 
+	// GLOBAL-SETTINGS
+	.when("/global-settings", {templateUrl: "partials/global-settings/global-settings.html", controller: "global-settingsController"})
+
 	/**
 	 *    TASK MANAGEMENT ROUTES END
 	 *   
