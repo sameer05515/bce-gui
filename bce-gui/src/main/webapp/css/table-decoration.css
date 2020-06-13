@@ -1,13 +1,13 @@
-/* table, th, td {
+table#dynamic-query-table ,table#dynamic-query-table th,table#dynamic-query-table td {
 	border: 1px solid black;
 	border-collapse: collapse;
 	padding: 5px;
 }
 
-table tr:nth-child(odd) {
+table#dynamic-query-table tr:nth-child(odd) {
 	background-color: #82E0AA;
 }
 
-table tr:nth-child(even) {
+table#dynamic-query-table table tr:nth-child(even) {
 	background-color: #2ECC71;
-} */
+}

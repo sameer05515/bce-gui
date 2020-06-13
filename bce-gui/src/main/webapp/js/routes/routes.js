@@ -159,6 +159,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	// Words
 	.when("/word-mgmt", {templateUrl: "partials/word-mgmt/word-mgmt-dashboard.html", controller: "word-mgmt-dashboardController"})
 
+	//dynamic-query
+	.when("/dynamic-query", {templateUrl: "partials/dynamic-query/dynamic-query.html", controller: "dynamicQueryController"})
+	
+	
 	// GLOBAL-SETTINGS
 	.when("/global-settings", {templateUrl: "partials/global-settings/global-settings.html", controller: "global-settingsController"})
 
