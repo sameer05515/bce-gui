@@ -88,7 +88,7 @@
 	{{dynamicQueryResponse.data.data.resultMap.tableData}} -->
 
 
-	<div class="row">
+	<div class="row" ng-hide="!showDynamicTableData">
 		<div class="well col-lg-12">
 			<table id="dynamic-query-table">
 
@@ -107,23 +107,6 @@
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="well col-lg-12">
-			<table>
-
-				<tr>
-					<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
-				</tr>
-
-
-
-				<tr ng-repeat="row in dynamicTableData">
-					<td ng-repeat="cell in row">{{cell}}</td>
-				</tr>
-
-
-			</table>
-		</div>
-	</div>
+	
 
 </div>
