@@ -24,6 +24,7 @@ app
 					$scope.dynamicQueryResponse={};
 					$scope.dynamicTableData=[];
 					$scope.showDynamicTableData=false;
+					$scope.showDynamicResponseError=false;
 
 					
 					/** Variable Declaration end ################################ */
@@ -47,6 +48,7 @@ app
 						$scope.dynamicQueryResponse={};
 						$scope.dynamicTableData=[];
 						$scope.showDynamicTableData=false;
+						$scope.showDynamicResponseError=false;
 						$http(
 								{
 									method : 'POST',					
@@ -59,10 +61,12 @@ app
 									$scope.dynamicQueryResponse=data;
 									$scope.dynamicTableData=$scope.dynamicQueryResponse.data.data.resultMap.tableData;
 									$scope.showDynamicTableData=true;
+									$scope.showDynamicResponseError=false;
 								})
 								.error(function(data,status) { 
 									//alert("Error : "+data.message +"status"+data.status);
 									$scope.dynamicQueryResponse=data;
+									$scope.showDynamicResponseError=true;
 								});
 					};
 					/** Method Declaration end ################################ */
