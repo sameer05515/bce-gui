@@ -68,7 +68,7 @@ angular
 
             $scope.choices = [{
                 id: "choice1",
-                name: "C:/tutorials/interview-questions"
+                name: "D:/Prem/tutorials"
             }];
 
             $scope.addNewChoice = function () {

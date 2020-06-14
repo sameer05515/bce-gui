@@ -93,11 +93,37 @@ app
 					$scope.filteredItems = [];
 					$scope.showList = true;
 					$scope.counterrr = 0;
+					
+					$scope.exportWordMgmt= function(){
+						$log.log("Going to call export service : ");
+						
+						$http(
+								{
+									method : "GET",
+									url : topicMgmtAppConfig.wordMeaningDbBackupService
+											+ 'export',
+									//data : angular.toJson($scope.pageFormData.templateAddWordData)
+								})
+								.success(
+										function(data) {
+//											if (data.status == "200") {
+//												$scope.pageFormData.templateAddWordData = data.data;
+////												$scope.pageFormData.lastSearchedWord = searchTxt;
+////												$scope
+////														.showSection($scope.settings.sectionNames.SearchedWordItemData);
+//											} else if (data.status == "fail") {
+//												alert("Error : Message " + data.message + " data.status : " + data.status);
+//											}
+										}).error(function(data) {
+											alert("Error : " + data.message + "status" + data.status);
+										});
+					};
+					
 
 					$scope.showSection = function(sectionName,selection=true) {
 						// alert('settings.showAddNewWordSection'+$scope.settings.showAddNewWordSection);
 
-						$log.log("Going to show section : " + sectionName);
+						$log.log("Going to show section : " + angular.toJson(sectionName));
 						if (sectionName != null) {
 							if (sectionName === $scope.settings.sectionNames.AddNewWord) {
 								if(selection){
@@ -156,9 +182,10 @@ app
 							$("#editWordDialog").dialog({
 //			                    width: 500,
 //			                    height: 200,
-								title:$scope.titleOfEditWordDialog,
-								minWidth: 600,
-			                     minHeight: 'auto',
+								title:$scope.titleOfEditWordDialog+">>>",
+//								minWidth: 600,
+//			                     minHeight: 'auto',
+								resize: "auto",
 			                    resizable: true,
 			                    autoOpen: true,
 			                    dialogClass: 'no-close contentAlertDisplay',
@@ -172,8 +199,8 @@ app
 					};
 					
 					$scope.updateWordObj=function (wordObjectForEdit){
-						if(wordObjectForEdit){
-							$scope.pageFormData.templateEditWordData=wordObjectForEdit;
+						//if(wordObjectForEdit){
+							//$scope.pageFormData.templateEditWordData=$scope.pageFormData.templateEditWordData;
 							$log.log("going to edit word : " + angular.toJson($scope.pageFormData.templateEditWordData));
 							$http(
 									{
@@ -184,6 +211,8 @@ app
 									})
 									.success(
 											function(data) {
+												
+												$log.log("Recieved data : Success : " + angular.toJson(data));
 												if (data.status == "200") {
 													$scope.pageFormData.templateAddWordData = data.data;
 													$('#editWordDialog').dialog('close');
@@ -194,14 +223,23 @@ app
 													alert("Error : Message " + data.message + " data.status : " + data.status);
 												}
 											}).error(function(data) {
+												$log.log("Recieved data : Fail : " + angular.toJson(data));
 												alert("Error : " + data.message + "status" + data.status);
 											});
-						}
+//						}else{
+//							$log.log("Invalid object provided for edit word : " + angular.toJson($scope.pageFormData.templateEditWordData));
+//							$log.log("Invalid object provided for edit word : wordObjectForEdit : " + angular.toJson(wordObjectForEdit));
+//						}
 					};
 
 					
 
 					$scope.search = function(searchTxt) {
+						
+						if(!searchTxt){
+							$log.log("searchTxt is empty : " + searchTxt);
+							return;
+						}
 
 						$scope.pageFormData.searchedItems = [];
 
@@ -295,7 +333,21 @@ app
 						$scope.counterrr = indexVal;
 						$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 						$log.log("going to load word : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem));
-						$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+						if($scope.pageFormData.pagedData.selectedWordDataItem.id){
+							$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+						}
+						
+//						let loadFilteredItems=new Promise(function(resolve, reject) {
+//								$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
+//						});						
+//						loadFilteredItems.then(function(){
+//							$log.log("going to load word : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem));
+//							if($scope.pageFormData.pagedData.selectedWordDataItem.id){
+//								$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+//							}
+//						});
+						
+						
 						// $scope.counterrr = ($scope.counterrr >=
 						// $scope.filteredItems.length -
 						// 1) ? 0
