@@ -93,7 +93,55 @@
 			</div>
 		</div>
 		
-		<div id="topicDetailsDiv" class="col-lg-8">
+		<div class="card col-lg-8">
+			<div class="card-header">
+			
+				<p>
+					<small class="text-muted">
+						<i class="fa fa-clock-o"></i> Last Modified on <b> <span
+							ng-bind="pageFormData.pagedData.selectedWordDataItem.updated_on | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
+						</b>
+					</small><br/>
+				<!-- </p>
+				<p> -->
+					<small class="text-muted">
+						<i class="fa fa-clock-o"></i> Created on <b> <span
+							ng-bind="pageFormData.pagedData.selectedWordDataItem.created_on | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
+						</b>
+					</small>
+				</p>
+				
+				<b>Word :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.word"></span>
+				<a class="btn btn-xs btn-primary" ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit<i
+						class="fa fa-angle-right"></i>
+				</a><br/>
+				
+				<div class="card-subtitle mb-2 text-muted">
+					<small class="text-muted">
+						<b>Unique Name :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.unique_name"></span>
+					</small>
+				</div>		
+				
+				<div class="card-subtitle mb-2 text-muted">
+					<small class="text-muted">
+						<b>Type :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.type"></span>
+					</small>
+				</div>
+			</div>
+			
+			<div class="card-body">					
+				<b>Details :</b>
+				<blockquote class="card-text" style="font-size: smaller;">
+					<span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.details"></span>
+				</blockquote>				
+			</div>
+			
+			<div class="card-footer bg-transparent border-success">
+				
+			</div>
+		</div>
+		
+		<!-- <div id="topicDetailsDiv" class="col-lg-8">
 			<p>
 				<i class="fa fa-clock-o"></i> Last Modified on <b> <span
 					ng-bind="pageFormData.pagedData.selectedWordDataItem.updated_on | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
@@ -118,7 +166,7 @@
 			<b>Details :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.details"></span> <br />
 			
 			
-		</div>
+		</div> -->
 		
 	</div>
 	
