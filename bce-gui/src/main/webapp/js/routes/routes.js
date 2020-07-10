@@ -173,6 +173,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 	/** ####################################################################################################################### */
 
+	.when("/reports/word-mgmt", {templateUrl: "partials/word-mgmt/reports/words-reports.html", controller: "words-reportsController"})
 
 	// else 404
 	.otherwise("/404", {templateUrl: "../../partials/404.html"/* , controller: "PshortDescriptionCtrl" */});
