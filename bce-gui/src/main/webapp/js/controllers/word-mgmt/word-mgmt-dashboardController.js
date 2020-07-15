@@ -80,7 +80,7 @@ app
 								"examples":[]
 							},
 							pagedData : {
-								"pageSize":50,
+								"pageSize":10,
 								"pageNo":0,
 								"enablePrevButton":false,
 								"enableNextButton":true,
