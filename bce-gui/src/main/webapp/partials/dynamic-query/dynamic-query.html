@@ -77,7 +77,10 @@
 
 
 				<tr ng-repeat="row in dynamicTableData">
-					<td ng-repeat="cell in row">{{cell}}</td>
+					<!-- <td ng-repeat="cell in row">{{cell}}</td> -->
+					<td ng-repeat="cell in row">
+						<span ng-bind-html="cell"></span>
+					</td>
 				</tr>
 
 
