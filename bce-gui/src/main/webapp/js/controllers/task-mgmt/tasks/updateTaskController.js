@@ -71,8 +71,108 @@ app.controller('updateTaskController', function($scope, $http, $log,
 	
 	$scope.getSelectedRating = function (rating) {
         console.log(rating);
-    };
+	};
 
-	$scope.fetchTopicObj();
+	$scope.environmentsData = [];
+	$scope.activityTypesData=[];
+	$scope.boxsData=[];
+	$scope.frequenciesData=[];
+	$scope.performedByData=[];
+	$scope.sequencesData=[];
+	$scope.statusData=[];
+	$scope.taskPriorityGroupData=[];
+
+	$scope.fetchConfigurations = function () {
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/environments.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.environmentsData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/activity-type.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.activityTypesData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/box.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.boxsData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/frequency.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.frequenciesData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/performed-by.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.performedByData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/sequence.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.sequencesData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/status.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.statusData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+		$http({
+			method: 'GET',
+			url: topicMgmtAppConfig.taskMgmtService + "/data/task-priority-group.json",
+			data: $scope.topicObj
+		}).success(function (data) {
+			$scope.taskPriorityGroupData = data;
+		}).error(function (data, status) {
+			alert("Error : " + data);
+		});
+
+	};
+	
+	$scope.init = function () {
+		$scope.fetchConfigurations();
+
+		$scope.fetchTopicObj();
+	};
+
+	$scope.init();
+
+	
 
 });
