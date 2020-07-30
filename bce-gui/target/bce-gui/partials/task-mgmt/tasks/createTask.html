@@ -35,9 +35,20 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.environment" />
+		</div> -->
+		
+		<div class="col-lg-12">
+			<select name="repeatSelectEnvironmentsData" 
+				id="repeatSelectEnvironmentsData" 
+				ng-model="topicObj.environment" 
+				ng-options="option.name for option in environmentsData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
+		
+		
 		<!-- /.col-lg-12 -->
 
 		
@@ -58,8 +69,17 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.frequency" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatSelectFrequenciesData" 
+				id="repeatSelectFrequenciesData" 
+				ng-model="topicObj.frequency" 
+				ng-options="option.name for option in frequenciesData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -69,8 +89,17 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.activityType" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatSelectActivityTypesData" 
+				id="repeatSelectActivityTypesData" 
+				ng-model="topicObj.activityType" 
+				ng-options="option.name for option in activityTypesData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -80,8 +109,17 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.box" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatSelectBoxsData" 
+				id="repeatSelectBoxsData" 
+				ng-model="topicObj.box" 
+				ng-options="option.name for option in boxsData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -91,8 +129,17 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.sequence" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatSelectSequencesData" 
+				id="repeatSelectSequencesData" 
+				ng-model="topicObj.sequence" 
+				ng-options="option.name for option in sequencesData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -135,8 +182,17 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.status" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatSelectStatusData" 
+				id="repeatSelectStatusData" 
+				ng-model="topicObj.status" 
+				ng-options="option.name for option in statusData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -168,9 +224,19 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.performedBy" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatPerformedByData" 
+				id="repeatPerformedByData" 
+				ng-model="topicObj.performedBy" 
+				ng-options="option.name for option in performedByData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
+
 		<!-- /.col-lg-12 -->
 		
 		<!-- component -->
@@ -179,9 +245,19 @@
 		</div>
 		<!-- /.col-lg-12 -->
 
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.taskPriorityGroup" />
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatTaskPriorityGroupData" 
+				id="repeatTaskPriorityGroupData" 
+				ng-model="topicObj.taskPriorityGroup" 
+				ng-options="option.name for option in taskPriorityGroupData">
+			<option value="All">--Select Category--</option>
+			</select>
 		</div>
+
 		<!-- /.col-lg-12 -->
 		
 		<!-- component -->
