@@ -166,9 +166,14 @@ app.controller('updateTaskController', function($scope, $http, $log,
 	};
 	
 	$scope.init = function () {
-		$scope.fetchConfigurations();
 
-		$scope.fetchTopicObj();
+		promis=new Promise((resolve,reject)=>{
+			$scope.fetchConfigurations();
+			resolve('sussess');
+		}) .then(result => $scope.fetchTopicObj())
+		
+
+		
 	};
 
 	$scope.init();
