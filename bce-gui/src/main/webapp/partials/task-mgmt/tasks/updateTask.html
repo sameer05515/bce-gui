@@ -44,9 +44,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectEnvironmentsData" 
 				id="repeatSelectEnvironmentsData" 
-				ng-model="topicObj.environment" 
-				ng-options="option.name for option in environmentsData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.environment">
+				<option value="All">--Select Environment--</option>
+				<option ng-repeat="option in environmentsData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -76,9 +76,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectFrequenciesData" 
 				id="repeatSelectFrequenciesData" 
-				ng-model="topicObj.frequency" 
-				ng-options="option.name for option in frequenciesData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.frequency">
+				<option value="All">--Select Frequency--</option>
+				<option ng-repeat="option in frequenciesData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -96,9 +96,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectActivityTypesData" 
 				id="repeatSelectActivityTypesData" 
-				ng-model="topicObj.activityType" 
-				ng-options="option.name for option in activityTypesData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.activityType">
+				<option value="All">--Select Activity Type--</option>
+				<option ng-repeat="option in activityTypesData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -116,9 +116,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectBoxsData" 
 				id="repeatSelectBoxsData" 
-				ng-model="topicObj.box" 
-				ng-options="option.name for option in boxsData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.box">
+				<option value="All">--Select Box--</option>
+				<option ng-repeat="option in boxsData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -136,9 +136,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectSequencesData" 
 				id="repeatSelectSequencesData" 
-				ng-model="topicObj.sequence" 
-				ng-options="option.name for option in sequencesData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.sequence">
+				<option value="All">--Select Sequence--</option>
+				<option ng-repeat="option in sequencesData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -189,9 +189,9 @@
 		<div class="col-lg-12">
 			<select name="repeatSelectStatusData" 
 				id="repeatSelectStatusData" 
-				ng-model="topicObj.status" 
-				ng-options="option.name for option in statusData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.status">
+				<option value="All">--Select Status--</option>
+				<option ng-repeat="option in statusData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -203,7 +203,7 @@
 		<!-- /.col-lg-12 -->
 
 		<div class="col-lg-12">
-			<input type="date" ng-model="topicObj.scheduleDate" />
+			<input type="date" ng-model="topicObj.scheduleDate" format-date />
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -214,7 +214,7 @@
 		<!-- /.col-lg-12 -->
 
 		<div class="col-lg-12">
-			<input type="date" ng-model="topicObj.endDate" />
+			<input type="date" ng-model="topicObj.endDate" format-date />
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -231,9 +231,9 @@
 		<div class="col-lg-12">
 			<select name="repeatPerformedByData" 
 				id="repeatPerformedByData" 
-				ng-model="topicObj.performedBy" 
-				ng-options="option.name for option in performedByData">
-			<option value="All">--Select Category--</option>
+				ng-model="topicObj.performedBy">
+				<option value="All">--Select Performed By--</option>
+				<option ng-repeat="option in performedByData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 
@@ -248,12 +248,21 @@
 		<!-- <div class="col-lg-12">
 			<input type="text" ng-model="topicObj.taskPriorityGroup" />
 		</div> -->
-		<div class="col-lg-12">
+		<!-- <div class="col-lg-12">
 			<select name="repeatTaskPriorityGroupData" 
 				id="repeatTaskPriorityGroupData" 
 				ng-model="topicObj.taskPriorityGroup" 
 				ng-options="option.name for option in taskPriorityGroupData">
 			<option value="All">--Select Category--</option>
+			</select>
+		</div> -->
+
+		<div class="col-lg-12">
+			<select name="repeatTaskPriorityGroupData" 
+				id="repeatTaskPriorityGroupData" 
+				ng-model="topicObj.taskPriorityGroup">
+			<option value="All">--Select Task Priority Group--</option>
+			<option ng-repeat="option in taskPriorityGroupData" value="{{option.id}}">{{option.name}}</option>
 			</select>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -265,7 +274,7 @@
 		<!-- /.col-lg-12 -->
 
 		<div class="col-lg-12">
-			<input type="date" ng-model="topicObj.nextOccurance" />
+			<input type="date" ng-model="topicObj.nextOccurance" format-date />
 		</div>
 		<!-- /.col-lg-12 -->
 		
@@ -320,6 +329,8 @@
 		confirm-message-window="All your changes will be lost."
 		confirm-message-route="All your changes will be lost. Are you sure you want to do this?">
 	</div>
+
+	{{topicObj|json}}
 
 </div>
 
