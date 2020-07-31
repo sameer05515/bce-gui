@@ -46,8 +46,8 @@ app.controller('updateTaskController', function($scope, $http, $log,
 		TasksManagementServices.fetchTopicObj($routeParams.id)
 		.success(function(data) {
 			// alert(angular.toJson(data));
-			$scope.topicObj = data;
-			initialTopicObj = data;
+			$scope.topicObj = data.data;
+			initialTopicObj = data.data;
 		}).error(function(data) {
 			alert("Error : " + data);
 		});
