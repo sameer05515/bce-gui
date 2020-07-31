@@ -55,7 +55,7 @@ app.controller('createTaskController', function ($scope, $http, $location,
 			data: $scope.topicObj
 		}).success(function (data) {
 
-			$log.log(angular.toJson(data));
+			$log.log(angular.toJson(data.data));
 			// alert("Success : "+data.message);
 
 			//TopicManagementServices.saveTopicReads(data.new_topic_id);
