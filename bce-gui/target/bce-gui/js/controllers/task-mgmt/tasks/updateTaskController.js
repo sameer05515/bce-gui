@@ -55,6 +55,7 @@ app.controller('updateTaskController', function($scope, $http, $log,
 
 	$scope.updateTopicObj = function() {
 		var urrrlll = topicMgmtAppConfig.taskMgmtService + "/tasks/"+$routeParams.id;
+		alert(angular.toJson($scope.topicObj));
 		$http({
 			method : 'PUT',
 			url : urrrlll,
