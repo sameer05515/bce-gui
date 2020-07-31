@@ -39,7 +39,8 @@ app.controller('showAllTasksController-list', function($scope,$http,$log,topicMg
 				})
 				.success(function(data) {
 					//alert("Success : "+data);
-					$scope.topicsList=data;
+					$log.log(angular.toJson(data));
+					$scope.topicsList=data.data;
 					
 					$scope.next();
 				})
