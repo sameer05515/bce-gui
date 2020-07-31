@@ -40,7 +40,7 @@ app
 						TasksManagementServices.fetchTopicObj($routeParams.id)
 								.success(function(data) {
 									// $log.log("Success : "+data);
-									$scope.topicObj = data;
+									$scope.topicObj = data.data;
 									$scope.topic = $scope.topicObj;
 								}).error(function(data) {
 									$log.log("Error : " + data);
@@ -52,7 +52,7 @@ app
 						TasksManagementServices.fetchTopicList().success(
 								function(data) {
 									// $log.log("Success : "+data);
-									$scope.topicsList = data;
+									$scope.topicsList = data.data;
 
 									$scope.next();
 								}).error(function(data) {
