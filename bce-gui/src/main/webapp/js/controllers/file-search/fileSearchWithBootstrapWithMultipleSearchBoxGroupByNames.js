@@ -457,6 +457,8 @@ angular
                 ".jpeg",
                 ".jpg",
                 ".jar",
+                ".war",
+                ".ear",
                 ".rar",
                 ".epub",
                 ".txt",
