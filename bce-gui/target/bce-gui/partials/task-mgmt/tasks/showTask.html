@@ -4,8 +4,7 @@
 			<i class="fa fa-file-text fa-4x"></i>
 			<h1 class="page-header">
 				Task <small>: {{topic.title}}</small>
-				<span star-rating rating-value="topic.rating"
-				edit-star-rating="false" max="maxRatingValue"></span>
+				<span star-rating rating-value="topic.rating" edit-star-rating="false" max="maxRatingValue"></span>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="">Home/Task</a></li>
@@ -17,26 +16,46 @@
 
 	<div class="row">
 		<div class="col-lg-8">
-			<hr>
-			<b><h1>Routine Schedule Description (How to achieve) :</h1></b>
 			
-			<span ng-bind-html="topic.routineScheduleDescription"></span>
-			<hr>
-			
-			<b><h1>Remarks/Task History :</h1></b>
-			<span ng-bind-html="topic.remarks"></span>
-			<hr>
 
-			<b><h1>Task Description (Why and what to achieve) :</h1></b>
+			<div class="well">
+				<b>
+					<h3>Task Description (Why and what to achieve) :</h3>
+				</b>
 				<span ng-bind-html="topic.taskDescription"></span>
-				<hr>
+			</div>
 
-				<b><h1>Impact Analysis (What if not doing) :</h1></b>
+			<hr>
+
+			<div class="well">
+				<b>
+					<h3>Impact Analysis (What if not doing) :</h3>
+				</b>
 				<span ng-bind-html="topic.whatIfNotDoing"></span>
-				<hr>
+			</div>
+
+			<hr>
+
+			<div class="well">
+				<b>
+					<h3>Routine Schedule Description (How to achieve) :</h3>
+				</b>
+				<span ng-bind-html="topic.routineScheduleDescription"></span>
+			</div>
+
+			<hr>
+
+			<div class="well">
+				<b>
+					<h3>Remarks/Task History :</h3>
+				</b>
+				<span ng-bind-html="topic.remarks"></span>
+			</div>
+
+			<hr>
 
 
-			
+
 		</div>
 		<!--End Column col-lg-8-->
 
@@ -47,23 +66,23 @@
 				<span ng-bind-html="topic.taskDescription"></span>
 			</div> -->
 			<!-- /well -->
-			
+
 			<!-- <div class="well">
 				<b>Impact Analysis (What if not doing) :</b>
 				<span ng-bind-html="topic.whatIfNotDoing"></span>
 			</div> -->
 			<!-- /well -->
-			
-			
+
+
 
 			<div class="well">
 				<p>
 					<i class="fa fa-clock-o"></i> Last Modified on <b><span
-						ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
 				<p>
 					<i class="fa fa-clock-o"></i> Created on <b><span
-						ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
 				<a class="btn btn-xs btn-primary" href="#/tasks/{{topic.id}}">Modify
 					<i class="fa fa-angle-right"></i>
@@ -73,8 +92,8 @@
 			</div>
 			<!-- /well -->
 
-			
-			
+
+
 
 		</div>
 		<!--End Column col-lg-4-->
