@@ -27,8 +27,7 @@
 
 			<a class="btn btn-xs btn-primary" href="#/tasks/new">Create New
 				Task<i class="fa fa-angle-right"></i>
-			</a> <a class="btn btn-xs btn-primary">Export Task<i
-				class="fa fa-angle-right"></i>
+			</a> <a class="btn btn-xs btn-primary">Export Task<i class="fa fa-angle-right"></i>
 			</a>
 			<!-- configuration -->
 			<a class="btn btn-xs btn-primary" href="#/task/configuration">Task
@@ -39,44 +38,83 @@
 	</div>
 
 	<div class="row">
+		<div class="well col-lg-12">
+			<table id="dynamic-query-table">
+
+				<tr>
+					<th>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('title')">Title</button>
+						<span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
+					</th>
+					<th>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('environment')">Environment</button>
+						<span class="sortorder" ng-show="propertyName === 'environment'"
+							ng-class="{reverse: reverse}"></span>
+					</th>
+					<th>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('taskDescription')">Task Description (Why and what to achieve)</button> <span class="sortorder" ng-show="propertyName === 'taskDescription'"
+							ng-class="{reverse: reverse}"></span>
+					</th>
+					<th>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('box')">Box</button> <span
+							class="sortorder" ng-show="propertyName === 'box'" ng-class="{reverse: reverse}"></span>
+					</th>
+				</tr>
+
+				<tr
+					data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText |filter:filterPrivateTopics |orderBy:propertyName:reverse))">
+					<td>
+						<span star-rating rating-value="topic.rating" edit-star-rating="false"
+							max="maxRatingValue"></span><br />
+						<a href="#/tasks-list/{{topic.id}}">{{topic.title}}</a>
+					</td>
+					<td>
+						{{topic.environment}}
+					</td>
+					<td>
+						<span
+							ng-bind-html="topic.taskDescription"></span>
+					</td>
+					<td>
+						{{topic.box}}
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- <div class="row">
 		<div class="col-sm-12 col-md-12">
 
-			<!--####################-->
+			
 			<table class="friends">
 				<tr>
 					<th>
 						<button class="btn btn-xs btn-primary" ng-click="sortBy('title')">Title</button>
-						<span class="sortorder" ng-show="propertyName === 'title'"
-						ng-class="{reverse: reverse}"></span>
+						<span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('environment')">Environment</button> <span
-						class="sortorder" ng-show="propertyName === 'environment'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('environment')">Environment</button>
+						<span class="sortorder" ng-show="propertyName === 'environment'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('taskDescription')">Task Description</button> <span
-						class="sortorder" ng-show="propertyName === 'taskDescription'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('taskDescription')">Task
+							Description</button> <span class="sortorder" ng-show="propertyName === 'taskDescription'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('environment')">Box</button> <span
-						class="sortorder" ng-show="propertyName === 'box'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('environment')">Box</button> <span
+							class="sortorder" ng-show="propertyName === 'box'" ng-class="{reverse: reverse}"></span>
 					</th>
 					<th><b><input type="checkbox" ng-model="showPrivateTopics" />Show
 							Private Topics</b></th>
-
 				</tr>
-
-			</table>
+			</table> -->
 			<!--####################-->
 
 			<!-- <div data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText |orderBy:'title'))" > -->
-			<div
+			<!-- <div
 				data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText |filter:filterPrivateTopics |orderBy:propertyName:reverse))">
 				<div class="row resultsDisplay">
 					<div class="col-sm-12 col-md-12">
@@ -129,13 +167,13 @@
 						</div>
 					</div>
 				</div>
-				<!--row resultsDisplay-->
-			</div>
+				row resultsDisplay
+			</div> -->
 			<!--End of data-ng-repeat-->
 
-			<hr>
-		</div>
+			<!-- <hr>
+		</div> -->
 		<!--End Column col-sm-12 col-md-12-->
-	</div>
+	<!-- </div> -->
 	<!--End Row-->
 </div>
