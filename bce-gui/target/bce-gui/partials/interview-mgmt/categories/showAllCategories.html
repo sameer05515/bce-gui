@@ -11,7 +11,7 @@
                 <i class="fa fa-plus">next</i>
             </a>
             <a class="btn btn-xs btn-primary" ng-click="showTopicsList()">
-                <i class="fa fa-plus">Show List</i>
+                <i class="fa fa-plus">{{listShowingButtonCaption}}</i>
             </a>
 
             <br>
@@ -24,7 +24,7 @@
         <div class="col-lg-4 topicMgmtShowHideAnimation" ng-hide="!showList">
 
             <!-- ############################## -->
-            <h4>Topic Search:</h4>
+            <h4>Interview Question Search:</h4>
 
             <div class="input-group">
                 <input type="text" data-ng-model="searchText" class="form-control">
@@ -92,7 +92,7 @@
 
 
         <h1 class="page-header">
-            Topic
+            Interview Question
             <small>: [{{counter+1}}]
                 <span ng-bind-html="topic.questionName" />
             </small>

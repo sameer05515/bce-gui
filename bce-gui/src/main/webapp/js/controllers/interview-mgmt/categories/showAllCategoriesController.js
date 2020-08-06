@@ -14,6 +14,7 @@ app
 					var counter = 1;
 					$scope.filteredItems = [];
 					$scope.showList = true;
+					$scope.listShowingButtonCaption="Show List";
 
 					$scope.showTopicsList = function() {
 						$scope.showList = !$scope.showList;
@@ -22,11 +23,15 @@ app
 									.add('col-lg-8');
 							document.getElementById('topicDetailsDiv').classList
 									.remove('col-lg-12');
+
+							$scope.listShowingButtonCaption="Hide List";
 						} else {
 							document.getElementById('topicDetailsDiv').classList
 									.add('col-lg-12');
 							document.getElementById('topicDetailsDiv').classList
 									.remove('col-lg-8');
+
+							$scope.listShowingButtonCaption="Show List";
 						}
 					};
 
