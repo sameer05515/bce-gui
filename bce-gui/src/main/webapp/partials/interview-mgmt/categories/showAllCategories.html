@@ -13,6 +13,11 @@
             <a class="btn btn-xs btn-primary" ng-click="showTopicsList()">
                 <i class="fa fa-plus">Show List</i>
             </a>
+
+            Hide questions updated in last <input type="text" data-ng-model="lastNDay"></input>
+            <a class="btn btn-xs btn-primary">
+                <i class="fa fa-plus">Reload</i>
+            </a>
         </div>
 
         <div class="col-lg-4 topicMgmtShowHideAnimation" ng-hide="!showList">
