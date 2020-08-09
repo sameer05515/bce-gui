@@ -4,7 +4,7 @@
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider
 		// Home
-		.when("/", { templateUrl: "partials/home.html"/* , controller: "PshortDescriptionCtrl" */ })
+		.when("/", { templateUrl: "partials/home.html"/*,controller:"homeCtrl" , controller: "PshortDescriptionCtrl" */ })
 		// PshortDescriptions
 		.when("/about", { templateUrl: "partials/about.html"/* , controller: "PshortDescriptionCtrl" */ })
 		.when("/faq", { templateUrl: "partials/faq.html"/* , controller: "PshortDescriptionCtrl" */ })
