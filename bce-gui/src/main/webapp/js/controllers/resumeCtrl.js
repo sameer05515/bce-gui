@@ -4,6 +4,7 @@ app.controller('resumeCtrl', function ($scope, $http) {
         html2canvas(document.getElementById('id-premendra-kumar-resume'), {
             onrendered: function (canvas) {
                 var data = canvas.toDataURL();
+                console.log(data);
                 var docDefinition = {
                     content: [{
                         image: data,
