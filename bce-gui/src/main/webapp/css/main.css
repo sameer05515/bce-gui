@@ -32,6 +32,13 @@ body {
     margin-top: 15px;
 }
 
+.resume-experience {
+    padding: 5px 5px;
+    margin: 5px 5px 5px 5px;
+    background-color: #d9ebf1;
+    border: 1px solid #131212;
+}
+
 /* Page Sections */
 .section,
 .section-colored {

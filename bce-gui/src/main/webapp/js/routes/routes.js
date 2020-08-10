@@ -11,7 +11,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		.when("/pricing", { templateUrl: "partials/pricing.html"/* , controller: "PshortDescriptionCtrl" */ })
 		.when("/services", { templateUrl: "partials/services.html"/* , controller: "PshortDescriptionCtrl" */ })
 		.when("/contact", { templateUrl: "partials/contact.html"/* , controller: "PshortDescriptionCtrl" */ })
-		.when("/my-resume", { templateUrl: "partials/resume.html"/* , controller: "PshortDescriptionCtrl" */ })
+		.when("/my-resume", { templateUrl: "partials/resume.html" , controller: "resumeCtrl"})
 
 		/** ####################################################################################################################### */
 
