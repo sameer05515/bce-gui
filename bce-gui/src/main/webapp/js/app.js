@@ -149,7 +149,7 @@ app.animation('.view-slide-in', function() {
 				top : 0,
 				left : 0,
 				opacity : 1
-			}, 1000, done);
+			}, 500, done);
 		}
 	};
 });
