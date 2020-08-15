@@ -29,8 +29,9 @@ app.controller('showAllWordsController', function($scope,$http, $log,$location,t
 	$scope.fetchAllWordList=function(){
 		$scope.wordList=[];
 		
-		WordMeaningServices
-		.fetchAllWordList()
+		// WordMeaningServices
+		// .fetchAllWordList()
+		$http.get(topicMgmtAppConfig.myPagesService+'data/json/word-khajana/khajana-transformed.json')
 		.success(
 				function(data) {
 					// alert("Success : "+data);

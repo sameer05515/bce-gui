@@ -12,6 +12,7 @@ app.constant("topicMgmtAppConfig", {
 	"wordMeaningService":"http://127.0.0.1:8080/word-meaning-mongodb-services/",
 	"linkMgmtService":"http://127.0.0.1:8080/link-mgmt-mongodb-services/",
 	"wordMeaningDbBackupService":"http://127.0.0.1:8080/word-meaning-db-backup-service/",
+	"myPagesService":"http://127.0.0.1:8080/my-pages/",
 	"wordMeaningDbBackupSettings":{
 		"pagedData":{
 			"pageSize":500
