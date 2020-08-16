@@ -143,7 +143,7 @@ app.animation('.view-slide-in', function() {
 		enter : function(element, done) {
 			element.css({
 				opacity : 0.5,
-				position : "relative",
+				//position : "relative",
 				top : "50px",
 				left : "50px"
 			}).animate({
