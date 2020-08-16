@@ -333,6 +333,11 @@ app.config([
         controller: "words-reportsController",
       })
 
+      .when("/event-group-mgmt", {
+        templateUrl: "partials/event-group-mgmt/event-group-mgmt.html",
+        //controller: "words-reportsController",
+      })
+
       // else 404
       .otherwise("/404", {
         templateUrl:
