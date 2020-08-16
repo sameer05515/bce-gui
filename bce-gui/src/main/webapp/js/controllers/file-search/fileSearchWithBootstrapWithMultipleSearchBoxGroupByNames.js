@@ -90,17 +90,17 @@ angular
             $scope.FileToBeMovedPath = "";
             $scope.nayyaFileName = "";
             $scope.targetFolderPath = "";
-            $scope.newmovingFileName="";
+            $scope.newmovingFileName = "";
 
-            $scope.selectedFileObject={};
+            $scope.selectedFileObject = {};
 
 
-            $scope.openMovePopup = function (fileKaPath, targetFolderPathh,movingFileNametoRenamed) {
+            $scope.openMovePopup = function (fileKaPath, targetFolderPathh, movingFileNametoRenamed) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
                 $scope.FileToBeMovedPath = fileKaPath;
                 $scope.targetFolderPath = targetFolderPathh;
-                $scope.newmovingFileName=movingFileNametoRenamed;
+                $scope.newmovingFileName = movingFileNametoRenamed;
                 // var game = document.getElementById("objectToEmbed");
                 //var clone = game.cloneNode(true);
                 //clone.setAttribute("src", sourceUrl);
@@ -113,19 +113,19 @@ angular
                 });
             };
 
-            $scope.moveFile = function (fileKaPath, nayaFilePath,nayaMovingFileName) {
+            $scope.moveFile = function (fileKaPath, nayaFilePath, nayaMovingFileName) {
 
                 if (confirm("Are you sure you want to move File?" + fileKaPath + " \n to new path ? " + nayaFilePath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileMove.jsp";
                     $http({
-                            method: "POST",
-                            url: urrrlll,
-                            params: {
-                                fileName: fileKaPath,
-                                targetPath: nayaFilePath,
-                                newName : nayaMovingFileName
-                            }
-                        })
+                        method: "POST",
+                        url: urrrlll,
+                        params: {
+                            fileName: fileKaPath,
+                            targetPath: nayaFilePath,
+                            newName: nayaMovingFileName
+                        }
+                    })
                         .success(function (data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
@@ -133,7 +133,7 @@ angular
                                 alert(
                                     "sucessfully moved file" +
                                     fileKaPath +
-                                    " with name "+nayaMovingFileName+
+                                    " with name " + nayaMovingFileName +
                                     " data.status : " +
                                     data.status
                                 );
@@ -175,13 +175,13 @@ angular
                 if (confirm("Are you sure you want to Rename Files?" + fileKaPath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileRename.jsp";
                     $http({
-                            method: "POST",
-                            url: urrrlll,
-                            params: {
-                                fileName: fileKaPath,
-                                newName: nayaFileName
-                            }
-                        })
+                        method: "POST",
+                        url: urrrlll,
+                        params: {
+                            fileName: fileKaPath,
+                            newName: nayaFileName
+                        }
+                    })
                         .success(function (data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
@@ -213,12 +213,12 @@ angular
                 if (confirm("Are you sure you want to Delete Files?" + fileKaPath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileDelete.jsp";
                     $http({
-                            method: "POST",
-                            url: urrrlll,
-                            params: {
-                                fileName: fileKaPath
-                            }
-                        })
+                        method: "POST",
+                        url: urrrlll,
+                        params: {
+                            fileName: fileKaPath
+                        }
+                    })
                         .success(function (data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
@@ -261,39 +261,39 @@ angular
             $scope.fileNames = [];
 
             // /////////////////
-			
-			////////////////////
-			
-			$scope.multiRequests=[
-			{
-					myurl : "http://127.0.0.1:8080/ClickCounter12345/",
-					methodtype : "GET",
-					parameters : {},
-					mydata : {}
-				},
-				{
-					myurl : "http://127.0.0.1:8080/ClickCounter123/",
-					methodtype : "GET",
-					parameters : {},
-					mydata : {}
-				},
-				{
-					myurl : "http://127.0.0.1:8080/ClickCounter/",
-					methodtype : "GET",
-					parameters : {},
-					mydata : {}
-				}
-			];
-			
-			$scope.toShowData=[];
-			
-			$scope.loadMultiURLData= function (){
-				
-				angular.forEach($scope.multiRequests, function (value, key) {
+
+            ////////////////////
+
+            $scope.multiRequests = [
+                {
+                    myurl: "http://127.0.0.1:8080/ClickCounter12345/",
+                    methodtype: "GET",
+                    parameters: {},
+                    mydata: {}
+                },
+                {
+                    myurl: "http://127.0.0.1:8080/ClickCounter123/",
+                    methodtype: "GET",
+                    parameters: {},
+                    mydata: {}
+                },
+                {
+                    myurl: "http://127.0.0.1:8080/ClickCounter/",
+                    methodtype: "GET",
+                    parameters: {},
+                    mydata: {}
+                }
+            ];
+
+            $scope.toShowData = [];
+
+            $scope.loadMultiURLData = function () {
+
+                angular.forEach($scope.multiRequests, function (value, key) {
                     //console.log("name : "+value.name );
                     $scope.loadURLData(value);
                 });
-				
+
 				/* var cc={
 					myurl : "http://127.0.0.1:8080/ClickCounter420/",
 					methodtype : "GET",
@@ -302,33 +302,33 @@ angular
 				};
 				
 				$scope.loadURLData(cc); */
-				
-			};
-			
-			$scope.loadURLData = function (myrequest){
-				
-				
-				
-				$http({
-					
-					method: myrequest.methodtype,
-					url : myrequest.myurl,
-					params : myrequest.parameters,
-					data : myrequest.mydata
-					
-					
-					
-				}).success(function (data,status) {						
-						alert('success status code'+status+' myfolder == '+myrequest.myurl);
-                        
-                    })
-                    .error(function (data,status) {
-                       alert('fail status code'+status+' myfolder == '+myrequest.myurl);
+
+            };
+
+            $scope.loadURLData = function (myrequest) {
+
+
+
+                $http({
+
+                    method: myrequest.methodtype,
+                    url: myrequest.myurl,
+                    params: myrequest.parameters,
+                    data: myrequest.mydata
+
+
+
+                }).success(function (data, status) {
+                    alert('success status code' + status + ' myfolder == ' + myrequest.myurl);
+
+                })
+                    .error(function (data, status) {
+                        alert('fail status code' + status + ' myfolder == ' + myrequest.myurl);
                     });
-				
-			};
-			
-			////////////////////
+
+            };
+
+            ////////////////////
 
             $scope.loadResult = function (myfolder) {
                 $scope.loadingMessage.push("Loading data....");
@@ -343,20 +343,20 @@ angular
                 //var urrrlll="http://127.0.0.1:8080/FileService/fileService.jsp?fileName="+myfolder+"";
                 var urrrlll = "http://127.0.0.1:8080/FileService/fileService.jsp";
                 $http({
-                        method: "POST",
-                        /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
-                        url: urrrlll,
+                    method: "POST",
+                    /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
+                    url: urrrlll,
 
-                        params: {
-                            fileName: myfolder,
-                            extensions: $scope.checked_fruits
-                        }
-                    })
-                    .success(function (data,status) {
+                    params: {
+                        fileName: myfolder,
+                        extensions: $scope.checked_fruits
+                    }
+                })
+                    .success(function (data, status) {
                         //$scope.fileNames = data;
                         //alert(myfolder+"  "+data.length+"  "+data);
-						
-						alert('success status code'+status+' myfolder == '+myfolder);
+
+                        alert('success status code' + status + ' myfolder == ' + myfolder);
                         for (var i = 0; i < data.length; i++) {
                             if (axis.isObject(data[i])) {
                                 data[i].showValue = true;
@@ -374,12 +374,12 @@ angular
 
                         $scope.removeLoadingData();
                     })
-                    .error(function (data,status) {
+                    .error(function (data, status) {
                         var obj = {};
                         obj.message = "Error while getting result for " + myfolder;
                         obj.type = "fail";
-						
-						alert('fail status code'+status+' myfolder == '+myfolder);
+
+                        alert('fail status code' + status + ' myfolder == ' + myfolder);
                         //$scope.errorMessage.push("Error while getting result for "+myfolder) ;
                         $scope.errorMessage.push(obj);
 
@@ -402,7 +402,7 @@ angular
             $scope.openPopup = function (sourceUrl) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
-                
+
                 $scope.titleOfPdf = sourceUrl;
                 var game = document.getElementById("objectToEmbed");
                 var clone = game.cloneNode(true);
@@ -416,9 +416,9 @@ angular
                 });
             };
 
-            $scope.ppp = function (sourceUrl, givenFilePath, indexVal,mySelectedFileObject) {
+            $scope.ppp = function (sourceUrl, givenFilePath, indexVal, mySelectedFileObject) {
                 $scope.counterrr = indexVal;
-                $scope.selectedFileObject=mySelectedFileObject;
+                $scope.selectedFileObject = mySelectedFileObject;
 
                 console.log("IndexVal : " + indexVal);
                 console.log("$scope.counterrr" + $scope.counterrr);
@@ -463,8 +463,8 @@ angular
                 ".epub",
                 ".txt",
                 ".sql",
-				".db",
-				".sys"
+                ".db",
+                ".sys"
             ];
             //$scope.checked_fruits = [".pdf", ".mp3"];
             $scope.checked_fruits = [".pdf"];
@@ -510,10 +510,10 @@ angular
             $scope.next = function () {
                 $scope.counterrr =
                     $scope.counterrr >= $scope.filteredItems.length - 1 ?
-                    0 :
-                    $scope.counterrr + 1;
+                        0 :
+                        $scope.counterrr + 1;
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
-                $scope.selectedFileObject=$scope.topic;
+                $scope.selectedFileObject = $scope.topic;
                 $scope.ppp(
                     "http://127.0.0.1:8080/FileService/my.jsp?documentId=" +
                     $scope.topic.filePath,
@@ -526,10 +526,10 @@ angular
             $scope.previous = function () {
                 $scope.counterrr =
                     $scope.counterrr == 0 ?
-                    $scope.filteredItems.length - 1 :
-                    $scope.counterrr - 1;
+                        $scope.filteredItems.length - 1 :
+                        $scope.counterrr - 1;
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
-                $scope.selectedFileObject=$scope.topic;
+                $scope.selectedFileObject = $scope.topic;
                 $scope.ppp(
                     "http://127.0.0.1:8080/FileService/my.jsp?documentId=" +
                     $scope.topic.filePath,
