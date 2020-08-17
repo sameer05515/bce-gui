@@ -134,6 +134,13 @@ footer {
     margin: 50px 0;
 }
 
+.list-group-scrolling{
+    max-height: 100px;
+    /* margin-bottom: 10px; */
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* Responsive Styles */
 @media (max-width: 767px) {
 

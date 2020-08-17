@@ -22,7 +22,7 @@
                 <span class="glyphicon glyphicon-plus"></span>
                 Add</a>
 
-            <ul class="list-group">
+            <ul class="list-group list-group-scrolling">
                 <li ng-repeat="eventGroupItem in eventGroupListItems | orderBy: 'date'"
                     class="list-group-item text-center clearfix">
                     <span style="font-weight: bold">{{eventGroupItem.name | uppercase}}</span>
@@ -40,7 +40,7 @@
                 <span class="glyphicon glyphicon-plus"></span>
                 Add</a>
 
-            <ul class="list-group">
+            <ul class="list-group list-group-scrolling">
                 <li ng-repeat="eventItem in eventListItems | orderBy: 'date'"
                     class="list-group-item text-center clearfix">
                     <span style="font-weight: bold">{{eventItem.name | uppercase}}</span>
