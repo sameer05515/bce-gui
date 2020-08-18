@@ -71,8 +71,6 @@ app.controller("words-reportsController", function (
 			//data : $scope.dynamicQueryRequestObject
 		})
 			.success(function (data) {
-				//alert("Success : "+data.message);
-				//$location.path('/groups-list');
 				$scope.dynamicQueryResponse = data;
 				$scope.dynamicTableData = $scope.dynamicQueryResponse.data;
 				$scope.showDynamicTableData = true;
