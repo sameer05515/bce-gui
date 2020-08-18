@@ -36,10 +36,11 @@
 		</div>
 
 		<div class="well col-lg-12">
-			{{dynamicTableDataCreatedOn|json}} <br>
-			{{dynamicTableData | json }}
+			
 			<div class="row">
+
 				<div class="well col-lg-6">
+					Datewise Updated Count
 					<table id="dynamic-query-table">
 						<tr>
 							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
@@ -54,6 +55,7 @@
 				</div>
 
 				<div class="well col-lg-6">
+					Datewise Created Count
 					<table id="dynamic-query-table">
 						<tr>
 							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
