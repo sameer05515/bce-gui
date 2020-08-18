@@ -36,19 +36,35 @@
 		</div>
 
 		<div class="well col-lg-12">
-			<table id="dynamic-query-table">
-				<tr>
-					<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
-				</tr>
+			<div class="row">
+				<div class="well col-lg-6">
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableData">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
 
-				<tr ng-repeat="row in dynamicTableData">					
-					<td ng-repeat="cell in row">
-						<span ng-bind-html="cell"></span>
-					</td>
-				</tr>
-
-
-			</table>
+				<div class="well col-lg-6">
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataCreatedOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 
