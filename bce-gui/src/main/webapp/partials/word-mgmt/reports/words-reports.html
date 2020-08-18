@@ -11,41 +11,37 @@
 			</ol>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="well col-lg-12">
 			<h4>Word Report: Datewise count of updated words</h4>
 		</div>
 	</div>
-	
+
 	<div class="row" ng-hide="!showDynamicTableData">
 		<div class="well col-lg-12">
-		<ul>
-			<li><b>Interview preparation</b></li>
-			<li>
-				<ul>
-					<li><b>Communication Skills</b></li>
-					<li>Practice 50000 words</li>
-					<li>Practice 1000 Sentence Patterns</li>
-					<li>Practice grammar</li>
-				</ul>
-			</li>
-		
-		</ul>
-		
+			<ul>
+				<li><b>Interview preparation</b></li>
+				<li>
+					<ul>
+						<li><b>Communication Skills</b></li>
+						<li>Practice 50000 words</li>
+						<li>Practice 1000 Sentence Patterns</li>
+						<li>Practice grammar</li>
+					</ul>
+				</li>
+
+			</ul>
+
 		</div>
-	
+
 		<div class="well col-lg-12">
 			<table id="dynamic-query-table">
-
 				<tr>
 					<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
 				</tr>
 
-
-
-				<tr ng-repeat="row in dynamicTableData">
-					<!-- <td ng-repeat="cell in row">{{cell}}</td> -->
+				<tr ng-repeat="row in dynamicTableData">					
 					<td ng-repeat="cell in row">
 						<span ng-bind-html="cell"></span>
 					</td>
@@ -55,42 +51,40 @@
 			</table>
 		</div>
 	</div>
-	
-	<div class="row"
-		ng-hide="!dynamicQueryResponse.isError && !showDynamicResponseError">
+
+	<div class="row" ng-hide="!dynamicQueryResponse.isError && !showDynamicResponseError">
 		<div class="well col-lg-12">
 			<form role="col-lg-12 form">
+
 				<div class="form-group">
-					<label for="name">Is Error :</label> <p>{{dynamicQueryResponse.isError}}</p>
+					<label for="name">Is Error :</label>
+					<p>{{dynamicQueryResponse.isError}}</p>
 				</div>
-				
-				
+
 				<div class="form-group">
-					<label for="name">Status :</label> <p>{{dynamicQueryResponse.data.status}} </p>
-				</div>
-				<div class="form-group">
-					<label for="name">Data Message :</label> <p>{{dynamicQueryResponse.data.message}} </p>
-						
-				</div>
-				
-				
-				
-				
-				
-				<div class="form-group">
-					<label for="name">Response Message :</label> <p>{{dynamicQueryResponse.message}} </p>
-						
+					<label for="name">Status :</label>
+					<p>{{dynamicQueryResponse.data.status}} </p>
 				</div>
 				<div class="form-group">
-					<label for="name">Timestamp :</label> <p>{{dynamicQueryResponse.timestamp}} </p>
-						
+					<label for="name">Data Message :</label>
+					<p>{{dynamicQueryResponse.data.message}} </p>
 				</div>
+
 				<div class="form-group">
-					<label for="name">Response Status :</label> <p>{{dynamicQueryResponse.status}} </p>
-						
+					<label for="name">Response Message :</label>
+					<p>{{dynamicQueryResponse.message}} </p>
 				</div>
-				
-				
+
+				<div class="form-group">
+					<label for="name">Timestamp :</label>
+					<p>{{dynamicQueryResponse.timestamp}} </p>
+				</div>
+
+				<div class="form-group">
+					<label for="name">Response Status :</label>
+					<p>{{dynamicQueryResponse.status}} </p>
+				</div>
+
 			</form>
 		</div>
 	</div>
