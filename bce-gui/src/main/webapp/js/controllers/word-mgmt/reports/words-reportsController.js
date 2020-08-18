@@ -83,7 +83,7 @@ app.controller("words-reportsController", function (
 			});
 	};
 
-	$scope.executeQuery = function () {
+	$scope.executeQuery1 = function () {
 		var urrrlll =
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
 		$scope.dynamicQueryResponse = {};
@@ -110,6 +110,7 @@ app.controller("words-reportsController", function (
 
 	$scope.init = function () {
 		$scope.executeQuery();
+		$scope.executeQuery1();
 	};
 
 	$scope.init();
