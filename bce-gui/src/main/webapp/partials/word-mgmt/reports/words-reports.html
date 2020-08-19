@@ -86,6 +86,116 @@
 
 			</div>
 		</div>
+		<!-- /.word-report -->
+
+		<div class="well col-lg-12">
+			<h1>Interview Questions Report</h1>
+			<div class="row">
+
+				<div class="well col-lg-4">
+					<h2>Datewise Updated Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableData">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="well col-lg-4">
+					<h2>Datewise Created Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataCreatedOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="well col-lg-4">
+					<h2>Datewise Read Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataReadOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataReadOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<!-- /. interview question -->
+
+		<div class="well col-lg-12">
+			<h1>Topic Report</h1>
+			<div class="row">
+
+				<div class="well col-lg-4">
+					<h2>Datewise Updated Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableData">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="well col-lg-4">
+					<h2>Datewise Created Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataCreatedOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="well col-lg-4">
+					<h2>Datewise Read Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataReadOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataReadOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<!-- /.topic report -->
+
+
+
 	</div>
 
 	<div class="row" ng-hide="!dynamicQueryResponse.isError && !showDynamicResponseError">
