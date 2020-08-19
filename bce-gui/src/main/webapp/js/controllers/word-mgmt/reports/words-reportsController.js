@@ -108,6 +108,31 @@ app.controller("words-reportsController", function (
 			});
 	};
 
+	$scope.executeQuery2 = function () {
+		var urrrlll =
+			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
+		$scope.dynamicQueryResponse = {};
+		$scope.dynamicTableDataReadOn = [];
+		$scope.showDynamicTableData = false;
+		$scope.showDynamicResponseError = false;
+		$http({
+			method: "GET",
+			url: urrrlll,
+			//data : $scope.dynamicQueryRequestObject
+		})
+			.success(function (data) {
+				$scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataReadOn = $scope.dynamicQueryResponse.data;
+				$scope.showDynamicTableData = true;
+				$scope.showDynamicResponseError = false;
+			})
+			.error(function (data, status) {
+				//alert("Error : "+data.message +"status"+data.status);
+				$scope.dynamicQueryResponse = data;
+				$scope.showDynamicResponseError = true;
+			});
+	};
+
 	$scope.init = function () {
 		$scope.executeQuery();
 		$scope.executeQuery1();

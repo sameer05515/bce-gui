@@ -36,10 +36,10 @@
 		</div>
 
 		<div class="well col-lg-12">
-			
+			<h1>Words Report</h1>
 			<div class="row">
 
-				<div class="well col-lg-6">
+				<div class="well col-lg-4">
 					<h2>Datewise Updated Count</h2>
 					<table id="dynamic-query-table">
 						<tr>
@@ -54,7 +54,7 @@
 					</table>
 				</div>
 
-				<div class="well col-lg-6">
+				<div class="well col-lg-4">
 					<h2>Datewise Created Count</h2>
 					<table id="dynamic-query-table">
 						<tr>
@@ -68,6 +68,22 @@
 						</tr>
 					</table>
 				</div>
+
+				<div class="well col-lg-4">
+					<h2>Datewise Read Count</h2>
+					<table id="dynamic-query-table">
+						<tr>
+							<th ng-repeat="(header, value) in dynamicTableDataReadOn[0]">{{header}}</th>
+						</tr>
+		
+						<tr ng-repeat="row in dynamicTableDataReadOn">					
+							<td ng-repeat="cell in row">
+								<span ng-bind-html="cell"></span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
 			</div>
 		</div>
 	</div>
