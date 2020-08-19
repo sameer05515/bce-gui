@@ -58,7 +58,7 @@ app.controller("words-reportsController", function (
 		},
 	};
 
-	$scope.executeQuery = function () {
+	$scope.getWordReportLastUpdated = function () {
 		var urrrlll =
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
 		$scope.dynamicQueryResponse = {};
@@ -83,7 +83,7 @@ app.controller("words-reportsController", function (
 			});
 	};
 
-	$scope.executeQuery1 = function () {
+	$scope.getWordReportCreatedOn = function () {
 		var urrrlll =
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
 		$scope.dynamicQueryResponse = {};
@@ -108,7 +108,7 @@ app.controller("words-reportsController", function (
 			});
 	};
 
-	$scope.executeQuery2 = function () {
+	$scope.getWordReportReadOn = function () {
 		var urrrlll =
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
 		$scope.dynamicQueryResponse = {};
@@ -134,8 +134,9 @@ app.controller("words-reportsController", function (
 	};
 
 	$scope.init = function () {
-		$scope.executeQuery();
-		$scope.executeQuery1();
+		$scope.getWordReportLastUpdated();
+		$scope.getWordReportCreatedOn();
+		$scope.getWordReportReadOn();
 	};
 
 	$scope.init();
