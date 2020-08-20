@@ -334,7 +334,7 @@ app
 				$log.log("loading data for : " + indexVal);
 				$scope.counterrr = indexVal;
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
-				$log.log("going to load word : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem));
+				$log.log("going to load word : id : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem.id));
 				if ($scope.pageFormData.pagedData.selectedWordDataItem.id) {
 					$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
 					$scope.fetchWordReads();
@@ -365,7 +365,9 @@ app
 				.fetchWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id).success(
 						function(data) {
 							// alert("Success : "+data);
-							$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = data;
+							$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = data.data;
+
+							$scope.isToday($scope.pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read);
 							// $scope.sortBy($scope.propertyName);
 						}).error(function(data) {
 							// alert("Error : " + data);
@@ -378,7 +380,7 @@ app
 				.success(function(data) {
 					// alert("Success : "+data);
 					// $scope.topicsReads = data;
-					$scope.fetchTopicReads();
+					$scope.fetchWordReads();
 					// $scope.sortBy($scope.propertyName);
 				}).error(function(data) {
 					alert("Error : " + data);
@@ -390,6 +392,21 @@ app
 				$scope.showAt($scope.counterrr);
 			};
 
+			$scope.isAlreadyReadToday=false;
+			$scope.isToday = function(someDateStr) {
+				const someDate=new Date(someDateStr);
+				const today = new Date();
+				console.log('someDate : '+someDate);
+
+				$scope.isAlreadyReadToday=someDate.getDate() == today.getDate() &&
+				someDate.getMonth() == today.getMonth() &&
+				someDate.getFullYear() == today.getFullYear();
+				return $scope.isAlreadyReadToday;
+				// return someDate.getDate() == today.getDate() &&
+				//   someDate.getMonth() == today.getMonth() &&
+				//   someDate.getFullYear() == today.getFullYear();
+			  };
+
 			$scope.next = function () {
 				console.log("Inside next function=>>>> $scope.counterrr == "
 					+ $scope.counterrr);
@@ -397,6 +414,7 @@ app
 					: ($scope.counterrr + 1);
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 				$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+				$scope.fetchWordReads();
 			};
 
 			$scope.previous = function () {
@@ -404,6 +422,7 @@ app
 					: ($scope.counterrr - 1);
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 				$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+				$scope.fetchWordReads();
 			};
 
 			// ///////////////////////////////////////////////////

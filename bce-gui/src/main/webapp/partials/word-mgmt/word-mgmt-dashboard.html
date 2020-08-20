@@ -96,6 +96,7 @@
 		<div class="card col-lg-8">
 			<div class="card-header">
 			
+				<!-- pageFormData.pagedData.selectedWordDataItem.wordReads : {{pageFormData.pagedData.selectedWordDataItem.wordReads}} -->
 				<p>
 					<small class="text-muted">
 						<i class="fa fa-clock-o"></i> Last Modified on <b> <span
@@ -110,7 +111,7 @@
 						</b>
 					</small>
 
-					<span class="badge">Total Reads :- {{wordReads.count}}</span>
+					<span class="badge">Total Reads :- {{pageFormData.pagedData.selectedWordDataItem.wordReads.count}}</span>
 				</p>
 				
 				<b>Word :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.word"></span>
@@ -118,10 +119,10 @@
 				<a class="btn btn-xs btn-primary" ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit<i
 						class="fa fa-angle-right"></i>
 				</a><br/>
-				<a class="btn btn-xs btn-primary" ng-click="saveWordReads()">Mark
+				<a class="btn btn-xs btn-primary" ng-click="saveWordReads()" ng-show="isAlreadyReadToday">Mark
 					as Read today <i class="fa fa-angle-right"></i>
 				</a> <i class="fa fa-clock-o"></i> Last Read on <b><span
-					ng-bind="wordReads.word.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+					ng-bind="pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 					<br>
 				
 				<div class="card-subtitle mb-2 text-muted">
