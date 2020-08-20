@@ -3,7 +3,7 @@
 app
 	.controller(
 		'word-mgmt-dashboardController',
-		function ($scope, $http, $log, $location, topicMgmtAppConfig, $uibModal) {
+		function ($scope, $http, $log, $location, topicMgmtAppConfig, WordMeaningManagementServices, $uibModal) {
 			$scope.wordObj = {
 				"_id": "5b6f9e8c89c9d3246c9dea72",
 				"word": "zephyr",
@@ -337,6 +337,7 @@ app
 				$log.log("going to load word : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem));
 				if ($scope.pageFormData.pagedData.selectedWordDataItem.id) {
 					$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
+					$scope.fetchWordReads();
 				}
 
 				//						let loadFilteredItems=new Promise(function(resolve, reject) {
@@ -354,6 +355,34 @@ app
 				// $scope.filteredItems.length -
 				// 1) ? 0
 				// : ($scope.counterrr + 1);
+			};
+
+			// ////////// Marking and Fetching reads - start
+
+			$scope.fetchWordReads = function() {
+				$scope.pageFormData.pagedData.selectedWordDataItem.wordReads={};
+				WordMeaningManagementServices
+				.fetchWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id).success(
+						function(data) {
+							// alert("Success : "+data);
+							$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = data;
+							// $scope.sortBy($scope.propertyName);
+						}).error(function(data) {
+							// alert("Error : " + data);
+							$log.log("Error : " + data);
+						});
+			};
+
+			$scope.saveWordReads = function() {
+				WordMeaningManagementServices.saveWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id)
+				.success(function(data) {
+					// alert("Success : "+data);
+					// $scope.topicsReads = data;
+					$scope.fetchTopicReads();
+					// $scope.sortBy($scope.propertyName);
+				}).error(function(data) {
+					alert("Error : " + data);
+				});
 			};
 
 			$scope.reload = function () {
