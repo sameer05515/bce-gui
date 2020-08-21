@@ -355,11 +355,11 @@
 	<div class="row" ng-show="!editSelectedWord" ng-init="showTemporaryEditBox=false;">
 		<div class="well col-lg-12">
 			<a  ng-show="!showTemporaryEditBox"
-			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=false;">
+			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
 			Show Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 			<a  ng-show="showTemporaryEditBox"
-			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=true;">
+			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
 			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 
@@ -369,11 +369,11 @@
 
 
 			<a ng-show="showTemporaryEditBox"
-			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=false;">
+			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
 			Show Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 			<a  ng-show="showTemporaryEditBox"
-			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=true;">
+			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
 			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 		</div>
