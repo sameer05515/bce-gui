@@ -87,7 +87,13 @@ app
 					"selectedWordDataItem": {},
 					items: []
 				},
-				searchedItems: []
+				searchedItems: [],
+				criteriaObj:{
+					"selectedOrderByDate": "lastReadOn",
+					"selectedDirectionDate": "DESC",
+					"givenInputPageSize": 100,
+					"givenInputSlideshowDuration": 5000
+				  }
 			};
 
 			$scope.filteredItems = [];
