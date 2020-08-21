@@ -127,15 +127,31 @@
 					<b>where</b>
 					<br>
 
-					<select name="" id="criteriaSelectConditionDate"
+					<!-- <select name="" id="criteriaSelectConditionDate"
 						ng-model="pageFormData.criteriaObj.selectedConditionDate">
 						<option value="lastReadOn">Last Read On</option>
 						<option value="lastUpdatedOn">Last Updated On</option>
 						<option value="createdOn" selected>Created On</option>
-					</select>
+					</select> -->
 
-					is <input type="number" min="1" ng-model="pageFormData.criteriaObj.givenInputConditionDateDaysBack"
-						name="" id="criteriaInputConditionDateDaysBack"> <b>Days Back</b>
+					<b>Last Read On </b> is <input type="number" min="0"
+						ng-model="pageFormData.criteriaObj.lastReadOnDaysBack" name=""
+						id="criteriaInputLastReadOnDaysBack"> <b>Days Back</b> <br>
+					<b>Last Updated On </b> is <input type="number" min="0"
+						ng-model="pageFormData.criteriaObj.lastUpdatedOnDaysBack" name=""
+						id="criteriaInputLastUpdatedOnDaysBack"> <b>Days Back</b> <br>
+					<b>Last Read On </b> is <input type="number" min="0"
+						ng-model="pageFormData.criteriaObj.createdOnDaysBack" name=""
+						id="criteriaInputCreatedOnDaysBack"> <b>Days Back</b> <br>
+
+					<b>page size</b> <input type="number" min="1" 
+					ng-model="pageFormData.criteriaObj.pageSize"
+						name="" id="criteriaInputPageSize">
+
+					<b>slideshow duration</b>
+					<input type="number" min="5000" 
+					ng-model="pageFormData.criteriaObj.slideshowDuration"
+						name="" id="criteriaInputSlideshowDuration">
 
 					<br>
 					<b>order by</b>
@@ -147,19 +163,14 @@
 					</select>
 
 					<b>direction</b>
-					<select name="" id="criteriaSelectDirectionDate"
-						ng-model="pageFormData.criteriaObj.selectedDirectionDate">
+					<select name="" id="criteriaSelectOrderByDateDirection"
+						ng-model="pageFormData.criteriaObj.selectedOrderByDateDirection">
 						<option value="ASC">Ascending</option>
 						<option value="DESC" selected>Descending</option>
 					</select>
 
-					<b>page size</b> <input type="number" min="1" ng-model="pageFormData.criteriaObj.givenInputPageSize"
-						name="" id="criteriaInputPageSize">
 
-					<b>slideshow duration</b>
-					<input type="number" min="5000" ng-model="pageFormData.criteriaObj.givenInputSlideshowDuration"
-						name="" id="criteriaInputSlideshowDuration">
-						
+
 					<br>
 					<pre>
 						pageFormData.criteriaObj: <br>

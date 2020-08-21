@@ -88,12 +88,8 @@ app
 					items: []
 				},
 				searchedItems: [],
-				criteriaObj:{
-					"selectedOrderByDate": "lastReadOn",
-					"selectedDirectionDate": "DESC",
-					"givenInputPageSize": 100,
-					"givenInputSlideshowDuration": 5000
-				  }
+				
+				criteriaObj:{}
 			};
 
 			$scope.filteredItems = [];
