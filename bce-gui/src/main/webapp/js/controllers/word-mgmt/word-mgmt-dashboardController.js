@@ -217,10 +217,9 @@ app
 							$log.log("Recieved data : Success : " + angular.toJson(data));
 							if (data.status == "200") {
 								$scope.pageFormData.templateAddWordData = data.data;
-								$('#editWordDialog').dialog('close');
-								//													$scope.pageFormData.lastSearchedWord = searchTxt;
-								//													$scope
-								//															.showSection($scope.settings.sectionNames.SearchedWordItemData);
+								//$('#editWordDialog').dialog('close');
+								
+								$scope.editSelectedWord=true;
 							} else if (data.status == "fail") {
 								alert("Error : Message " + data.message + " data.status : " + data.status);
 							}
@@ -378,6 +377,7 @@ app
 
 			// ////////// Marking and Fetching reads - start
 
+			$scope.editSelectedWord=true;
 			$scope.fetchWordReads = function() {
 				$scope.pageFormData.pagedData.selectedWordDataItem.wordReads={};
 				WordMeaningManagementServices
@@ -388,6 +388,7 @@ app
 
 							$scope.isToday($scope.pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read);
 
+							$scope.editSelectedWord=true;
 							$scope.scrollToGivenId('word-'+$scope.counterrr);
 							// $scope.sortBy($scope.propertyName);
 						}).error(function(data) {

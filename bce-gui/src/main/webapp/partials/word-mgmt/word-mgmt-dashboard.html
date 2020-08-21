@@ -197,7 +197,7 @@
 					<div class="row">
 						<!-- custom-autofocus="pagedDataItem.autofocusWord" -->
 						<div id="{{'word-'+$index}}"
-						ng-class="{selectedWordRow: pagedDataItem.id === idSelectedVote,otherUnselectedWordRow: (pagedDataItem.id !== idSelectedVote)}">
+							ng-class="{selectedWordRow: pagedDataItem.id === idSelectedVote,otherUnselectedWordRow: (pagedDataItem.id !== idSelectedVote)}">
 							<a data-ng-click="showAt($index)">
 								<span ng-bind-html="pagedDataItem.word" />
 								<!-- pagedDataItem.autofocusWord {{pagedDataItem.autofocusWord}} -->
@@ -208,67 +208,118 @@
 			</ul>
 		</div>
 
-		<div id="div-word-details-section" class="card col-lg-8">
+		<div id="div-word-details-section" ng-show=(pageFormData.pagedData.selectedWordDataItem) class="card col-lg-8">
 			<!-- <pre>{{pageFormData.pagedData.selectedWordDataItem|json}}</pre> -->
 
-			<pre>isAlreadyReadToday{{isAlreadyReadToday}}</pre>
+			<!-- <pre>isAlreadyReadToday{{isAlreadyReadToday}}</pre> -->
 
 			<div class="card-header">
 
 				<!-- pageFormData.pagedData.selectedWordDataItem.wordReads : {{pageFormData.pagedData.selectedWordDataItem.wordReads}} -->
+
+				<a class="btn btn-xs btn-primary"
+					ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit in Popup<i
+						class="fa fa-angle-right"></i>
+				</a>
+				<a class="btn btn-xs btn-primary" ng-show="editSelectedWord" ng-click="editSelectedWord=false;">Edit<i
+						class="fa fa-angle-right"></i>
+				</a>
+				<a class="btn btn-xs btn-danger" ng-show="!editSelectedWord" ng-click="editSelectedWord=true;">Cancel
+					Edit<i class="fa fa-angle-right"></i>
+				</a>
+				<a ng-show="!editSelectedWord" class="btn btn-xs btn-primary"
+					ng-click="updateWordObj(pageFormData.templateEditWordData)">
+					Update
+					<i class="fa fa-angle-right"></i>
+				</a>
+
+				<a class="btn btn-xs btn-primary" ng-click="saveWordReads()"
+					ng-show="!isAlreadyReadToday && editSelectedWord">Mark
+					as Read today <i class="fa fa-angle-right"></i>
+				</a> <br />
+
 				<p>
 					<small class="text-muted">
-						<i class="fa fa-clock-o"></i> Last Modified on <b> <span
-								ng-bind="pageFormData.pagedData.selectedWordDataItem.updated_on | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
+						<i class="fa fa-clock-o"></i> Last Read on <b> <span
+								ng-bind="pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read | date:'MMM/dd/yyyy hh:mm:ss a'">
+							</span> |
 						</b>
-					</small><br />
-					<!-- </p>
-				<p> -->
+					</small>
+
+					<small class="text-muted">
+						<i class="fa fa-clock-o"></i> Last Modified on <b> <span
+								ng-bind="pageFormData.pagedData.selectedWordDataItem.updated_on | date:'MMM/dd/yyyy hh:mm:ss a'">
+							</span> |
+						</b>
+					</small>
+
 					<small class="text-muted">
 						<i class="fa fa-clock-o"></i> Created on <b> <span
 								ng-bind="pageFormData.pagedData.selectedWordDataItem.created_on | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
 						</b>
-					</small>
+					</small> <br>
 
 					<span class="badge">Total Reads :-
 						{{pageFormData.pagedData.selectedWordDataItem.wordReads.count}}</span>
 				</p>
 
-				<b>Word :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.word"></span>
+				<b>Word :</b>
+				<span ng-show="editSelectedWord" ng-bind-html="pageFormData.pagedData.selectedWordDataItem.word"></span>
+
+				<input ng-show="!editSelectedWord" type="text" ng-model="pageFormData.templateEditWordData.word" />
 				<br />
-				<a class="btn btn-xs btn-primary"
+				<!-- <a class="btn btn-xs btn-primary"
 					ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit<i
 						class="fa fa-angle-right"></i>
-				</a><br />
-				<a class="btn btn-xs btn-primary" ng-click="saveWordReads()" ng-show="!isAlreadyReadToday">Mark
-					as Read today <i class="fa fa-angle-right"></i>
-				</a> <i class="fa fa-clock-o"></i> Last Read on <b><span
-						ng-bind="pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
-				<br>
+				</a><br /> -->
+
+
+
 
 				<div class="card-subtitle mb-2 text-muted">
 					<small class="text-muted">
-						<b>Unique Name :</b> <span
-							ng-bind-html="pageFormData.pagedData.selectedWordDataItem.unique_name"></span>
+						<b>Unique Name :</b>
+						<span ng-show="editSelectedWord"
+							ng-bind-html="pageFormData.pagedData.selectedWordDataItem.unique_name">
+						</span>
+						<input ng-show="!editSelectedWord" type="text"
+							ng-model="pageFormData.templateEditWordData.unique_name" />
 					</small>
 				</div>
 
 				<div class="card-subtitle mb-2 text-muted">
 					<small class="text-muted">
-						<b>Type :</b> <span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.type"></span>
+						<b>Type :</b> <span ng-show="editSelectedWord"
+							ng-bind-html="pageFormData.pagedData.selectedWordDataItem.type"></span>
+						<select ng-show="!editSelectedWord" ng-model="pageFormData.templateEditWordData.type">
+							<option value="">--Select --</option>
+							<option ng-repeat="sel in settings.wordTypes"
+								ng-selected="pageFormData.templateEditWordData.type == sel" value="{{sel}}">{{sel}}
+							</option>
+						</select>
 					</small>
 				</div>
 			</div>
 
 			<div class="card-body">
 				<b>Details :</b>
-				<blockquote class="card-text" style="font-size: smaller;">
+				<blockquote ng-show="editSelectedWord" class="card-text" style="font-size: smaller;">
 					<span ng-bind-html="pageFormData.pagedData.selectedWordDataItem.details"></span>
 				</blockquote>
+				<div ng-show="!editSelectedWord">
+					<trix-editor angular-trix ng-model="pageFormData.templateEditWordData.details"></trix-editor>
+				</div>
 			</div>
 
-			<div class="card-footer bg-transparent border-success">
-
+			<div class="card-footer bg-transparent border-success">				
+				<a ng-show="!editSelectedWord" class="btn btn-xs btn-danger" ng-click="editSelectedWord=true;">Cancel
+					Edit<i class="fa fa-angle-right"></i>
+				</a>
+				<a ng-show="!editSelectedWord" class="btn btn-xs btn-primary"
+					ng-click="updateWordObj(pageFormData.templateEditWordData)">
+					Update
+					<i class="fa fa-angle-right"></i>
+				</a><br />
 			</div>
 		</div>
 
@@ -299,6 +350,33 @@
 			
 		</div> -->
 
+	</div>
+
+	<div class="row" ng-show="!editSelectedWord" ng-init="showTemporaryEditBox=false;">
+		<div class="well col-lg-12">
+			<a  ng-show="!showTemporaryEditBox"
+			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
+			Show Temporary Edit box<i class="fa fa-angle-right"></i>
+			</a>
+			<a  ng-show="showTemporaryEditBox"
+			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=true;">
+			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
+			</a>
+
+			<div ng-show="showTemporaryEditBox">
+			<trix-editor angular-trix ng-model="pageFormData.temporaryEditBoxData"></trix-editor>
+			</div>
+
+
+			<a ng-show="showTemporaryEditBox"
+			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
+			Show Temporary Edit box<i class="fa fa-angle-right"></i>
+			</a>
+			<a  ng-show="showTemporaryEditBox"
+			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=true;">
+			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
 	</div>
 
 	<div class="row" ng-show="settings.showAddNewWordSection">
