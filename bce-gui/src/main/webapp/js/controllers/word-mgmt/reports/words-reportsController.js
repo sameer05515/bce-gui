@@ -63,16 +63,16 @@ app.controller("words-reportsController", function (
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableData = [];
-		$scope.showDynamicTableData = false;
-		$scope.showDynamicResponseError = false;
+		$scope.showDynamicTableData.LastUpdated = false;
+		$scope.showDynamicResponseError.LastUpdated = false;
 		$http({
 			method: "GET",
 			url: urrrlll,
 			//data : $scope.dynamicQueryRequestObject
 		})
 			.success(function (data) {
-				$scope.dynamicQueryResponse = data;
-				$scope.dynamicTableData = $scope.dynamicQueryResponse.data;
+				// $scope.dynamicQueryResponse = data;
+				$scope.dynamicTableData = data.data;
 				$scope.showDynamicTableData = true;
 				$scope.showDynamicResponseError = false;
 			})
@@ -96,8 +96,8 @@ app.controller("words-reportsController", function (
 			//data : $scope.dynamicQueryRequestObject
 		})
 			.success(function (data) {
-				$scope.dynamicQueryResponse = data;
-				$scope.dynamicTableDataCreatedOn = $scope.dynamicQueryResponse.data;
+				// $scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataCreatedOn = data.data;
 				$scope.showDynamicTableData = true;
 				$scope.showDynamicResponseError = false;
 			})
@@ -121,8 +121,8 @@ app.controller("words-reportsController", function (
 			//data : $scope.dynamicQueryRequestObject
 		})
 			.success(function (data) {
-				$scope.dynamicQueryResponse = data;
-				$scope.dynamicTableDataReadOn = $scope.dynamicQueryResponse.data;
+				//$scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataReadOn = data.data;
 				$scope.showDynamicTableData = true;
 				$scope.showDynamicResponseError = false;
 			})
