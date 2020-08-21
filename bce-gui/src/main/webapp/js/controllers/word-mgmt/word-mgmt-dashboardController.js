@@ -218,8 +218,18 @@ app
 							if (data.status == "200") {
 								$scope.pageFormData.templateAddWordData = data.data;
 								//$('#editWordDialog').dialog('close');
-								
-								$scope.editSelectedWord=true;
+								$scope.pageFormData.pagedData.selectedWordDataItem.word = $scope.pageFormData.templateAddWordData.word;
+								$scope.pageFormData.pagedData.selectedWordDataItem.unique_name = $scope.pageFormData.templateAddWordData.unique_name;
+								$scope.pageFormData.pagedData.selectedWordDataItem.type = $scope.pageFormData.templateAddWordData.type;
+								$scope.pageFormData.pagedData.selectedWordDataItem.details = $scope.pageFormData.templateAddWordData.details;
+								$scope.pageFormData.pagedData.selectedWordDataItem.created_on = $scope.pageFormData.templateAddWordData.created_on;
+								$scope.pageFormData.pagedData.selectedWordDataItem.updated_on = $scope.pageFormData.templateAddWordData.updated_on;
+								$scope.pageFormData.pagedData.selectedWordDataItem.last_read = $scope.pageFormData.templateAddWordData.last_read;
+								$scope.pageFormData.pagedData.selectedWordDataItem.id = $scope.pageFormData.templateAddWordData.id;
+
+								$scope.editSelectedWord = true;
+								$scope.fetchWordReads();
+
 							} else if (data.status == "fail") {
 								alert("Error : Message " + data.message + " data.status : " + data.status);
 							}
@@ -227,10 +237,7 @@ app
 							$log.log("Recieved data : Fail : " + angular.toJson(data));
 							alert("Error : " + data.message + "status" + data.status);
 						});
-				//						}else{
-				//							$log.log("Invalid object provided for edit word : " + angular.toJson($scope.pageFormData.templateEditWordData));
-				//							$log.log("Invalid object provided for edit word : wordObjectForEdit : " + angular.toJson(wordObjectForEdit));
-				//						}
+
 			};
 
 
@@ -328,7 +335,7 @@ app
 				$scope.idSelectedVote = idSelectedVote;
 			};
 
-			$scope.scrollToGivenId= function(idToScroll){
+			$scope.scrollToGivenId = function (idToScroll) {
 				const elmnt1 = document.getElementById(idToScroll);
 				elmnt1.scrollIntoView();
 				//$log.log('id : '+ idToScroll +'   elmnt1 : '+elmnt1);
@@ -337,18 +344,18 @@ app
 			$scope.showAt = function (indexVal) {
 
 				// angular.forEach($scope.filteredItems, function (value, key) {
-                //     //console.log("name : "+value.name );
+				//     //console.log("name : "+value.name );
 				// 	value.autofocusWord=false;
 				// 	this.push(value);
-                // });
+				// });
 
 				$log.log("loading data for : " + indexVal);
 				$scope.counterrr = indexVal;
 				//$scope.filteredItems[$scope.counterrr].autofocusWord=true;
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 				//$scope.pageFormData.pagedData.selectedWordDataItem.autofocusWord=true;
-				
-				
+
+
 
 				$log.log("going to load word : id : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem.id));
 				if ($scope.pageFormData.pagedData.selectedWordDataItem.id) {
@@ -356,7 +363,7 @@ app
 					$scope.fetchWordReads();
 				}
 
-				
+
 
 				//						let loadFilteredItems=new Promise(function(resolve, reject) {
 				//								$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
@@ -377,36 +384,36 @@ app
 
 			// ////////// Marking and Fetching reads - start
 
-			$scope.editSelectedWord=true;
-			$scope.fetchWordReads = function() {
-				$scope.pageFormData.pagedData.selectedWordDataItem.wordReads={};
+			$scope.editSelectedWord = true;
+			$scope.fetchWordReads = function () {
+				$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = {};
 				WordMeaningManagementServices
-				.fetchWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id).success(
-						function(data) {
+					.fetchWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id).success(
+						function (data) {
 							// alert("Success : "+data);
 							$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = data.data;
 
 							$scope.isToday($scope.pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read);
 
-							$scope.editSelectedWord=true;
-							$scope.scrollToGivenId('word-'+$scope.counterrr);
+							$scope.editSelectedWord = true;
+							$scope.scrollToGivenId('word-' + $scope.counterrr);
 							// $scope.sortBy($scope.propertyName);
-						}).error(function(data) {
+						}).error(function (data) {
 							// alert("Error : " + data);
 							$log.log("Error : " + data);
 						});
 			};
 
-			$scope.saveWordReads = function() {
+			$scope.saveWordReads = function () {
 				WordMeaningManagementServices.saveWordReads($scope.pageFormData.pagedData.selectedWordDataItem.id)
-				.success(function(data) {
-					// alert("Success : "+data);
-					// $scope.topicsReads = data;
-					$scope.fetchWordReads();
-					// $scope.sortBy($scope.propertyName);
-				}).error(function(data) {
-					alert("Error : " + data);
-				});
+					.success(function (data) {
+						// alert("Success : "+data);
+						// $scope.topicsReads = data;
+						$scope.fetchWordReads();
+						// $scope.sortBy($scope.propertyName);
+					}).error(function (data) {
+						alert("Error : " + data);
+					});
 			};
 
 			$scope.reload = function () {
@@ -414,26 +421,26 @@ app
 				$scope.showAt($scope.counterrr);
 			};
 
-			$scope.isAlreadyReadToday=false;
-			$scope.isToday = function(someDateStr){
-				const someDate=new Date(someDateStr);
+			$scope.isAlreadyReadToday = false;
+			$scope.isToday = function (someDateStr) {
+				const someDate = new Date(someDateStr);
 				const today = new Date();
-				console.log('someDate : '+someDate);
+				console.log('someDate : ' + someDate);
 
-				$scope.isAlreadyReadToday=(someDate.getDate() == today.getDate() &&
-				someDate.getMonth() == today.getMonth() &&
-				someDate.getFullYear() == today.getFullYear());
+				$scope.isAlreadyReadToday = (someDate.getDate() == today.getDate() &&
+					someDate.getMonth() == today.getMonth() &&
+					someDate.getFullYear() == today.getFullYear());
 
-				console.log('someDateStr : '+someDateStr);
-				console.log('someDate : '+someDate);
-				console.log('today : '+today);
-				console.log('$scope.isAlreadyReadToday : '+$scope.isAlreadyReadToday);
+				console.log('someDateStr : ' + someDateStr);
+				console.log('someDate : ' + someDate);
+				console.log('today : ' + today);
+				console.log('$scope.isAlreadyReadToday : ' + $scope.isAlreadyReadToday);
 
 				return $scope.isAlreadyReadToday;
 				// return someDate.getDate() == today.getDate() &&
 				//   someDate.getMonth() == today.getMonth() &&
 				//   someDate.getFullYear() == today.getFullYear();
-			  };
+			};
 
 			$scope.next = function () {
 				console.log("Inside next function=>>>> $scope.counterrr == "
@@ -444,7 +451,7 @@ app
 				$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
 				$scope.fetchWordReads();
 
-				
+
 			};
 
 			$scope.previous = function () {
