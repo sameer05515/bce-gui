@@ -92,30 +92,32 @@
 
 
 			<!-- <div class="input-group"> -->
-				<div class="row">
-					<input type="text" data-ng-model="pageFormData.searchText" />
-					<!-- class="form-control"  -->
-	
-					<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
-						ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
-					</a>
-				</div>
-				
+			<div class="row">
+				<input type="text" data-ng-model="pageFormData.searchText" />
+				<!-- class="form-control"  -->
+
+				<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
+					ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
+				</a>
+
+				You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
+				{{pageFormData.searchedItems.length}}
+				<span ng-hide="pageFormData.searchedItems.length">| There is no result</span>
+				<br />
+			</div>
+
 			<!-- </div> -->
 			<!-- /input-group -->
 			<div class="row">
-				You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
-				{{pageFormData.searchedItems.length}} 
-				<span ng-hide="pageFormData.searchedItems.length">| There is no result</span>
-				<br />
-	
-				<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)">Add New Word<i
-						class="fa fa-angle-right"></i>
+
+
+				<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)">Add New
+					Word<i class="fa fa-angle-right"></i>
 				</a>
-	
+
 				<a class="btn btn-xs btn-primary" ng-click="exportWordMgmt()">Export All word Data</a>
 			</div>
-			
+
 
 		</div>
 
@@ -228,8 +230,8 @@
 					ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit in Popup<i
 						class="fa fa-angle-right"></i>
 				</a>
-				<a class="btn btn-xs btn-primary" ng-show="editSelectedWord" 
-				ng-click="editSelectedWord=false;pageFormData.templateEditWordData = pageFormData.pagedData.selectedWordDataItem">Edit<i
+				<a class="btn btn-xs btn-primary" ng-show="editSelectedWord"
+					ng-click="editSelectedWord=false;pageFormData.templateEditWordData = pageFormData.pagedData.selectedWordDataItem">Edit<i
 						class="fa fa-angle-right"></i>
 				</a>
 				<a class="btn btn-xs btn-danger" ng-show="!editSelectedWord" ng-click="editSelectedWord=true;">Cancel
@@ -319,7 +321,7 @@
 				</div>
 			</div>
 
-			<div class="card-footer bg-transparent border-success">				
+			<div class="card-footer bg-transparent border-success">
 				<a ng-show="!editSelectedWord" class="btn btn-xs btn-danger" ng-click="editSelectedWord=true;">Cancel
 					Edit<i class="fa fa-angle-right"></i>
 				</a>
@@ -362,22 +364,19 @@
 
 	<div class="row" ng-show="!editSelectedWord" ng-init="showTemporaryEditBox=false;">
 		<div class="well col-lg-12">
-			<a  ng-show="!showTemporaryEditBox"
-			class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
-			Show Temporary Edit box<i class="fa fa-angle-right"></i>
+			<a ng-show="!showTemporaryEditBox" class="btn btn-xs btn-primary" ng-click="showTemporaryEditBox=true;">
+				Show Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
-			<a  ng-show="showTemporaryEditBox"
-			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
-			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
+			<a ng-show="showTemporaryEditBox" class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
+				Hide Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 
 			<div ng-show="showTemporaryEditBox">
-			<trix-editor angular-trix ng-model="pageFormData.temporaryEditBoxData"></trix-editor>
+				<trix-editor angular-trix ng-model="pageFormData.temporaryEditBoxData"></trix-editor>
 			</div>
 
-			<a  ng-show="showTemporaryEditBox"
-			class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
-			Hide Temporary Edit box<i class="fa fa-angle-right"></i>
+			<a ng-show="showTemporaryEditBox" class="btn btn-xs btn-danger" ng-click="showTemporaryEditBox=false;">
+				Hide Temporary Edit box<i class="fa fa-angle-right"></i>
 			</a>
 		</div>
 	</div>
