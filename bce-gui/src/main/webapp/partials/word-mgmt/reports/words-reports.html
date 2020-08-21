@@ -37,10 +37,17 @@
 
 		<div class="well col-lg-12">
 			<h1>Words Report</h1>
+			<!-- <a class="btn btn-xs btn-primary" ng-click="getWordReportLastUpdated();getWordReportCreatedOn();getWordReportReadOn();">Reload All<i
+					class="fa fa-angle-right"></i>
+			</a> -->
 			<div class="row">
 
 				<div class="well col-lg-4">
 					<h2>Datewise Updated Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getWordReportLastUpdated()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
 							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
@@ -56,6 +63,10 @@
 
 				<div class="well col-lg-4">
 					<h2>Datewise Created Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getWordReportCreatedOn()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
 							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
@@ -71,6 +82,10 @@
 
 				<div class="well col-lg-4">
 					<h2>Datewise Read Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getWordReportReadOn()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
 							<th ng-repeat="(header, value) in dynamicTableDataReadOn[0]">{{header}}</th>
