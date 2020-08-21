@@ -63,8 +63,8 @@ app.controller("words-reportsController", function (
 			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableData = [];
-		$scope.showDynamicTableData.LastUpdated = false;
-		$scope.showDynamicResponseError.LastUpdated = false;
+		$scope.showDynamicTableData = false;
+		$scope.showDynamicResponseError = false;
 		$http({
 			method: "GET",
 			url: urrrlll,
