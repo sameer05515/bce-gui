@@ -91,13 +91,14 @@
 		<div class="well col-lg-12">
 
 
-			<div class="input-group">
-				<input type="text" data-ng-model="pageFormData.searchText" class="form-control" />
+			<!-- <div class="input-group"> -->
+				<input type="text" data-ng-model="pageFormData.searchText" />
+				<!-- class="form-control"  -->
 
 				<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
 					ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
 				</a>
-			</div>
+			<!-- </div> -->
 			<!-- /input-group -->
 			You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
 			{{pageFormData.searchedItems.length}} 
