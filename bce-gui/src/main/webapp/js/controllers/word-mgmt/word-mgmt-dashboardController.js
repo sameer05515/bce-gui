@@ -88,8 +88,16 @@ app
 					items: []
 				},
 				searchedItems: [],
-				
-				criteriaObj:{}
+
+				criteriaObj: {
+					"lastReadOnDaysBack": 10,
+					"lastUpdatedOnDaysBack": 0,
+					"createdOnDaysBack": 0,
+					"pageSize": 100,
+					"slideshowDuration": 5000,
+					"selectedOrderByDate": "createdOn",
+					"selectedOrderByDateDirection": "ASC"
+				}
 			};
 
 			$scope.filteredItems = [];
@@ -135,7 +143,7 @@ app
 
 						}
 
-						$scope.templateAddWordData={
+						$scope.templateAddWordData = {
 							"id": 0,
 							"word": "",
 							"unique_name": "",
