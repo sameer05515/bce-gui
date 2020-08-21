@@ -99,9 +99,9 @@
 				</a>
 			</div>
 			<!-- /input-group -->
-			You are typing "{{pageFormData.lastSearchedWord}}" <br /> Number of filtered items:
-			{{pageFormData.searchedItems.length}} <br />
-			<p ng-hide="pageFormData.searchedItems.length">There is no result</p>
+			You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
+			{{pageFormData.searchedItems.length}} 
+			<span ng-hide="pageFormData.searchedItems.length">| There is no result</span>
 			<br />
 
 			<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)">Add New Word<i
