@@ -141,6 +141,30 @@ footer {
     -webkit-overflow-scrolling: touch;
 }
 
+.list-group-scrolling-for-word-list{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    height: 450px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#list-word-name-section{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    height: 300px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#div-word-details-section{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    height: 300px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
 /* Responsive Styles */
 @media (max-width: 767px) {
 

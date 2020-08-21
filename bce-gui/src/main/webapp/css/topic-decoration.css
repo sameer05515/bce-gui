@@ -50,5 +50,15 @@
 }
 
 .selectedWordRow {
-  background-color: red;
+  /* background: green; */
+  font-weight: bold;
+  color: crimson;
+  /* font-size: 12px; */
+  }
+
+.otherUnselectedWordRow{
+  /* background: greenyellow; */
+  font-weight: normal;
+  color: green;
+  /* font-size: 8px; */
 }

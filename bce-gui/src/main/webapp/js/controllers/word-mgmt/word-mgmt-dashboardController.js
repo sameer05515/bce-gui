@@ -80,7 +80,7 @@ app
 					"examples": []
 				},
 				pagedData: {
-					"pageSize": 30,
+					"pageSize": 100,
 					"pageNo": 0,
 					"enablePrevButton": false,
 					"enableNextButton": true,
@@ -329,16 +329,35 @@ app
 				$scope.idSelectedVote = idSelectedVote;
 			};
 
+			$scope.scrollToGivenId= function(idToScroll){
+				const elmnt1 = document.getElementById(idToScroll);
+				elmnt1.scrollIntoView();
+				//$log.log('id : '+ idToScroll +'   elmnt1 : '+elmnt1);
+			};
+
 			$scope.showAt = function (indexVal) {
+
+				// angular.forEach($scope.filteredItems, function (value, key) {
+                //     //console.log("name : "+value.name );
+				// 	value.autofocusWord=false;
+				// 	this.push(value);
+                // });
 
 				$log.log("loading data for : " + indexVal);
 				$scope.counterrr = indexVal;
+				//$scope.filteredItems[$scope.counterrr].autofocusWord=true;
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
+				//$scope.pageFormData.pagedData.selectedWordDataItem.autofocusWord=true;
+				
+				
+
 				$log.log("going to load word : id : " + angular.toJson($scope.pageFormData.pagedData.selectedWordDataItem.id));
 				if ($scope.pageFormData.pagedData.selectedWordDataItem.id) {
 					$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
 					$scope.fetchWordReads();
 				}
+
+				
 
 				//						let loadFilteredItems=new Promise(function(resolve, reject) {
 				//								$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
@@ -368,6 +387,8 @@ app
 							$scope.pageFormData.pagedData.selectedWordDataItem.wordReads = data.data;
 
 							$scope.isToday($scope.pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read);
+
+							$scope.scrollToGivenId('word-'+$scope.counterrr);
 							// $scope.sortBy($scope.propertyName);
 						}).error(function(data) {
 							// alert("Error : " + data);
@@ -393,14 +414,20 @@ app
 			};
 
 			$scope.isAlreadyReadToday=false;
-			$scope.isToday = function(someDateStr) {
+			$scope.isToday = function(someDateStr){
 				const someDate=new Date(someDateStr);
 				const today = new Date();
 				console.log('someDate : '+someDate);
 
-				$scope.isAlreadyReadToday=someDate.getDate() == today.getDate() &&
+				$scope.isAlreadyReadToday=(someDate.getDate() == today.getDate() &&
 				someDate.getMonth() == today.getMonth() &&
-				someDate.getFullYear() == today.getFullYear();
+				someDate.getFullYear() == today.getFullYear());
+
+				console.log('someDateStr : '+someDateStr);
+				console.log('someDate : '+someDate);
+				console.log('today : '+today);
+				console.log('$scope.isAlreadyReadToday : '+$scope.isAlreadyReadToday);
+
 				return $scope.isAlreadyReadToday;
 				// return someDate.getDate() == today.getDate() &&
 				//   someDate.getMonth() == today.getMonth() &&
@@ -415,6 +442,8 @@ app
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 				$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
 				$scope.fetchWordReads();
+
+				
 			};
 
 			$scope.previous = function () {
@@ -423,6 +452,8 @@ app
 				$scope.pageFormData.pagedData.selectedWordDataItem = $scope.filteredItems[$scope.counterrr];
 				$scope.setSelected($scope.pageFormData.pagedData.selectedWordDataItem.id);
 				$scope.fetchWordReads();
+
+
 			};
 
 			// ///////////////////////////////////////////////////
