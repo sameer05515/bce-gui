@@ -221,7 +221,8 @@
 					ng-click="updateWord(pageFormData.pagedData.selectedWordDataItem)">Edit in Popup<i
 						class="fa fa-angle-right"></i>
 				</a>
-				<a class="btn btn-xs btn-primary" ng-show="editSelectedWord" ng-click="editSelectedWord=false;">Edit<i
+				<a class="btn btn-xs btn-primary" ng-show="editSelectedWord" 
+				ng-click="editSelectedWord=false;pageFormData.templateEditWordData = pageFormData.pagedData.selectedWordDataItem">Edit<i
 						class="fa fa-angle-right"></i>
 				</a>
 				<a class="btn btn-xs btn-danger" ng-show="!editSelectedWord" ng-click="editSelectedWord=true;">Cancel
