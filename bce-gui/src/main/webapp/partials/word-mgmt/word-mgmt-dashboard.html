@@ -93,29 +93,33 @@
 
 			<!-- <div class="input-group"> -->
 			<div class="row">
-				<input type="text" data-ng-model="pageFormData.searchText" />
-				<!-- class="form-control"  -->
+				<div class="col-lg-12">
+					<input type="text" data-ng-model="pageFormData.searchText" />
+					<!-- class="form-control"  -->
 
-				<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
-					ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
-				</a>
+					<a class="btn btn-xs btn-primary" ng-click="search(pageFormData.searchText)"
+						ng-if="!showAddNewWordSection">Search<span class="glyphicon glyphicon-search"></span>
+					</a>
 
-				You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
-				{{pageFormData.searchedItems.length}}
-				<span ng-hide="pageFormData.searchedItems.length">| There is no result</span>
-				<br />
+					You are typing "{{pageFormData.lastSearchedWord}}" | Number of filtered items:
+					{{pageFormData.searchedItems.length}}
+					<span ng-hide="pageFormData.searchedItems.length">| There is no result</span>
+					<br />
+				</div>
 			</div>
 
 			<!-- </div> -->
 			<!-- /input-group -->
 			<div class="row">
+				<div class="col-lg-12">
+					<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)">Add New
+						Word<i class="fa fa-angle-right"></i>
+					</a>
+
+					<a class="btn btn-xs btn-primary" ng-click="exportWordMgmt()">Export All word Data</a>
+				</div>
 
 
-				<a class="btn btn-xs btn-primary" ng-click="showSection(settings.sectionNames.AddNewWord)">Add New
-					Word<i class="fa fa-angle-right"></i>
-				</a>
-
-				<a class="btn btn-xs btn-primary" ng-click="exportWordMgmt()">Export All word Data</a>
 			</div>
 
 
