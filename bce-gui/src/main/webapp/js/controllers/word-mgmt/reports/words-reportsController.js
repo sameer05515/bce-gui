@@ -6,6 +6,7 @@ app.controller("words-reportsController", function (
 	$log,
 	$location,
 	topicMgmtAppConfig,
+	TopicManagementServices,
 	$uibModal
 ) {
 	$scope.wordReportObj = {
@@ -133,10 +134,79 @@ app.controller("words-reportsController", function (
 			});
 	};
 
+	/** Topics History*/
+
+	$scope.getTopicsReportLastUpdated = function () {
+		var urrrlll =
+			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
+		$scope.dynamicQueryResponse = {};
+		$scope.dynamicTableDataTopicsLastUpdated = [];
+		$scope.showDynamicTableData = false;
+		$scope.showDynamicResponseError = false;
+		TopicManagementServices.fetchTopicHistory('update')
+			.success(function (data) {
+				// $scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataTopicsLastUpdated = data;
+				$scope.showDynamicTableData = true;
+				$scope.showDynamicResponseError = false;
+			})
+			.error(function (data, status) {
+				//alert("Error : "+data.message +"status"+data.status);
+				$scope.dynamicQueryResponse = data;
+				$scope.showDynamicResponseError = true;
+			});
+	};
+
+	$scope.getTopicsReportCreatedOn = function () {
+		var urrrlll =
+			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
+		$scope.dynamicQueryResponse = {};
+		$scope.dynamicTableDataTopicsCreatedOn = [];
+		$scope.showDynamicTableData = false;
+		$scope.showDynamicResponseError = false;
+		TopicManagementServices.fetchTopicHistory('create')
+			.success(function (data) {
+				// $scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataTopicsCreatedOn = data;
+				$scope.showDynamicTableData = true;
+				$scope.showDynamicResponseError = false;
+			})
+			.error(function (data, status) {
+				//alert("Error : "+data.message +"status"+data.status);
+				$scope.dynamicQueryResponse = data;
+				$scope.showDynamicResponseError = true;
+			});
+	};
+
+	$scope.getTopicsReportReadOn = function () {
+		var urrrlll =
+			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
+		$scope.dynamicQueryResponse = {};
+		$scope.dynamicTableDataTopicsReadOn = [];
+		$scope.showDynamicTableData = false;
+		$scope.showDynamicResponseError = false;
+		TopicManagementServices.fetchTopicHistory('read')
+			.success(function (data) {
+				//$scope.dynamicQueryResponse = data;
+				$scope.dynamicTableDataTopicsReadOn = data;
+				$scope.showDynamicTableData = true;
+				$scope.showDynamicResponseError = false;
+			})
+			.error(function (data, status) {
+				//alert("Error : "+data.message +"status"+data.status);
+				$scope.dynamicQueryResponse = data;
+				$scope.showDynamicResponseError = true;
+			});
+	};
+
 	$scope.init = function () {
 		$scope.getWordReportLastUpdated();
 		$scope.getWordReportCreatedOn();
 		$scope.getWordReportReadOn();
+
+		$scope.getTopicsReportReadOn();
+		$scope.getTopicsReportCreatedOn();
+		$scope.getTopicsReportLastUpdated();
 	};
 
 	$scope.init();

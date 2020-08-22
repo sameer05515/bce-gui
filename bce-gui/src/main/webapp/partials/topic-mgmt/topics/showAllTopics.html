@@ -110,7 +110,7 @@
 			<p ng-if="topic!==undefined">
 				<a class="btn btn-xs btn-primary" href="#/topics/{{topic.id}}">Modify
 					<i class="fa fa-angle-right"></i>
-				</a> <a class="btn btn-xs btn-primary" ng-click="saveTopicReads()">Mark
+				</a> <a class="btn btn-xs btn-primary" ng-click="saveTopicReads('read')">Mark
 					as Read today <i class="fa fa-angle-right"></i>
 				</a> <i class="fa fa-clock-o"></i> Last Read on <b><span
 					ng-bind="topicsReads.topic.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>

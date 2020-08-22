@@ -66,8 +66,8 @@ app
 						});
 			};
 
-			$scope.saveTopicReads = function() {
-				TopicManagementServices.saveTopicReads($scope.topic.id,'read')
+			$scope.saveTopicReads = function(action) {
+				TopicManagementServices.saveTopicReads($scope.topic.id,action)
 				.success(function(data) {
 					// alert("Success : "+data);
 					// $scope.topicsReads = data;

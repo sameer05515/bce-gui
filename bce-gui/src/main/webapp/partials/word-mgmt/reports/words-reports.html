@@ -163,12 +163,16 @@
 
 				<div class="well col-lg-4">
 					<h2>Datewise Updated Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getTopicsReportLastUpdated()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
-							<th ng-repeat="(header, value) in dynamicTableData[0]">{{header}}</th>
+							<th ng-repeat="(header, value) in dynamicTableDataTopicsLastUpdated[0]">{{header}}</th>
 						</tr>
 		
-						<tr ng-repeat="row in dynamicTableData">					
+						<tr ng-repeat="row in dynamicTableDataTopicsLastUpdated">					
 							<td ng-repeat="cell in row">
 								<span ng-bind-html="cell"></span>
 							</td>
@@ -178,12 +182,16 @@
 
 				<div class="well col-lg-4">
 					<h2>Datewise Created Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getTopicsReportCreatedOn()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
-							<th ng-repeat="(header, value) in dynamicTableDataCreatedOn[0]">{{header}}</th>
+							<th ng-repeat="(header, value) in dynamicTableDataTopicsCreatedOn[0]">{{header}}</th>
 						</tr>
 		
-						<tr ng-repeat="row in dynamicTableDataCreatedOn">					
+						<tr ng-repeat="row in dynamicTableDataTopicsCreatedOn">					
 							<td ng-repeat="cell in row">
 								<span ng-bind-html="cell"></span>
 							</td>
@@ -193,12 +201,16 @@
 
 				<div class="well col-lg-4">
 					<h2>Datewise Read Count</h2>
+					<br/>
+					<a class="btn btn-xs btn-primary" ng-click="getTopicsReportReadOn()">Reload<i
+							class="fa fa-angle-right"></i>
+					</a><br/>
 					<table id="dynamic-query-table">
 						<tr>
-							<th ng-repeat="(header, value) in dynamicTableDataReadOn[0]">{{header}}</th>
+							<th ng-repeat="(header, value) in dynamicTableDataTopicsReadOn[0]">{{header}}</th>
 						</tr>
 		
-						<tr ng-repeat="row in dynamicTableDataReadOn">					
+						<tr ng-repeat="row in dynamicTableDataTopicsReadOn">					
 							<td ng-repeat="cell in row">
 								<span ng-bind-html="cell"></span>
 							</td>
