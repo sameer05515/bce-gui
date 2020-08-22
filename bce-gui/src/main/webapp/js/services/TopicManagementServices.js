@@ -43,12 +43,12 @@ app.factory('TopicManagementServices', [
 			};
 			
 			TopicManagementServices.saveTopicReads = function(
-					topicId) {
+					topicId,action) {
 
 				var req = {
 					method : 'PUT',
 					url : topicMgmtAppConfig.restServices + "/topics/"+ topicId +
-							"/markread",
+							"/mark/"+action,
 					headers : {
 						'Content-Type' : 'application/json'
 					}/*,

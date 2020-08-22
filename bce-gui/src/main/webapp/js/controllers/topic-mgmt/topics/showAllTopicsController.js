@@ -55,7 +55,7 @@ app
 
 			$scope.fetchTopicReads = function() {
 				TopicManagementServices
-				.fetchTopicReads($scope.topic.id).success(
+				.fetchTopicReads($scope.topic.id,'read').success(
 						function(data) {
 							// alert("Success : "+data);
 							$scope.topicsReads = data;
@@ -67,7 +67,7 @@ app
 			};
 
 			$scope.saveTopicReads = function() {
-				TopicManagementServices.saveTopicReads($scope.topic.id)
+				TopicManagementServices.saveTopicReads($scope.topic.id,'read')
 				.success(function(data) {
 					// alert("Success : "+data);
 					// $scope.topicsReads = data;
