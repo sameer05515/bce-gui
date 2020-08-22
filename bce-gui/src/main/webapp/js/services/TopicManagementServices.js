@@ -36,10 +36,10 @@ app.factory('TopicManagementServices', [
 						+ topicId);
 			};
 			
-			TopicManagementServices.fetchTopicReads = function(topicId) {
+			TopicManagementServices.fetchTopicReads = function(topicId,action) {
 
 				return $http.get(topicMgmtAppConfig.restServices + "/topics" + "/"
-						+ topicId+"/reads");
+						+ topicId+"/history/"+action);
 			};
 			
 			TopicManagementServices.saveTopicReads = function(
