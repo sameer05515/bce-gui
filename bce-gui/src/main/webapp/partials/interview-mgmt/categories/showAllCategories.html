@@ -100,6 +100,17 @@
                 <i class="fa fa-plus">{{listShowingButtonCaption}}</i>
             </a>
 
+            <a class="btn btn-xs btn-primary" style="float: right;padding-right: 5px;padding-left: 3px;"
+                    href="#/categories/{{topic.categoryId}}/questions/{{topic.questionId}}">
+                    Modify
+                    <i class="fa fa-angle-right"></i>
+                </a>
+
+                <a class="btn btn-xs btn-primary"  style="float: right;padding-right: 5px;padding-left: 3px;"
+                 ng-click="saveTopicReads('read')">Mark
+                    as Read today <i class="fa fa-angle-right"></i>
+                </a>
+
             <br>
             Hide questions updated in last <input type="text" data-ng-model="lastNDay"></input> days
             <a class="btn btn-xs btn-primary">
@@ -134,7 +145,7 @@
             </p>
 
 
-            <div class="page-header">
+            <!-- <div class="page-header"> -->
                 <small style="font: 100% sans-serif;color: #00ff00;">
                     Category : <span ng-bind-html="topic.categoryName"></span>
                 </small>
@@ -142,7 +153,7 @@
                 <small style="font: 150% sans-serif;color: #ff000d;">: [{{counter+1}}]
                     <span ng-bind-html="topic.questionName" ></span>
                 </small>
-            </div>
+            <!-- </div> -->
 
             <!-- <p>
                 <i class="fa fa-clock-o"></i> Last Modified on
@@ -157,7 +168,7 @@
                 </b>
             </p> -->
 
-            <p ng-if="topic!==undefined">
+            <!-- <p ng-if="topic!==undefined">
                 <a class="btn btn-xs btn-primary"
                     href="#/categories/{{topic.categoryId}}/questions/{{topic.questionId}}">
                     Modify
@@ -171,7 +182,7 @@
                 <i class="fa fa-clock-o"></i> Last Read on <b><span
                         ng-bind="topicsReads.topic.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'">
                     </span></b>
-            </p>
+            </p> -->
 
             <div class="resultsDisplay">
                 <!-- Category : <span ng-bind-html="topic.categoryName"></span> <br />
