@@ -37,7 +37,10 @@
 
             <p>
                 idSelectedVote =  {{idSelectedVote}} <br>
-			topic.id === idSelectedVote  {{topic.id === idSelectedVote}}
+                counter {{counter}} <br>
+            topic.id === idSelectedVote  <pre>{{(topic.id === idSelectedVote) | json}}</pre> <br>
+            topic <pre style="width: 350px; height: 100px;">{{topic | json}}</pre> <br>
+            topic.id   {{topic.id}}
             </p>
             <!-- ############################## -->
 
@@ -95,7 +98,7 @@
                 <div class="row">
                     <span ng-class="{selectedTopicRow: topic.id === idSelectedVote}">
                         <a data-ng-click="showAt($index)">
-                            <span ng-bind-html="topic.questionName"></span>
+                           {{$index+1}} <span ng-bind-html="topic.questionName"></span>
                         </a>
                     </span>
                 </div>
