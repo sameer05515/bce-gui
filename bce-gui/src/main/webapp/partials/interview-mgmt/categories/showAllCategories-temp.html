@@ -35,13 +35,13 @@
             <br />
             <p ng-hide="filteredItems.length">There is no result</p>
 
-            <p>
+            <!-- <p>
                 idSelectedVote =  {{idSelectedVote}} <br>
                 counter {{counter}} <br>
             topic.id === idSelectedVote  <pre>{{(topic.id === idSelectedVote) | json}}</pre> <br>
             topic <pre style="width: 350px; height: 100px;">{{topic | json}}</pre> <br>
             topic.id   {{topic.id}}
-            </p>
+            </p> -->
             <!-- ############################## -->
 
             <!-- <strong>KEY DOWN RESULT:</strong> {{onKeyDownResult}}<br /> <strong>KEY
@@ -96,11 +96,13 @@
             |orderBy:propertyName:reverse))">
                 <!-- <div class="row resultsDisplay"> -->
                 <div class="row">
-                    <span ng-class="{selectedTopicRow: topic.id === idSelectedVote}">
+                    <!-- <span ng-class="{selectedTopicRow: topic.id === idSelectedVote}" -->
+                    <div ng-class="{selectedTopicRow: $index === counter}">
                         <a data-ng-click="showAt($index)">
-                           {{$index+1}} <span ng-bind-html="topic.questionName"></span>
+                           <!-- {{$index === counter}}  -->
+                           <span ng-bind-html="topic.questionName"></span>
                         </a>
-                    </span>
+                    </div>
                 </div>
             </div>
         </div>
