@@ -171,8 +171,8 @@ footer {
     /* margin-bottom: 10px; */
     
     height: 520px;
-    overflow:scroll;
-    -webkit-overflow-scrolling: touch;
+    /* overflow:scroll;
+    -webkit-overflow-scrolling: touch; */
 }
 
 .class-div-interview-mgmt-categ-ques-details-section{
@@ -180,7 +180,7 @@ footer {
     /* margin-bottom: 10px; */
     
     height: 520px;
-    overflow:scroll;
+    overflow:auto;
     -webkit-overflow-scrolling: touch;
 }
 
