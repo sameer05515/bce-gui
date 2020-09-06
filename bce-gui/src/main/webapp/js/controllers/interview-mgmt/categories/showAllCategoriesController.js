@@ -135,11 +135,15 @@ app
 							case 'p':
 							case 'P':
 							case 'ArrowUp':
-								iterateAnchor(-1); break;
+								// iterateAnchor(-1); 
+								$scope.next();
+								break;
 							case 'n':
 							case 'N':
 							case 'ArrowDown':
-								iterateAnchor(1); break;
+								// iterateAnchor(1); 
+								$scope.previous();
+								break;
 							default:
 								//console.log(' key : '+x); 
 								break;
