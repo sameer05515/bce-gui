@@ -61,6 +61,7 @@ app
 					$scope.idSelectedVote = null;
 					$scope.setSelected = function(idSelectedVote) {
 						$scope.idSelectedVote = idSelectedVote;
+						console.log('idSelectedVote : '+idSelectedVote);
 					};
 
 					$scope.showAt = function(indexVal) {
