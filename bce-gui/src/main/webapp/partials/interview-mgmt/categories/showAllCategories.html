@@ -106,6 +106,33 @@
                 <i class="fa fa-plus">Reload</i>
             </a>  
 
+            <p>
+                <small class="text-muted">
+                    <i class="fa fa-clock-o"></i> Last Read on <b> <span
+                            ng-bind="pageFormData.pagedData.selectedWordDataItem.wordReads.word.last_read | date:'MMM/dd/yyyy hh:mm:ss a'">
+                        </span> |
+                    </b>
+                </small>
+
+                <small class="text-muted">
+                    <i class="fa fa-clock-o"></i> Last Modified on
+                <b>
+                    <span ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
+                </b> |
+                    </b>
+                </small>
+
+                <small class="text-muted">
+                    <i class="fa fa-clock-o"></i> Created on
+                <b>
+                    <span ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
+                </b>
+                </small> <br>
+
+                <span class="badge">Total Reads :-
+                    {{pageFormData.pagedData.selectedWordDataItem.wordReads.count}}</span>
+            </p>
+
 
             <div class="page-header">
                 <small style="font: 100% sans-serif;color: #00ff00;">
@@ -113,22 +140,22 @@
                 </small>
                 Interview Question
                 <small style="font: 150% sans-serif;color: #ff000d;">: [{{counter+1}}]
-                    <span ng-bind-html="topic.questionName" />
+                    <span ng-bind-html="topic.questionName" ></span>
                 </small>
             </div>
 
-            <p>
+            <!-- <p>
                 <i class="fa fa-clock-o"></i> Last Modified on
                 <b>
                     <span ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
                 </b>
-            </p>
-            <p>
+            </p> -->
+            <!-- <p>
                 <i class="fa fa-clock-o"></i> Created on
                 <b>
                     <span ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span>
                 </b>
-            </p>
+            </p> -->
 
             <p ng-if="topic!==undefined">
                 <a class="btn btn-xs btn-primary"
@@ -152,7 +179,9 @@
 
                 <div style="border: 1px solid rgb(171, 239, 171); margin: 3px; padding: 5px;"
                     data-ng-repeat="answ in topic.answers">
-                    Answer :[{{$index + 1}}]
+                    <small>
+                        <span style="color:#520cd4;">Answer :[{{$index + 1}}]</span>
+                    </small>
                     <span star-rating rating-value="answ.rating" edit-star-rating="false" max="maxRatingValue"></span>
                     <span ng-bind-html="answ.answer"></span>
                 </div>
