@@ -126,12 +126,12 @@
             </a>
 
 
-            <h1 class="page-header">
+            <div class="page-header">
                 Interview Question
                 <small>: [{{counter+1}}]
                     <span ng-bind-html="topic.questionName" />
                 </small>
-            </h1>
+            </div>
 
             <p>
                 <i class="fa fa-clock-o"></i> Last Modified on
@@ -166,7 +166,7 @@
                 Category : <span ng-bind-html="topic.categoryName"></span> <br />
                 Question : <span ng-bind-html="topic.questionName"></span> <br />
 
-                <div style="border-color: black;border-style: dotted; margin: 3px;"
+                <div style="border-color: black;border-style: dotted; margin: 3px; padding: 3px;"
                  data-ng-repeat="answ in topic.answers">
                     Answer :[{{$index + 1}}]
                     <span star-rating rating-value="answ.rating" edit-star-rating="false" max="maxRatingValue"></span>
@@ -176,8 +176,6 @@
 
         </div>
     </div>
-
-
 
 </div>
 <!-- /. container -->

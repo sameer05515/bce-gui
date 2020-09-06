@@ -86,11 +86,11 @@ app.config([
           "partials/interview-mgmt/categories/showAllCategories.html",
         controller: "showAllCategoriesController",
       })
-      .when("/question-report-temp", {
-        templateUrl:
-          "partials/interview-mgmt/categories/showAllCategories-temp.html",
-        controller: "showAllCategoriesController",
-      })
+      // .when("/question-report-temp", {
+      //   templateUrl:
+      //     "partials/interview-mgmt/categories/showAllCategories-temp.html",
+      //   controller: "showAllCategoriesController",
+      // })
       .when("/categories-list", {
         templateUrl:
           "partials/interview-mgmt/categories/showAllCategories-list.html",
