@@ -11,7 +11,7 @@ app
 					};
 					$scope.topicsList = [];
 					$scope.topic = {};
-					var counter = 1;
+					$scope.counter = 1;
 					$scope.filteredItems = [];
 					$scope.showList = false;
 					$scope.listShowingButtonCaption="Show List";
@@ -64,25 +64,25 @@ app
 					};
 
 					$scope.showAt = function(indexVal) {
-						counter = indexVal;
-						$scope.topic = $scope.filteredItems[counter];
+						$scope.counter = indexVal;
+						$scope.topic = $scope.filteredItems[$scope.counter];
 						$scope.setSelected($scope.topic.id);
-						// counter = (counter >= $scope.filteredItems.length -
+						// $scope.counter = ($scope.counter >= $scope.filteredItems.length -
 						// 1) ? 0
-						// : (counter + 1);
+						// : ($scope.counter + 1);
 					};
 
 					$scope.next = function() {
-						counter = (counter >= $scope.filteredItems.length - 1) ? 0
-								: (counter + 1);
-						$scope.topic = $scope.filteredItems[counter];
+						$scope.counter = ($scope.counter >= $scope.filteredItems.length - 1) ? 0
+								: ($scope.counter + 1);
+						$scope.topic = $scope.filteredItems[$scope.counter];
 						$scope.setSelected($scope.topic.id);
 					};
 
 					$scope.previous = function() {
-						counter = (counter == 0) ? ($scope.filteredItems.length - 1)
-								: (counter - 1);
-						$scope.topic = $scope.filteredItems[counter];
+						$scope.counter = ($scope.counter == 0) ? ($scope.filteredItems.length - 1)
+								: ($scope.counter - 1);
+						$scope.topic = $scope.filteredItems[$scope.counter];
 						$scope.setSelected($scope.topic.id);
 					};
 
