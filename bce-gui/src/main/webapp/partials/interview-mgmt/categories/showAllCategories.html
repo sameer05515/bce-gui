@@ -21,7 +21,8 @@
             </a>
         </div> -->
 
-        <div class="col-sm-4 topicMgmtShowHideAnimation" ng-hide="!showList">
+        <div class="col-sm-4 topicMgmtShowHideAnimation class-list-interview-mgmt-categ-ques-name-section"
+            ng-hide="!showList">
 
             <!-- ############################## -->
             <h4>Interview Question Search:</h4>
@@ -92,22 +93,35 @@
             <!-- </div> -->
             <!--####################-->
 
-            <div data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText 
-            |orderBy:propertyName:reverse))">
-                <!-- <div class="row resultsDisplay"> -->
-                <div class="row">
-                    <!-- <span ng-class="{selectedTopicRow: topic.id === idSelectedVote}" -->
+            <!-- <div data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText 
+            |orderBy:propertyName:reverse))">                
+                <div class="row">                    
                     <div ng-class="{selectedTopicRow: $index === counter}">
-                        <a data-ng-click="showAt($index)">
-                            <!-- {{$index === counter}}  -->
+                        <a data-ng-click="showAt($index)">                            
                             <span ng-bind-html="topic.questionName"></span>
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+            <ul class="list-group">
+                <li data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText 
+            |orderBy:propertyName:reverse))" class="list-group-item text-center clearfix">
+                    <div class="row">
+                        <div id="{{'question-'+$index}}"
+                        ng-class="{selectedTopicRow: $index === counter}">
+                            <a data-ng-click="showAt($index)">
+                                <span ng-bind-html="topic.questionName"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
         </div>
 
-        <div id="topicDetailsDiv" class="col-sm-8">
+        <div id="topicDetailsDiv" class="col-sm-8 class-div-interview-mgmt-categ-ques-details-section">
 
             <a class="btn btn-xs btn-primary" ng-click="previous()">
                 <i class="fa fa-plus">previous</i>
@@ -167,7 +181,7 @@
                 Question : <span ng-bind-html="topic.questionName"></span> <br />
 
                 <div style="border: 1px solid rgb(171, 239, 171); margin: 3px; padding: 5px;"
-                 data-ng-repeat="answ in topic.answers">
+                    data-ng-repeat="answ in topic.answers">
                     Answer :[{{$index + 1}}]
                     <span star-rating rating-value="answ.rating" edit-star-rating="false" max="maxRatingValue"></span>
                     <span ng-bind-html="answ.answer"></span>

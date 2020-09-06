@@ -46,11 +46,11 @@ app
 							$scope.topicsList = data;
                             // $scope.sortBy($scope.propertyName);
                             
-                            $log
-									.log("Successfully fetched category list "
-											+ " : "
-											+ angular
-													.toJson($scope.topicsList));
+                            // $log
+							// 		.log("Successfully fetched category list "
+							// 				+ " : "
+							// 				+ angular
+							// 						.toJson($scope.topicsList));
 
 						}).error(function(data) {
                             $log.log("Error : " + data);
@@ -61,7 +61,15 @@ app
 					$scope.idSelectedVote = null;
 					$scope.setSelected = function(idSelectedVote) {
 						$scope.idSelectedVote = idSelectedVote;
-						console.log('idSelectedVote : '+idSelectedVote);
+						console.log('idSelectedVote : '+$scope.idSelectedVote);
+						$scope.scrollToGivenId('question-'+$scope.idSelectedVote);
+						
+					};
+
+					$scope.scrollToGivenId = function (idToScroll) {
+						const elmnt1 = document.getElementById(idToScroll);
+						elmnt1.scrollIntoView();
+						$log.log('id : '+ idToScroll +'   elmnt1 : '+elmnt1);
 					};
 
 					$scope.showAt = function(indexVal) {

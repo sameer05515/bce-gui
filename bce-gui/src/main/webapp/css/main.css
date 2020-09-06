@@ -165,6 +165,25 @@ footer {
     -webkit-overflow-scrolling: touch;
 }
 
+
+.class-list-interview-mgmt-categ-ques-name-section{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    height: 550px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.class-div-interview-mgmt-categ-ques-details-section{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    height: 550px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
 /* Responsive Styles */
 @media (max-width: 767px) {
 
