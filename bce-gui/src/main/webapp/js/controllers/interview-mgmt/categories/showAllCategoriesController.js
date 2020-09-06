@@ -13,7 +13,7 @@ app
 					$scope.topic = {};
 					var counter = 1;
 					$scope.filteredItems = [];
-					$scope.showList = true;
+					$scope.showList = false;
 					$scope.listShowingButtonCaption="Show List";
 
 					$scope.showTopicsList = function() {
@@ -34,6 +34,10 @@ app
 							$scope.listShowingButtonCaption="Show List";
 						}
 					};
+
+					$scope.saveTopicReads = function(action){
+						console.log('action : '+action);
+					}
 
 					$scope.fetchTopicList = function() {
                         InterviewManagementServices.fetchAnswersJson()
