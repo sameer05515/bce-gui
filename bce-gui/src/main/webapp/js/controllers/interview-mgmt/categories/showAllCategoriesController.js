@@ -62,7 +62,7 @@ app
 					$scope.setSelected = function(idSelectedVote) {
 						$scope.idSelectedVote = idSelectedVote;
 						console.log('idSelectedVote : '+$scope.idSelectedVote);
-						$scope.scrollToGivenId('question-'+$scope.idSelectedVote);
+						$scope.scrollToGivenId('question-'+$scope.counter);
 						
 					};
 
@@ -75,7 +75,7 @@ app
 					$scope.showAt = function(indexVal) {
 						$scope.counter = indexVal;
 						$scope.topic = $scope.filteredItems[$scope.counter];
-						$scope.setSelected($scope.topic.id);
+						$scope.setSelected($scope.topic.categoryId +'_'+$scope.topic.questionId);
 						// $scope.counter = ($scope.counter >= $scope.filteredItems.length -
 						// 1) ? 0
 						// : ($scope.counter + 1);
@@ -85,14 +85,14 @@ app
 						$scope.counter = ($scope.counter >= $scope.filteredItems.length - 1) ? 0
 								: ($scope.counter + 1);
 						$scope.topic = $scope.filteredItems[$scope.counter];
-						$scope.setSelected($scope.topic.id);
+						$scope.setSelected($scope.topic.categoryId +'_'+$scope.topic.questionId);
 					};
 
 					$scope.previous = function() {
 						$scope.counter = ($scope.counter == 0) ? ($scope.filteredItems.length - 1)
 								: ($scope.counter - 1);
 						$scope.topic = $scope.filteredItems[$scope.counter];
-						$scope.setSelected($scope.topic.id);
+						$scope.setSelected($scope.topic.categoryId +'_'+$scope.topic.questionId);
 					};
 
 					// ///////////////////////
