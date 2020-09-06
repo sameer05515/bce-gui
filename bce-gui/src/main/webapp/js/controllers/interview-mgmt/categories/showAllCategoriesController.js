@@ -128,6 +128,24 @@ app
 								$event, "Key press");
 					};
 
+					scope.bodyKeyDownEventListener=function (event) {
+						var x = event.key;
+						console.log(' key : ' + x);
+						switch (x) {
+							case 'p':
+							case 'P':
+							case 'ArrowUp':
+								iterateAnchor(-1); break;
+							case 'n':
+							case 'N':
+							case 'ArrowDown':
+								iterateAnchor(1); break;
+							default:
+								//console.log(' key : '+x); 
+								break;
+						}
+					}
+
 					// ////////////////////////
 
 					// //////////////////////
