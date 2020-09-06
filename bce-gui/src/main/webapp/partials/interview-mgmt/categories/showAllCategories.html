@@ -3,24 +3,6 @@
 
     <div class="row" ng-keydown="onKeyDown($event)" ng-keyup="onKeyUp($event)" ng-keypress="onKeyPress($event)">
 
-        <!-- <div class="col-lg-12">
-            <a class="btn btn-xs btn-primary" ng-click="previous()">
-                <i class="fa fa-plus">previous</i>
-            </a>
-            <a class="btn btn-xs btn-primary" ng-click="next()">
-                <i class="fa fa-plus">next</i>
-            </a>
-            <a class="btn btn-xs btn-primary" ng-click="showTopicsList()">
-                <i class="fa fa-plus">{{listShowingButtonCaption}}</i>
-            </a>
-
-            <br>
-            Hide questions updated in last <input type="text" data-ng-model="lastNDay"></input> days
-            <a class="btn btn-xs btn-primary">
-                <i class="fa fa-plus">Reload</i>
-            </a>
-        </div> -->
-
         <div class="col-sm-4 topicMgmtShowHideAnimation class-list-interview-mgmt-categ-ques-name-section"
             ng-hide="!showList">
 
@@ -122,12 +104,15 @@
             Hide questions updated in last <input type="text" data-ng-model="lastNDay"></input> days
             <a class="btn btn-xs btn-primary">
                 <i class="fa fa-plus">Reload</i>
-            </a>  {{idSelectedVote}}
+            </a>  
 
 
-            <div style="font: 150% sans-serif;" class="page-header">
+            <div class="page-header">
+                <small style="font: 100% sans-serif;color: #00ff00;">
+                    Category : <span ng-bind-html="topic.categoryName"></span>
+                </small>
                 Interview Question
-                <small>: [{{counter+1}}]
+                <small style="font: 150% sans-serif;color: #ff000d;">: [{{counter+1}}]
                     <span ng-bind-html="topic.questionName" />
                 </small>
             </div>
@@ -162,8 +147,8 @@
             </p>
 
             <div class="resultsDisplay">
-                Category : <span ng-bind-html="topic.categoryName"></span> <br />
-                Question : <span ng-bind-html="topic.questionName"></span> <br />
+                <!-- Category : <span ng-bind-html="topic.categoryName"></span> <br />
+                Question : <span ng-bind-html="topic.questionName"></span> <br /> -->
 
                 <div style="border: 1px solid rgb(171, 239, 171); margin: 3px; padding: 5px;"
                     data-ng-repeat="answ in topic.answers">
