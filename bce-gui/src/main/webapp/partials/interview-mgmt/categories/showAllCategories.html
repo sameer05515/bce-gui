@@ -71,7 +71,7 @@
                 </div>
             </div> -->
 
-            <ul class="list-group">
+            <ul class="list-group" style="height: 300px; overflow:scroll; -webkit-overflow-scrolling: touch;">
                 <li data-ng-repeat="topic in ( filteredItems =(topicsList | filter:searchText 
             |orderBy:propertyName:reverse))" class="list-group-item text-center clearfix">
                     <div class="row">
@@ -101,7 +101,7 @@
             </a>
 
             <a class="btn btn-xs btn-primary" style="float: right;padding-right: 5px;padding-left: 3px;"
-                    href="#/categories/{{topic.categoryId}}/questions/{{topic.questionId}}">
+                    target="_blank" href="#/categories/{{topic.categoryId}}/questions/{{topic.questionId}}">
                     Modify
                     <i class="fa fa-angle-right"></i>
                 </a>
