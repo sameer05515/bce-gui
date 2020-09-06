@@ -128,7 +128,7 @@ app
 								$event, "Key press");
 					};
 
-					scope.bodyKeyDownEventListener=function (event) {
+					$scope.bodyKeyDownEventListener=function (event) {
 						var x = event.key;
 						console.log(' key : ' + x);
 						switch (x) {

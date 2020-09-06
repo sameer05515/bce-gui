@@ -1,7 +1,7 @@
 <div class="container">
 
 
-    <div class="row" ng-keydown="onKeyDown($event)" ng-keyup="onKeyUp($event)" ng-keypress="onKeyPress($event)">
+    <div class="row" onkeydown="bodyKeyDownEventListener(event)">
 
         <div class="col-sm-4 topicMgmtShowHideAnimation class-list-interview-mgmt-categ-ques-name-section"
             ng-hide="!showList">
