@@ -126,7 +126,7 @@
             </a>
 
 
-            <div class="page-header">
+            <div style="font: 150% sans-serif;" class="page-header">
                 Interview Question
                 <small>: [{{counter+1}}]
                     <span ng-bind-html="topic.questionName" />
@@ -166,7 +166,7 @@
                 Category : <span ng-bind-html="topic.categoryName"></span> <br />
                 Question : <span ng-bind-html="topic.questionName"></span> <br />
 
-                <div style="border-color: black;border-style: dotted; margin: 3px; padding: 3px;"
+                <div style="border: 1px solid rgb(171, 239, 171); margin: 3px; padding: 5px;"
                  data-ng-repeat="answ in topic.answers">
                     Answer :[{{$index + 1}}]
                     <span star-rating rating-value="answ.rating" edit-star-rating="false" max="maxRatingValue"></span>
