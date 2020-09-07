@@ -180,8 +180,9 @@ footer {
     /* margin-bottom: 10px; */
     
     height: 300px;
-     overflow:scroll; 
+     overflow:auto; 
      -webkit-overflow-scrolling: touch;
+     font-weight: bold;
     /* overflow:scroll;
     -webkit-overflow-scrolling: touch; */
 }
@@ -198,13 +199,38 @@ footer {
     border: 3px solid orange;  /* creates padding around scroll thumb */
   }
 
+  .class-list-group-interview-mgmt-categ-ques-ans-name-section{
+    /* max-height: 100px; */
+    /* margin-bottom: 10px; */
+    
+    height: 300px;
+     overflow:auto; 
+     -webkit-overflow-scrolling: touch;
+     font-weight: bold;
+    /* overflow:scroll;
+    -webkit-overflow-scrolling: touch; */
+}
+
+.class-list-group-interview-mgmt-categ-ques-ans-name-section::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  .class-list-group-interview-mgmt-categ-ques-ans-name-section::-webkit-scrollbar-track {
+    background: orange;        /* color of the tracking area */
+  }
+  .class-list-group-interview-mgmt-categ-ques-ans-name-section::-webkit-scrollbar-thumb {
+    background-color: blue;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid orange;  /* creates padding around scroll thumb */
+  }
+
+
 .class-div-interview-mgmt-categ-ques-details-section{
     /* max-height: 100px; */
     /* margin-bottom: 10px; */
     
     height: 520px;
-    overflow:auto;
-    -webkit-overflow-scrolling: touch;
+    /* overflow:auto;
+    -webkit-overflow-scrolling: touch; */
 }
 
 
