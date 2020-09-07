@@ -31,12 +31,19 @@ app.factory('InterviewManagementServices', [
 			};
 			
 			InterviewManagementServices.markRead = function(linkedCategoryID,linkedQuestionID) {
-
 				return $http.put(topicMgmtAppConfig.interviewMgmtServices + "/categories/" +
 						linkedCategoryID +
 						"/questions/" +
 						linkedQuestionID +
-						"/markread");
+						"/mark/read");
+			};
+
+			InterviewManagementServices.fetchReads = function(linkedCategoryID,linkedQuestionID) {
+				return $http.get(topicMgmtAppConfig.interviewMgmtServices + "/categories/" +
+						linkedCategoryID +
+						"/questions/" +
+						linkedQuestionID +
+						"/history/read");
 			};
 			
 			InterviewManagementServices.markPrivate = function(linkedCategoryID,linkedQuestionID) {

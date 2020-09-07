@@ -206,7 +206,7 @@ footer {
     height: 300px;
      overflow:auto; 
      -webkit-overflow-scrolling: touch;
-     font-weight: bold;
+     /* font-weight: bold; */
     /* overflow:scroll;
     -webkit-overflow-scrolling: touch; */
 }
