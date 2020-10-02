@@ -34,7 +34,7 @@ var button = document.getElementById("clickme"),
 		console.log("timerStarted " + timerStarted);
 	};
 	
-	slideShowStart();
+	//slideShowStart();
   
   ///////////////////
   
