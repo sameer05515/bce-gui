@@ -80,7 +80,7 @@ app
 					"examples": []
 				},
 				pagedData: {
-					"pageSize": 100,
+					"pageSize": 1000,
 					"pageNo": 0,
 					"enablePrevButton": false,
 					"enableNextButton": true,
@@ -93,7 +93,7 @@ app
 					"lastReadOnDaysBack": 10,
 					"lastUpdatedOnDaysBack": 0,
 					"createdOnDaysBack": 0,
-					"pageSize": 100,
+					"pageSize": 1000,
 					"slideshowDuration": 5000,
 					"selectedOrderByDate": "createdOn",
 					"selectedOrderByDateDirection": "ASC"
@@ -286,10 +286,22 @@ app
 					.success(
 						function (data) {
 							if (data.status == "200") {
-								$scope.pageFormData.searchedItems = data.data;
+								//$scope.pageFormData.searchedItems = data.data;
+								//$scope.pageFormData.lastSearchedWord = searchTxt;
+								// $scope
+								// 	.showSection($scope.settings.sectionNames.SearchedWordItemData);
+
+
+								$scope.pageFormData.pagedData.items = data.data;
 								$scope.pageFormData.lastSearchedWord = searchTxt;
+								if ($scope.pageFormData.pagedData.items.length <= 0) {
+									$scope.pageFormData.pagedData.items.enableNextButton = false;
+								} else {
+									$scope.pageFormData.pagedData.items.enableNextButton = true;
+								}
+								$scope.showAt(0);
 								$scope
-									.showSection($scope.settings.sectionNames.SearchedWordItemData);
+									.showSection($scope.pageFormData.pagedData.items);
 							} else if (data.status == "fail") {
 								alert("Error : Message " + data.message + " data.status : " + data.status);
 							}
