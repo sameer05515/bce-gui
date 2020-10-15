@@ -340,7 +340,7 @@ app.config([
 
       .when("/event-group-mgmt", {
         templateUrl: "partials/event-group-mgmt/event-group-mgmt.html",
-        controller: "eventGroupMgmtController",
+        /** controller: "eventGroupMgmtController",*/
       })
 
       // else 404

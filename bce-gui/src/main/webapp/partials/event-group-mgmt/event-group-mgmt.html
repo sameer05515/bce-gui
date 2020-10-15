@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="eventGroupMgmtController">
     <div class="row">
         <div class="col-lg-12">
             <i class="fa fa-calendar-plus-o fa-4x"></i>
@@ -60,3 +60,12 @@
     </div>
 
 </div>
+
+<div class="container" ng-controller="labelController">
+    <pre>{{labelList | json }}</pre>
+</div>
+
+<div class="container" ng-controller="eventController">
+    <pre>{{eventList | json }}</pre>
+</div>
+
