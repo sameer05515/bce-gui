@@ -19,7 +19,7 @@ app.controller('eventController', function ($scope, $http, $location,
     $scope.getAllEvent = function () {
         EventGroupManagementServices.getAllEvent()
             .success(function (data) {
-                $scope.eventList = data;
+                $scope.eventList = data.data.results;
                 $log.log('All Event : ' + angular
                     .toJson(data));
             })

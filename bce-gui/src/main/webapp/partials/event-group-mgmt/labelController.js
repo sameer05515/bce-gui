@@ -19,7 +19,7 @@ app.controller('labelController', function ($scope, $http, $location,
     $scope.getAllLabel = function () {
         EventGroupManagementServices.getAllLabel()
             .success(function (data) {
-                $scope.labelList = data;
+                $scope.labelList = data.data.results;
                 $log.log('All Label : ' + angular
                     .toJson(data));
             })
