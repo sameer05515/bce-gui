@@ -1,4 +1,4 @@
-<div class="container" ng-controller="eventGroupMgmtController">
+<div class="container">
     <div class="row">
         <div class="col-lg-12">
             <i class="fa fa-calendar-plus-o fa-4x"></i>
@@ -13,119 +13,18 @@
             </ol>
         </div>
     </div>
-    <!-- /.header-section -->
-
-    <div class="row">
-        <div id="idDivEventGroupList" class="col-lg-4">
-            <h2><b>Event Groups</b></h2>
-            <a style="margin-bottom: 10px;" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-plus"></span>
-                Add</a>
-
-            <ul class="list-group list-group-scrolling">
-                <li ng-repeat="eventGroupItem in eventGroupListItems | orderBy: 'date'"
-                    class="list-group-item text-center clearfix">
-                    <span style="font-weight: bold">{{eventGroupItem.name | uppercase}}</span>
-                    <a href="#/addItem/edit/{{eventGroupItem.id}}" class="btn btn-sm btn-default pull-right">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.idDivEventGroupList -->
-
-        <div id="idDivEventList" class="col-lg-4">
-            <h2><b>Events</b></h2>
-            <a style="margin-bottom: 10px;" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-plus"></span>
-                Add</a>
-
-            <ul class="list-group list-group-scrolling">
-                <li ng-repeat="eventItem in eventListItems | orderBy: 'date'"
-                    class="list-group-item text-center clearfix">
-                    <span style="font-weight: bold">{{eventItem.name | uppercase}}</span>
-                    <a href="#/addItem/edit/{{eventItem.id}}" class="btn btn-sm btn-default pull-right">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.idDivEventList -->
-
-        <div id="idDivEventDescription" class="col-lg-4">
-            <h2><b>Event Description</b></h2>
-
-        </div>
-        <!-- /.idDivEventDescription -->
-    </div>
-
+</div>
+<!-- /.header-section -->
+<div class="container well" ng-controller="eventGroupMgmtController">
+    <div ng-include="'partials/event-group-mgmt/template/eventGroupMgmt-template.html'"></div>
 </div>
 
-<div class="container" ng-controller="labelController">
-    <!-- <pre>{{labelList | json }}</pre> -->
-    <div class="row">
-        <div id="idDivELLabelsButtonContols" class="col-lg-12">
-            Previous | Next | Reload | <br>
-            SortBy-Combo(if same value selected again, invert order-by direction)
-        </div>
+<div class="container well" ng-controller="labelController">
+    <div ng-include="'partials/event-group-mgmt/template/label-template.html'">
     </div>
-    <!-- /. row -->
-    <div class="row">
-        <div id="idDivELLabelsList" class="col-lg-4">
-            <h2><b>Labels</b></h2>
-            <a style="margin-bottom: 10px;" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-plus"></span>
-                Add</a>
-
-            <ul class="list-group list-group-scrolling">
-                <li ng-repeat="elLabelListItem in labelList | orderBy: 'created_on'"
-                    class="list-group-item text-center clearfix">
-                    <span style="font-weight: bold">{{elLabelListItem.label | uppercase}}</span>
-                    <a href="#/addItem/edit/{{elLabelListItem.id}}" class="btn btn-sm btn-default pull-right">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.idDivEventList -->
-        <div id="idDivELLabelsDetails" class="col-lg-8">
-            Add Controls | Edit Controls
-        </div>
-    </div>
-    <!-- /. row -->
 </div>
 
-<div class="container" ng-controller="eventController">
-    <!-- <pre>{{eventList | json }}</pre> -->
-
-    <div class="row">
-        <div id="idDivELEventsButtonContols" class="col-lg-12">
-            Previous | Next | Reload | <br>
-            SortBy-Combo(if same value selected again, invert order-by direction)
-        </div>
+<div class="container well" ng-controller="eventController">
+    <div ng-include="'partials/event-group-mgmt/template/event-template.html'">
     </div>
-    <!-- /. row -->
-    <div class="row">
-        <div id="idDivELEventList" class="col-lg-4">
-            <h2><b>Events</b></h2>
-            <a style="margin-bottom: 10px;" class="btn btn-primary btn-block">
-                <span class="glyphicon glyphicon-plus"></span>
-                Add</a>
-
-            <ul class="list-group list-group-scrolling">
-                <li ng-repeat="elEventListItem in eventList | orderBy: 'created_on'"
-                    class="list-group-item text-center clearfix">
-                    <span style="font-weight: bold">{{elEventListItem.title | uppercase}}</span>
-                    <a href="#/addItem/edit/{{elEventListItem.id}}" class="btn btn-sm btn-default pull-right">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.idDivEventList -->
-        <div id="idDivELEventsDetails" class="col-lg-8">
-            Add Controls | Edit Controls
-        </div>
-    </div>
-    <!-- /. row -->
 </div>

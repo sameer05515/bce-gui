@@ -1,0 +1,47 @@
+<!-- <pre>{{labelList | json }}</pre> -->
+<div class="row">
+    <div id="idDivELLabelsButtonContols" class="col-lg-12">
+        Add | Previous | Next | Reload | <br>
+        SortBy-Combo(if same value selected again, invert order-by direction)
+        <a class="btn btn-xs btn-primary">
+            Previous<i class="fa fa-angle-right"></i>
+        </a>
+
+        <a class="btn btn-xs btn-primary">
+            Next<i class="fa fa-angle-right"></i>
+        </a>
+
+        <a class="btn btn-xs btn-primary">
+            Reload<i class="fa fa-angle-right"></i>
+        </a>
+
+        <a class="btn btn-xs btn-primary">
+            Add<i class="fa fa-angle-right"></i>
+        </a>
+
+    </div>
+</div>
+<!-- /. row -->
+<div class="row">
+    <div id="idDivELLabelsList" class="col-lg-4">
+        <h2><b>Labels</b></h2>
+        <a style="margin-bottom: 10px;" class="btn btn-primary btn-block">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add</a>
+
+        <ul class="list-group list-group-scrolling">
+            <li ng-repeat="elLabelListItem in labelList | orderBy: 'created_on'"
+                class="list-group-item text-center clearfix">
+                <span style="font-weight: bold">{{elLabelListItem.label | uppercase}}</span>
+                <a href="#/addItem/edit/{{elLabelListItem.id}}" class="btn btn-sm btn-default pull-right">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.idDivEventList -->
+    <div id="idDivELLabelsDetails" class="col-lg-8">
+        Add Controls | Edit Controls
+    </div>
+</div>
+<!-- /. row -->
