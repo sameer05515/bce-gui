@@ -16,6 +16,17 @@ app.controller('labelController', function ($scope, $http, $location,
         "rating": 1
     };
 
+    $scope.views =
+    {
+        'ADD': 'ADD',
+        'ADD_START': 'ADD_START',
+        'EDIT': 'EDIT',
+        'EDIT_START': 'EDIT_START',
+        'VIEW': 'VIEW'
+    };
+
+    $scope.selectedView = $scope.views.ADD;
+
     $scope.getAllLabel = function () {
         EventGroupManagementServices.getAllLabel()
             .success(function (data) {

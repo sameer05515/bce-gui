@@ -26,7 +26,14 @@
     </div>
     <!-- /.idDivEventList -->
     <div id="idDivELEventsDetails" class="col-lg-8">
-        Add Controls | Edit Controls
+        <!-- Add Controls | Edit Controls -->
+
+        <div ng-include="'partials/event-group-mgmt/template/event-edit-template.html'">
+        </div>
+        <div ng-include="'partials/event-group-mgmt/template/event-add-template.html'">
+        </div>
+        <div ng-include="'partials/event-group-mgmt/template/event-view-template.html'">
+        </div>
     </div>
 </div>
 <!-- /. row -->
