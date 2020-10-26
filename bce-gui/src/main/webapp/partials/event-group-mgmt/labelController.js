@@ -27,6 +27,10 @@ app.controller('labelController', function ($scope, $http, $location,
 
     $scope.selectedView = $scope.views.ADD;
 
+    $scope.filteredItems = [];
+
+    $scope.counterrr = 0;
+
     $scope.getAllLabel = function () {
         EventGroupManagementServices.getAllLabel()
             .success(function (data) {
@@ -38,6 +42,10 @@ app.controller('labelController', function ($scope, $http, $location,
                 $log.log("Error : " + angular
                     .toJson(data));
             });
+    };
+
+    $scope.showAt = function (indexVal) {
+
     };
 
     var initialTopicObj = {};

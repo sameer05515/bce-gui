@@ -60,7 +60,7 @@
         <input type="text" name="Search" ng-model="searchTxt">
 
         <ul class="list-group list-group-scrolling">
-            <li ng-repeat="elLabelListItem in (labelList| filter:searchTxt | orderBy: orderProp)"
+            <li ng-repeat="elLabelListItem in (filteredItems=(labelList| filter:searchTxt | orderBy: orderProp))"
                 class="list-group-item text-center clearfix">
                 <div class="row">
                     <div id="{{'word-'+$index}}"
