@@ -18,6 +18,10 @@ app.constant("topicMgmtAppConfig", {
 		"pagedData":{
 			"pageSize":500
 		}
+	},
+	"interviewMgmtServiceControls":{
+		"showCategoryQuestionAnswers":true,
+		
 	}
 });
 
