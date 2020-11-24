@@ -18,45 +18,38 @@
 		<div class="well col-lg-8">
 			<hr />
 			<!-- <h2> -->
-			Category : <span star-rating rating-value="retrievedCategory.rating"
-				edit-star-rating="false" max="maxRatingValue"></span> <span
-				ng-bind-html="retrievedCategory.catgoryName"></span>
+			Category : <span star-rating rating-value="retrievedCategory.rating" edit-star-rating="false"
+				max="maxRatingValue"></span> <span ng-bind-html="retrievedCategory.catgoryName"></span>
 			<!-- </h2> -->
 
 			<div ng-show="!showEditCategorySection && !showAddQuestionSection">
-				<a class="btn btn-xs btn-primary" ng-click="showEditCategory()"
-					ng-if="true">Edit</a> <a class="btn btn-xs btn-primary"
-					ng-click="alert('not implemented yet')" ng-if="true">Delete</a> <a
-					class="btn btn-xs btn-primary" ng-click="showAddQuestion()"
-					ng-if="true">Add Questions</a>
+				<a class="btn btn-xs btn-primary" ng-click="showEditCategory()" ng-if="true">Edit</a> <a
+					class="btn btn-xs btn-primary" ng-click="alert('not implemented yet')" ng-if="true">Delete</a> <a
+					class="btn btn-xs btn-primary" ng-click="showAddQuestion()" ng-if="true">Add Questions</a>
 			</div>
 
 			<div ng-show="showEditCategorySection">
-				<trix-editor angular-trix ng-model="updateCategoryObj.catgoryName"
-					ng-show="showEditCategorySection"></trix-editor>
-				<div star-rating rating-value="updateCategoryObj.rating"
-					edit-star-rating="true" max="maxRatingValue"
+				<trix-editor angular-trix ng-model="updateCategoryObj.catgoryName" ng-show="showEditCategorySection">
+				</trix-editor>
+				<div star-rating rating-value="updateCategoryObj.rating" edit-star-rating="true" max="maxRatingValue"
 					on-rating-selected="getSelectedRating(rating)"></div>
-				<a class="btn btn-xs btn-primary" ng-click="editCategory()"
-					ng-if="showEditCategorySection">Save</a> <a
+				<a class="btn btn-xs btn-primary" ng-click="editCategory()" ng-if="showEditCategorySection">Save</a> <a
 					class="btn btn-xs btn-primary" ng-click="hideEditCategory()"
 					ng-if="showEditCategorySection">Cancel</a>
 			</div>
 
 			<div ng-show="showAddQuestionSection">
-				<trix-editor angular-trix ng-model="questionObj.question"
-					ng-show="showAddQuestionSection"></trix-editor>
-				<div star-rating rating-value="questionObj.rating"
-					edit-star-rating="true" max="maxRatingValue"
+				<trix-editor angular-trix ng-model="questionObj.question" ng-show="showAddQuestionSection">
+				</trix-editor>
+				<div star-rating rating-value="questionObj.rating" edit-star-rating="true" max="maxRatingValue"
 					on-rating-selected="getSelectedRating(rating)"></div>
-				<a class="btn btn-xs btn-primary" ng-click="saveQuestion()"
-					ng-if="showAddQuestionSection">Save</a> <a
+				<a class="btn btn-xs btn-primary" ng-click="saveQuestion()" ng-if="showAddQuestionSection">Save</a> <a
 					class="btn btn-xs btn-primary" ng-click="hideAddQuestion()"
 					ng-if="showAddQuestionSection">Cancel</a>
 			</div>
 
 			<hr />
-			
+
 			<h4>Question Search:</h4>
 
 			<div class="input-group">
@@ -77,32 +70,28 @@
 			<table class="friends">
 				<tr>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('catgoryName')">Title</button> <span
-						class="sortorder" ng-show="propertyName === 'catgoryName'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('catgoryName')">Title</button> <span
+							class="sortorder" ng-show="propertyName === 'catgoryName'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('dateLastModified')">Last Modified</button> <span
-						class="sortorder" ng-show="propertyName === 'dateLastModified'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('dateLastModified')">Last
+							Modified</button> <span class="sortorder" ng-show="propertyName === 'dateLastModified'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('dateCreated')">Creation Date</button> <span
-						class="sortorder" ng-show="propertyName === 'dateCreated'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('dateCreated')">Creation Date</button>
+						<span class="sortorder" ng-show="propertyName === 'dateCreated'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
 						<button class="btn btn-xs btn-primary" ng-click="sortBy('rating')">Rating</button>
 						<span class="sortorder" ng-show="propertyName === 'rating'"
-						ng-class="{reverse: reverse}"></span>
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th><b><input type="checkbox" ng-model="showPrivateTopics" />Show
 							Private Topics</b></th>
-					<th><b><input type="checkbox"
-							ng-model="showCategoryQuestionAnswers" />Show Answers</b></th>
+					<th><b><input type="checkbox" ng-model="showCategoryQuestionAnswers" />Show Answers</b></th>
 					<!-- <th ng-show="showCategoryQuestions"><b><input
 							type="checkbox" ng-model="showCategoryQuestionAnswers" />Show
 							Answers</b></th> -->
@@ -119,23 +108,31 @@
 					data-ng-repeat="ques in (filteredItems=(retrievedCategory.questions|filter:searchText |filter:filterPrivateTopics |orderBy:propertyName:reverse) )">
 					<h3>
 						Question :[{{$index + 1}}] <span star-rating rating-value="ques.rating"
-							max="maxRatingValue"></span> 
-							
-							
-							<!-- ques.dateLastRead{{ques}} -->
-							<i class="fa fa-clock-o"></i>
-											Last Read on <b><span
-												ng-bind="ques.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
-												Total Reads <b><span>{{ques.totalRead}}</span></b>
-							
-							<font color="red">
-								<span ng-bind-html="ques.question"></span>
-							</font>
+							max="maxRatingValue"></span>
+
+
+						<!-- ques.dateLastRead{{ques}} -->
+						<i class="fa fa-clock-o"></i>
+						Last Read on <b><span ng-bind="ques.dateLastRead | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+						Total Reads <b><span>{{ques.totalRead}}</span></b>
+
+						<font color="red">
+							<span ng-bind-html="ques.question"></span>
+						</font>
 					</h3>
 
 					<a class="btn btn-xs btn-primary"
-						href="#/categories/{{ques.linkedCatID}}/questions/{{ques.questionID}}"
-						ng-if="true">Show Details</a>
+						href="#/categories/{{ques.linkedCatID}}/questions/{{ques.questionID}}" ng-if="true">Show
+						Details</a>
+
+
+					<a class="btn btn-xs btn-primary" ng-click="showEditQuestion()" ng-if="true">Edit</a>
+
+					<a class="btn btn-xs btn-primary" ng-click="alert('not implemented yet')" ng-if="true">Delete</a>
+
+					<a class="btn btn-xs btn-primary" ng-click="showAddAnswer()" ng-if="true">Add Answers</a>
+
+
 					<!-- <a class="btn btn-xs btn-primary"
 					ng-click="alert('not implemented yet')"
 					ng-if="true">Edit</a>
@@ -145,10 +142,9 @@
 
 					<div class="row" ng-show="showCategoryQuestionAnswers">
 						<div class="col-md-1">
-						
+
 						</div>
-						<div class="col-md-11 answersDisplay"
-							data-ng-repeat="answ in ques.answers">
+						<div class="col-md-11 answersDisplay" data-ng-repeat="answ in ques.answers">
 							<h4>
 								Answer :[{{$index + 1}}] <span star-rating rating-value="answ.rating"
 									max="maxRatingValue"></span> <span ng-bind-html="answ.answer"></span>
@@ -157,6 +153,8 @@
 							<a class="btn btn-xs btn-primary"
 								href="#/categories/{{answ.linkedCatID}}/questions/{{answ.linkedQuesID}}/answers/{{answ.ansID}}"
 								ng-if="true">Show Details</a>
+
+
 							<!-- <a class="btn btn-xs btn-primary"
 							ng-click="alert('not implemented yet')"
 							ng-if="true">Edit</a>
@@ -185,15 +183,14 @@
 			<div class="well">
 				<p>
 					<i class="fa fa-clock-o"></i> Last Modified on <b><span
-						ng-bind="retrievedCategory.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="retrievedCategory.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
 				<p>
 					<i class="fa fa-clock-o"></i> Created on <b><span
-						ng-bind="retrievedCategory.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="retrievedCategory.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
-				<a class="btn btn-xs btn-primary"
-					href="#/topics/{{retrievedCategory.id}}">Modify <i
-					class="fa fa-angle-right"></i>
+				<a class="btn btn-xs btn-primary" href="#/topics/{{retrievedCategory.id}}">Modify <i
+						class="fa fa-angle-right"></i>
 				</a> <a class="btn btn-xs btn-primary" href="#/topics-list">Back to
 					list <i class="fa fa-angle-right"></i>
 				</a>
@@ -204,28 +201,21 @@
 				<h4>
 					Related Groups
 					<!-- <button class="lalChaukor">+</button> -->
-					<a class="btn btn-xs btn-primary" ng-click="fetchGroupList()"><i
-						class="fa fa-plus">Add</i></a>
+					<a class="btn btn-xs btn-primary" ng-click="fetchGroupList()"><i class="fa fa-plus">Add</i></a>
 				</h4>
 
-				<div
-					ng-repeat="group in (filteredGroupItems=(groupsList| filter:filterAlreadyAddedGroup))">
-					<input type='checkbox' value="{{group}}"
-						check-list="checked_groups"> {{group.title}}
+				<div ng-repeat="group in (filteredGroupItems=(groupsList| filter:filterAlreadyAddedGroup))">
+					<input type='checkbox' value="{{group}}" check-list="checked_groups"> {{group.title}}
 					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
-				<a class="btn btn-xs btn-primary"
-					ng-click="saveTopicGroupRelationList()"
-					ng-if="filteredGroupItems.length>0">Save</a> <a
-					class="btn btn-xs btn-primary"
-					ng-click="resetGroupsAndShowTopicGroupRelations()"
-					ng-if="filteredGroupItems.length>0">Cancel</a>
+				<a class="btn btn-xs btn-primary" ng-click="saveTopicGroupRelationList()"
+					ng-if="filteredGroupItems.length>0">Save</a> <a class="btn btn-xs btn-primary"
+					ng-click="resetGroupsAndShowTopicGroupRelations()" ng-if="filteredGroupItems.length>0">Cancel</a>
 				<!-- {{checked_groups}} -->
 
 				<div ng-repeat="topicGroupsRelation in topicGroupsRelationList">
 					<a href="#/groups-list/{{topicGroupsRelation.groups.id}}">{{topicGroupsRelation.groups.title}}</a>
-					<a class="btn btn-xs btn-primary" href="#">Remove<i
-						class="fa fa-minus"></i></a>
+					<a class="btn btn-xs btn-primary" href="#">Remove<i class="fa fa-minus"></i></a>
 				</div>
 			</div>
 			<!-- /well -->
