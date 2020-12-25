@@ -40,20 +40,17 @@
 				<tr>
 					<th>
 						<button class="btn btn-xs btn-primary" ng-click="sortBy('title')">Title</button>
-						<span class="sortorder" ng-show="propertyName === 'title'"
-						ng-class="{reverse: reverse}"></span>
+						<span class="sortorder" ng-show="propertyName === 'title'" ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('dateLastModified')">Last Modified</button> <span
-						class="sortorder" ng-show="propertyName === 'dateLastModified'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('dateLastModified')">Last
+							Modified</button> <span class="sortorder" ng-show="propertyName === 'dateLastModified'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th>
-						<button class="btn btn-xs btn-primary"
-							ng-click="sortBy('dateCreated')">Creation Date</button> <span
-						class="sortorder" ng-show="propertyName === 'dateCreated'"
-						ng-class="{reverse: reverse}"></span>
+						<button class="btn btn-xs btn-primary" ng-click="sortBy('dateCreated')">Creation Date</button>
+						<span class="sortorder" ng-show="propertyName === 'dateCreated'"
+							ng-class="{reverse: reverse}"></span>
 					</th>
 					<th><b><input type="checkbox" ng-model="showPrivateTopics" />Show
 							Private Topics</b></th>
@@ -77,12 +74,12 @@
 
 							<div class="col-md-11">
 								<h4>
-									<a href="#/topics-list/{{topic.id}}">{{topic.title}}</a> <span
-										star-rating rating-value="topic.rating"
-										edit-star-rating="false" max="maxRatingValue"></span>
+									<a href="#/topics-list/{{topic.id}}">{{topic.title}}</a> <span star-rating
+										rating-value="topic.rating" edit-star-rating="false"
+										max="maxRatingValue"></span>
 								</h4>
 
-								<p>
+								<!-- <p>
 									Related Groups <a href="">grp 1</a> , <a href="">grp 2</a>
 								</p>
 
@@ -92,22 +89,24 @@
 
 								<p>
 									Related Topics <a href="">view 1</a> , <a href="">view 2</a>
-								</p>
+								</p> -->
 
 
 								<p>
+									<a class="btn btn-xs btn-primary" href="#/topics-list/{{topic.id}}">
+										Read More
+										<i class="fa fa-angle-right"></i>
+									</a>
+									
 									<i class="fa fa-clock-o"></i> Last Modified on <b><span
-										ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
-								</p>
+											ng-bind="topic.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 
-								<p>
 									<i class="fa fa-clock-o"></i> Created on <b><span
-										ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+											ng-bind="topic.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 								</p>
 
-								<a class="btn btn-xs btn-primary"
-									href="#/topics-list/{{topic.id}}">Read More <i
-									class="fa fa-angle-right"></i></a>
+								
+
 							</div>
 						</div>
 					</div>
