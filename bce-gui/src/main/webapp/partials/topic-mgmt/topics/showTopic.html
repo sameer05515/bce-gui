@@ -56,8 +56,10 @@
 						class="fa fa-plus">Add</i></a>
 				</h4>
 
+				<input type="text" ng-model="searchGroupTobeMapped">
+
 				<div
-					ng-repeat="group in (filteredGroupItems=(groupsList| filter:filterAlreadyAddedGroup))">
+					ng-repeat="group in (filteredGroupItems=(groupsList| filter:filterAlreadyAddedGroup | filter:searchGroupTobeMapped))">
 					<input type='checkbox' value="{{group}}"
 						check-list="checked_groups"> {{group.title}}
 					&nbsp;&nbsp;&nbsp;&nbsp;

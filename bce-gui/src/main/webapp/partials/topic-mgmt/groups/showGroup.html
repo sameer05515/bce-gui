@@ -32,11 +32,11 @@
 			<div class="well">
 				<p>
 					<i class="fa fa-clock-o"></i> Last Modified on <b><span
-						ng-bind="group.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="group.dateLastModified | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
 				<p>
 					<i class="fa fa-clock-o"></i> Created on <b><span
-						ng-bind="group.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
+							ng-bind="group.dateCreated | date:'MMM/dd/yyyy hh:mm:ss a'"></span></b>
 				</p>
 				<a class="btn btn-xs btn-primary" href="#/groups/{{group.id}}">Modify
 					<i class="fa fa-angle-right"></i>
@@ -55,20 +55,19 @@
 
 			<div class="well">
 				<h4>
-					Related Views <a class="btn btn-xs btn-primary"
-						ng-click="fetchViewList()"><i class="fa fa-plus">Add</i></a>
+					Related Views <a class="btn btn-xs btn-primary" ng-click="fetchViewList()"><i
+							class="fa fa-plus">Add</i></a>
 				</h4>
-
+				<input type="text" ng-model="searchViewTobeMapped">
 				<div
-					ng-repeat="view in (filteredViewItems=(viewsList| filter:filterAlreadyAddedView))">
+					ng-repeat="view in (filteredViewItems=(viewsList| filter:filterAlreadyAddedView | filter:searchViewTobeMapped))">
 					<input type='checkbox' value="{{view}}" check-list="checked_view">
 					{{view.title}} &nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
-				<a class="btn btn-xs btn-primary"
-					ng-click="saveGroupViewRelationList()"
-					ng-if="filteredViewItems.length>0">Save</a> <a
-					class="btn btn-xs btn-primary"
-					ng-click="resetViewsAndShowGroupViewRelations()"
+				<a class="btn btn-xs btn-primary" ng-click="saveGroupViewRelationList()"
+					ng-if="filteredViewItems.length>0">Save</a>
+
+				<a class="btn btn-xs btn-primary" ng-click="resetViewsAndShowGroupViewRelations()"
 					ng-if="filteredViewItems.length>0">Cancel</a>
 
 				<div ng-repeat="groupViewRelation in groupViewRelationList">
@@ -91,21 +90,18 @@
 				<h4>
 					Related Topics
 					<!-- <button class="lalChaukor">+</button> -->
-					<a class="btn btn-xs btn-primary" ng-click="fetchTopicList()"><i
-						class="fa fa-plus">Add</i></a>
+					<a class="btn btn-xs btn-primary" ng-click="fetchTopicList()"><i class="fa fa-plus">Add</i></a>
 				</h4>
 
-				<div
-					ng-repeat="topic in (filteredTopicItems=(topicsList| filter:filterAlreadyAddedTopic))">
+				<input type="text" ng-model="searchTopicTobeMapped">
+
+				<div ng-repeat="topic in (filteredTopicItems=(topicsList| filter:filterAlreadyAddedTopic | filter:searchTopicTobeMapped))">
 					<input type='checkbox' value="{{topic}}" check-list="checked_topic">
 					{{topic.title}} &nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
-				<a class="btn btn-xs btn-primary"
-					ng-click="saveTopicGroupRelationList()"
-					ng-if="filteredTopicItems.length>0">Save</a> <a
-					class="btn btn-xs btn-primary"
-					ng-click="resetTopicsAndShowTopicGroupRelations()"
-					ng-if="filteredTopicItems.length>0">Cancel</a>
+				<a class="btn btn-xs btn-primary" ng-click="saveTopicGroupRelationList()"
+					ng-if="filteredTopicItems.length>0">Save</a> <a class="btn btn-xs btn-primary"
+					ng-click="resetTopicsAndShowTopicGroupRelations()" ng-if="filteredTopicItems.length>0">Cancel</a>
 				<!-- {{checked_groups}} -->
 
 				<div ng-repeat="topicGroupsRelation in topicGroupsRelationList">
