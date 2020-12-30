@@ -319,7 +319,7 @@ angular
 
 
                 }).success(function (data, status) {
-                    alert('success status code' + status + ' myfolder == ' + myrequest.myurl);
+                    //alert('success status code' + status + ' myfolder == ' + myrequest.myurl);
 
                 })
                     .error(function (data, status) {
@@ -356,7 +356,7 @@ angular
                         //$scope.fileNames = data;
                         //alert(myfolder+"  "+data.length+"  "+data);
 
-                        alert('success status code' + status + ' myfolder == ' + myfolder);
+                        //alert('success status code' + status + ' myfolder == ' + myfolder);
                         for (var i = 0; i < data.length; i++) {
                             if (axis.isObject(data[i])) {
                                 data[i].showValue = true;
