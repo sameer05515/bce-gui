@@ -1,8 +1,8 @@
-app.controller('resumeCtrl', function ($scope, $http) {
+app.controller('resumeCtrl', function($scope, $http) {
 
-    $scope.Export = function () {
+    $scope.Export = function() {
         html2canvas(document.getElementById('id-premendra-kumar-resume'), {
-            onrendered: function (canvas) {
+            onrendered: function(canvas) {
                 var data = canvas.toDataURL();
                 console.log(data);
                 var docDefinition = {
@@ -16,7 +16,19 @@ app.controller('resumeCtrl', function ($scope, $http) {
         });
     };
 
-    $scope.onInit = function () {
+    $scope.loadCompanyData = function() {
+        $http.get({
+                method: 'GET',
+                url: 'data/sectionInfo.json'
+            })
+            .success(function(data) {
+                console.log(data);
+                $scope.sectionInfoArr = data;
+            })
+
+    }
+
+    $scope.onInit = function() {
         //$scope.loadSectionIfo();
     };
 
