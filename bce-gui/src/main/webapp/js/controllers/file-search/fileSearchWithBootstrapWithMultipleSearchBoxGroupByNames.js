@@ -60,25 +60,28 @@ angular
         "$scope",
         "$log",
         "$http",
-        function ($scope, $log, $http) {
+        function($scope, $log, $http) {
             //$scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
             //$scope.choices = [{"id":"choice1","name":"C:/Users/premendra.kumar1/Desktop/readings"},{"id":"choice2","name":"C:/Users/premendra.kumar1/Desktop/Text files"},{"id":"choice3","name":"C:/Users/premendra.kumar1/Desktop/Zetta Support"},{"id":"choice4","name":"C:/apache-tomcat-8.0.28"},{"id":"choice5","name":"C:/backup"},{"id":"choice6","name":"C:/CUSTOM INSTALLATIONS"}];
             //$scope.choices = [{"id":"choice1","name":"G:/05-july-2016"},{"id":"choice2","name":"G:/21-dec-2015-home-pc"},{"id":"choice3","name":"G:/21-dec-2015-office"},{"id":"choice4","name":"G:/APPLN_SERVERS-office"},{"id":"choice5","name":"G:/chef-repo1-master-11-july-2016"},{"id":"choice6","name":"G:/CUSTOM INSTALLATIONS-office"},{"id":"choice7","name":"G:/ebooks-home-pc"},{"id":"choice8","name":"G:/home-pc"},{"id":"choice9","name":"G:/KT-Documents"},{"id":"choice10","name":"G:/movies"},{"id":"choice11","name":"G:/mum 507"},{"id":"choice12","name":"G:/oppo-06-aug-17"},{"id":"choice13","name":"G:/oppo-home-pc"},{"id":"choice14","name":"G:/readings"},{"id":"choice15","name":"G:/readings-office"},{"id":"choice16","name":"G:/SELF"},{"id":"choice17","name":"G:/Sup"},{"id":"choice18","name":"G:/TUTORIAL"},{"id":"choice19","name":"H:/21-dec-2015"},{"id":"choice20","name":"H:/backup"},{"id":"choice21","name":"H:/ebooks"},{"id":"choice22","name":"H:/Executables"},{"id":"choice23","name":"H:/lenovoe420"},{"id":"choice24","name":"H:/PREM-BACKUP"},{"id":"choice25","name":"H:/rimjhim"},{"id":"choice26","name":"H:/softwares"}];
             //$scope.choices = [{"id":"choice1","name":"C:/Users/premendra.kumar1/Desktop/readings"},{"id":"choice2","name":"C:/Users/premendra.kumar1/Desktop/Text files"},{"id":"choice3","name":"C:/Users/premendra.kumar1/Desktop/Zetta Support"},{"id":"choice4","name":"C:/apache-tomcat-8.0.28"},{"id":"choice5","name":"C:/backup"},{"id":"choice6","name":"C:/CUSTOM INSTALLATIONS"}];
 
             $scope.choices = [{
-                id: "choice1",
-                name: "D:/Prem/tutorials"
-            }];
+                    id: "choice1",
+                    name: "D:/Prem/tutorials"
+                },
+                { id: "choice2", name: "/home/premendra/Desktop" },
+                { id: "choice3", name: "/home/premendra/git" }
+            ];
 
-            $scope.addNewChoice = function () {
+            $scope.addNewChoice = function() {
                 var newItemNo = $scope.choices.length + 1;
                 $scope.choices.push({
                     id: "choice" + newItemNo
                 });
             };
 
-            $scope.removeChoice = function () {
+            $scope.removeChoice = function() {
                 var lastItem = $scope.choices.length - 1;
                 $scope.choices.splice(lastItem);
             };
@@ -95,7 +98,7 @@ angular
             $scope.selectedFileObject = {};
 
 
-            $scope.openMovePopup = function (fileKaPath, targetFolderPathh, movingFileNametoRenamed) {
+            $scope.openMovePopup = function(fileKaPath, targetFolderPathh, movingFileNametoRenamed) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
                 $scope.FileToBeMovedPath = fileKaPath;
@@ -113,20 +116,20 @@ angular
                 });
             };
 
-            $scope.moveFile = function (fileKaPath, nayaFilePath, nayaMovingFileName) {
+            $scope.moveFile = function(fileKaPath, nayaFilePath, nayaMovingFileName) {
 
                 if (confirm("Are you sure you want to move File?" + fileKaPath + " \n to new path ? " + nayaFilePath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileMove.jsp";
                     $http({
-                        method: "POST",
-                        url: urrrlll,
-                        params: {
-                            fileName: fileKaPath,
-                            targetPath: nayaFilePath,
-                            newName: nayaMovingFileName
-                        }
-                    })
-                        .success(function (data) {
+                            method: "POST",
+                            url: urrrlll,
+                            params: {
+                                fileName: fileKaPath,
+                                targetPath: nayaFilePath,
+                                newName: nayaMovingFileName
+                            }
+                        })
+                        .success(function(data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
                             if (data.status == "success") {
@@ -146,14 +149,14 @@ angular
                                 );
                             }
                         })
-                        .error(function (data) {
+                        .error(function(data) {
                             alert("error in renaming file" + fileKaPath);
                         });
                 }
 
             };
 
-            $scope.openRenamePopup = function (fileKaPath, fileNametoRenamed) {
+            $scope.openRenamePopup = function(fileKaPath, fileNametoRenamed) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
                 $scope.FileToBeRenamedPath = fileKaPath;
@@ -170,19 +173,19 @@ angular
                 });
             };
 
-            $scope.renameFile = function (fileKaPath, nayaFileName) {
+            $scope.renameFile = function(fileKaPath, nayaFileName) {
 
                 if (confirm("Are you sure you want to Rename Files?" + fileKaPath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileRename.jsp";
                     $http({
-                        method: "POST",
-                        url: urrrlll,
-                        params: {
-                            fileName: fileKaPath,
-                            newName: nayaFileName
-                        }
-                    })
-                        .success(function (data) {
+                            method: "POST",
+                            url: urrrlll,
+                            params: {
+                                fileName: fileKaPath,
+                                newName: nayaFileName
+                            }
+                        })
+                        .success(function(data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
                             if (data.status == "success") {
@@ -201,25 +204,25 @@ angular
                                 );
                             }
                         })
-                        .error(function (data) {
+                        .error(function(data) {
                             alert("error in renaming file" + fileKaPath);
                         });
                 }
 
             };
 
-            $scope.deleteFile = function (fileKaPath) {
+            $scope.deleteFile = function(fileKaPath) {
                 //alert(fileKaPath+"");
                 if (confirm("Are you sure you want to Delete Files?" + fileKaPath)) {
                     var urrrlll = "http://127.0.0.1:8080/FileService/fileDelete.jsp";
                     $http({
-                        method: "POST",
-                        url: urrrlll,
-                        params: {
-                            fileName: fileKaPath
-                        }
-                    })
-                        .success(function (data) {
+                            method: "POST",
+                            url: urrrlll,
+                            params: {
+                                fileName: fileKaPath
+                            }
+                        })
+                        .success(function(data) {
                             /* $scope.fileNames = data;
 												$scope.errorMessage = ""; */
                             if (data.status == "success") {
@@ -238,17 +241,17 @@ angular
                                 );
                             }
                         })
-                        .error(function (data) {
+                        .error(function(data) {
                             alert("error in deleting data" + fileKaPath);
                         });
                 }
             };
 
-            $scope.loadMultiResult = function () {
+            $scope.loadMultiResult = function() {
                 $scope.loadingMessage = [];
                 $scope.errorMessage = [];
                 $scope.fileNames = [];
-                angular.forEach($scope.choices, function (value, key) {
+                angular.forEach($scope.choices, function(value, key) {
                     //console.log("name : "+value.name );
                     $scope.loadResult(value.name);
                 });
@@ -264,8 +267,7 @@ angular
 
             ////////////////////
 
-            $scope.multiRequests = [
-                {
+            $scope.multiRequests = [{
                     myurl: "http://127.0.0.1:8080/ClickCounter12345/",
                     methodtype: "GET",
                     parameters: {},
@@ -287,42 +289,42 @@ angular
 
             $scope.toShowData = [];
 
-            $scope.loadMultiURLData = function () {
+            $scope.loadMultiURLData = function() {
 
-                angular.forEach($scope.multiRequests, function (value, key) {
+                angular.forEach($scope.multiRequests, function(value, key) {
                     //console.log("name : "+value.name );
                     $scope.loadURLData(value);
                 });
 
-				/* var cc={
-					myurl : "http://127.0.0.1:8080/ClickCounter420/",
-					methodtype : "GET",
-					parameters : {},
-					mydata : {}
-				};
+                /* var cc={
+                	myurl : "http://127.0.0.1:8080/ClickCounter420/",
+                	methodtype : "GET",
+                	parameters : {},
+                	mydata : {}
+                };
 				
-				$scope.loadURLData(cc); */
+                $scope.loadURLData(cc); */
 
             };
 
-            $scope.loadURLData = function (myrequest) {
+            $scope.loadURLData = function(myrequest) {
 
 
 
                 $http({
 
-                    method: myrequest.methodtype,
-                    url: myrequest.myurl,
-                    params: myrequest.parameters,
-                    data: myrequest.mydata
+                        method: myrequest.methodtype,
+                        url: myrequest.myurl,
+                        params: myrequest.parameters,
+                        data: myrequest.mydata
 
 
 
-                }).success(function (data, status) {
-                    //alert('success status code' + status + ' myfolder == ' + myrequest.myurl);
+                    }).success(function(data, status) {
+                        //alert('success status code' + status + ' myfolder == ' + myrequest.myurl);
 
-                })
-                    .error(function (data, status) {
+                    })
+                    .error(function(data, status) {
                         alert('fail status code' + status + ' myfolder == ' + myrequest.myurl);
                     });
 
@@ -330,7 +332,7 @@ angular
 
             ////////////////////
 
-            $scope.loadResult = function (myfolder) {
+            $scope.loadResult = function(myfolder) {
                 $scope.loadingMessage.push("Loading data....");
 
                 var obj = {};
@@ -343,16 +345,16 @@ angular
                 //var urrrlll="http://127.0.0.1:8080/FileService/fileService.jsp?fileName="+myfolder+"";
                 var urrrlll = "http://127.0.0.1:8080/FileService/fileService.jsp";
                 $http({
-                    method: "POST",
-                    /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
-                    url: urrrlll,
+                        method: "POST",
+                        /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
+                        url: urrrlll,
 
-                    params: {
-                        fileName: myfolder,
-                        extensions: $scope.checked_fruits
-                    }
-                })
-                    .success(function (data, status) {
+                        params: {
+                            fileName: myfolder,
+                            extensions: $scope.checked_fruits
+                        }
+                    })
+                    .success(function(data, status) {
                         //$scope.fileNames = data;
                         //alert(myfolder+"  "+data.length+"  "+data);
 
@@ -374,7 +376,7 @@ angular
 
                         $scope.removeLoadingData();
                     })
-                    .error(function (data, status) {
+                    .error(function(data, status) {
                         var obj = {};
                         obj.message = "Error while getting result for " + myfolder;
                         obj.type = "fail";
@@ -387,7 +389,7 @@ angular
                     });
             };
 
-            $scope.removeLoadingData = function () {
+            $scope.removeLoadingData = function() {
                 var lastItem = $scope.loadingMessage.length - 1;
                 $scope.loadingMessage.splice(lastItem);
             };
@@ -399,7 +401,7 @@ angular
             $scope.testAnchor = [];
             $scope.titleOfPdf = "";
 
-            $scope.openPopup = function (sourceUrl) {
+            $scope.openPopup = function(sourceUrl) {
                 //var sourceUrl=whichgame.getAttribute("href");
                 //alert("sourceUrl : "+sourceUrl);
 
@@ -416,7 +418,7 @@ angular
                 });
             };
 
-            $scope.ppp = function (sourceUrl, givenFilePath, indexVal, mySelectedFileObject) {
+            $scope.ppp = function(sourceUrl, givenFilePath, indexVal, mySelectedFileObject) {
                 $scope.counterrr = indexVal;
                 $scope.selectedFileObject = mySelectedFileObject;
 
@@ -430,14 +432,14 @@ angular
 
             $scope.idCounter = 0;
             $scope.optionTexts = [];
-            $scope.loadInitialSettings = function () {
-                $("ul li").each(function () {
+            $scope.loadInitialSettings = function() {
+                $("ul li").each(function() {
                     $(this)
                         .children("a")
-                        .each(function () {
+                        .each(function() {
                             $(this).attr("id", "myanch" + idCounter);
                             $scope.optionTexts.push(this);
-                            $("#" + "myanch" + idCounter).live("click", function () {
+                            $("#" + "myanch" + idCounter).live("click", function() {
                                 $scope.openPopup(this);
                                 return false;
                             });
@@ -468,7 +470,7 @@ angular
             ];
             //$scope.checked_fruits = [".pdf", ".mp3"];
             $scope.checked_fruits = [".pdf"];
-            $scope.addFruit = function (fruit) {
+            $scope.addFruit = function(fruit) {
                 if ($scope.checked_fruits.indexOf(fruit) != -1) return;
                 $scope.checked_fruits.push(fruit);
             };
@@ -479,7 +481,7 @@ angular
             $scope.reverse = true;
             //$scope.friends = friends;
 
-            $scope.sortBy = function (propertyName) {
+            $scope.sortBy = function(propertyName) {
                 $log.log(
                     "$scope.propertyName : " +
                     $scope.propertyName +
@@ -499,7 +501,7 @@ angular
 
             //Hghlight selected row
             $scope.filePathSelectedVote = null;
-            $scope.setSelected = function (filePathSelectedVote) {
+            $scope.setSelected = function(filePathSelectedVote) {
                 $scope.filePathSelectedVote = filePathSelectedVote;
             };
 
@@ -507,11 +509,11 @@ angular
             //var $scope.counterrr = 1;
             $scope.counterrr = 0;
             $scope.filteredItems = [];
-            $scope.next = function () {
+            $scope.next = function() {
                 $scope.counterrr =
                     $scope.counterrr >= $scope.filteredItems.length - 1 ?
-                        0 :
-                        $scope.counterrr + 1;
+                    0 :
+                    $scope.counterrr + 1;
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
                 $scope.selectedFileObject = $scope.topic;
                 $scope.ppp(
@@ -523,11 +525,11 @@ angular
                 );
             };
 
-            $scope.previous = function () {
+            $scope.previous = function() {
                 $scope.counterrr =
                     $scope.counterrr == 0 ?
-                        $scope.filteredItems.length - 1 :
-                        $scope.counterrr - 1;
+                    $scope.filteredItems.length - 1 :
+                    $scope.counterrr - 1;
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
                 $scope.selectedFileObject = $scope.topic;
                 $scope.ppp(
@@ -548,7 +550,7 @@ angular
 					}; */
 
             $scope.timerInterval = 5000;
-            $scope.slideShowStart = function () {
+            $scope.slideShowStart = function() {
                 $scope.timerStarted = true;
                 $scope.timerID = setTimeout(function nextAltFn() {
                     $scope.next();
@@ -559,7 +561,7 @@ angular
                 console.log("timerStarted " + $scope.timerStarted);
             };
 
-            $scope.slideShowCancel = function () {
+            $scope.slideShowCancel = function() {
                 $scope.timerStarted = false;
                 clearTimeout($scope.timerID);
                 $scope.timerID = null;
@@ -569,14 +571,14 @@ angular
             };
         }
     ])
-    .directive("checkList", function () {
+    .directive("checkList", function() {
         return {
             scope: {
                 list: "=checkList",
                 value: "@"
             },
-            link: function (scope, elem, attrs) {
-                var handler = function (setup) {
+            link: function(scope, elem, attrs) {
+                var handler = function(setup) {
                     var checked = elem.prop("checked");
                     var index = scope.list.indexOf(scope.value);
 
@@ -592,7 +594,7 @@ angular
                 var setupHandler = handler.bind(null, true);
                 var changeHandler = handler.bind(null, false);
 
-                elem.bind("change", function () {
+                elem.bind("change", function() {
                     scope.$apply(changeHandler);
                 });
                 scope.$watch("list", setupHandler, true);
