@@ -2,17 +2,17 @@ var app = angular.module('topicMgmtApp', [ 'ngRoute', 'ngAnimate',
 		'angularTrix', 'ngSanitize','ngTouch','ui.bootstrap' ]);
 
 app.constant("topicMgmtAppConfig", {
-	"restServices" : "http://127.0.0.1:8080/RestServices/rest",
-	"interviewMgmtServices":"http://127.0.0.1:8080/interview-mgmt/rest",
+	"restServices" : "http://127.0.0.1:8090/RestServices/rest",
+	"interviewMgmtServices":"http://127.0.0.1:8090/interview-mgmt/rest",
 	"maxInterviewMgmtRatingValue":"10",
 	"maxTopicMgmtRatingValue":"10",
 	"maxLinkMgmtRatingValue":"10",
-//	"taskMgmtService":"http://127.0.0.1:8080/task-mgmt-service/",
-	"taskMgmtService":"http://127.0.0.1:8080/task-mgmt",
-	"wordMeaningService":"http://127.0.0.1:8080/word-meaning-mongodb-services/",
-	"linkMgmtService":"http://127.0.0.1:8080/link-mgmt-mongodb-services/",
-	"wordMeaningDbBackupService":"http://127.0.0.1:8080/word-meaning-db-backup-service/",
-	"myPagesService":"http://127.0.0.1:8080/my-pages/",
+//	"taskMgmtService":"http://127.0.0.1:8090/task-mgmt-service/",
+	"taskMgmtService":"http://127.0.0.1:8090/task-mgmt",
+	"wordMeaningService":"http://127.0.0.1:8090/word-meaning-mongodb-services/",
+	"linkMgmtService":"http://127.0.0.1:8090/link-mgmt-mongodb-services/",
+	"wordMeaningDbBackupService":"http://127.0.0.1:8090/word-meaning-db-backup-service/",
+	"myPagesService":"http://127.0.0.1:8090/my-pages/",
 	"eventGroupManagementService":"http://127.0.0.1:3000/",
 	"wordMeaningDbBackupSettings":{
 		"pagedData":{

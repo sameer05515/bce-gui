@@ -37,7 +37,7 @@ app.factory('TopicManagementServices', [
 		};
 
 		TopicManagementServices.fetchTopicHistory = function (action) {
-			//http://127.0.0.1:8080/RestServices/rest/topics/history/update
+			//http://127.0.0.1:8090/RestServices/rest/topics/history/update
 			return $http.get(topicMgmtAppConfig.restServices + "/topics" + "/history/" + action);
 
 		};
