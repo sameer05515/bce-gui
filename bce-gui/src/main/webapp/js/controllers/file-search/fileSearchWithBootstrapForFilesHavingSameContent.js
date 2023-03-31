@@ -34,7 +34,7 @@
 							$scope.loadResult =function() {
 								
 								$scope.errorMessage = "Loading data...";
-								var urrrlll="http://127.0.0.1:8080/FileService/fileService.jsp?fileName="+$scope.foldername+"";
+								var urrrlll="http://127.0.0.1:8090/FileService/fileService.jsp?fileName="+$scope.foldername+"";
 								$http(
 										{
 											method : 'POST',
@@ -116,7 +116,7 @@ angular
             $scope.moveFile = function (fileKaPath, nayaFilePath,nayaMovingFileName) {
 
                 if (confirm("Are you sure you want to move File?" + fileKaPath + " \n to new path ? " + nayaFilePath)) {
-                    var urrrlll = "http://127.0.0.1:8080/FileService/fileMove.jsp";
+                    var urrrlll = "http://127.0.0.1:8090/FileService/fileMove.jsp";
                     $http({
                             method: "POST",
                             url: urrrlll,
@@ -173,7 +173,7 @@ angular
             $scope.renameFile = function (fileKaPath, nayaFileName) {
 
                 if (confirm("Are you sure you want to Rename Files?" + fileKaPath)) {
-                    var urrrlll = "http://127.0.0.1:8080/FileService/fileRename.jsp";
+                    var urrrlll = "http://127.0.0.1:8090/FileService/fileRename.jsp";
                     $http({
                             method: "POST",
                             url: urrrlll,
@@ -211,7 +211,7 @@ angular
             $scope.deleteFile = function (fileKaPath) {
                 //alert(fileKaPath+"");
                 if (confirm("Are you sure you want to Delete Files?" + fileKaPath)) {
-                    var urrrlll = "http://127.0.0.1:8080/FileService/fileDelete.jsp";
+                    var urrrlll = "http://127.0.0.1:8090/FileService/fileDelete.jsp";
                     $http({
                             method: "POST",
                             url: urrrlll,
@@ -266,19 +266,19 @@ angular
 			
 			$scope.multiRequests=[
 			{
-					myurl : "http://127.0.0.1:8080/FileService/diff12April.json",
+					myurl : "http://127.0.0.1:8090/FileService/diff12April.json",
 					methodtype : "GET",
 					parameters : {},
 					mydata : {}
 				},
 				{
-					myurl : "http://127.0.0.1:8080/ClickCounter123/",
+					myurl : "http://127.0.0.1:8090/ClickCounter123/",
 					methodtype : "GET",
 					parameters : {},
 					mydata : {}
 				},
 				{
-					myurl : "http://127.0.0.1:8080/ClickCounter/",
+					myurl : "http://127.0.0.1:8090/ClickCounter/",
 					methodtype : "GET",
 					parameters : {},
 					mydata : {}
@@ -289,7 +289,7 @@ angular
 			
 			$scope.loadMultiURLData= function (){
 				
-				var urrrlll = "http://127.0.0.1:8080/FileService/diff12April.json";
+				var urrrlll = "http://127.0.0.1:8090/FileService/diff12April.json";
                 $http({
                         method: "GET",
                         url: urrrlll,
@@ -367,11 +367,11 @@ angular
                 //$scope.errorMessage.push("Starting search for : "+myfolder);
                 $scope.errorMessage.push(obj);
                 console.log("Starting search for : " + myfolder);
-                //var urrrlll="http://127.0.0.1:8080/FileService/fileService.jsp?fileName="+myfolder+"";
-                var urrrlll = "http://127.0.0.1:8080/FileService/fileService.jsp";
+                //var urrrlll="http://127.0.0.1:8090/FileService/fileService.jsp?fileName="+myfolder+"";
+                var urrrlll = "http://127.0.0.1:8090/FileService/fileService.jsp";
                 $http({
                         method: "POST",
-                        /* url : 'http://127.0.0.1:8080/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
+                        /* url : 'http://127.0.0.1:8090/FileService/fileService.jsp?fileName=C:/Users/796412/Desktop/21-dec-2015/07-june-2016/practical-probabilistic-programming/' */
                         url: urrrlll,
 
                         params: {
@@ -540,7 +540,7 @@ angular
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
                 $scope.selectedFileObject=$scope.topic;
                 $scope.ppp(
-                    "http://127.0.0.1:8080/FileService/my.jsp?documentId=" +
+                    "http://127.0.0.1:8090/FileService/my.jsp?documentId=" +
                     $scope.topic.filePath,
                     $scope.topic.filePath,
                     $scope.counterrr,
@@ -556,7 +556,7 @@ angular
                 $scope.topic = $scope.filteredItems[$scope.counterrr];
                 $scope.selectedFileObject=$scope.topic;
                 $scope.ppp(
-                    "http://127.0.0.1:8080/FileService/my.jsp?documentId=" +
+                    "http://127.0.0.1:8090/FileService/my.jsp?documentId=" +
                     $scope.topic.filePath,
                     $scope.topic.filePath,
                     $scope.counterrr,

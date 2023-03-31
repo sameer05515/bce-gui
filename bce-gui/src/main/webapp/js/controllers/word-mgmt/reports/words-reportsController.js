@@ -61,7 +61,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getWordReportLastUpdated = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableData = [];
 		$scope.showDynamicTableData = false;
@@ -86,7 +86,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getWordReportCreatedOn = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableDataCreatedOn = [];
 		$scope.showDynamicTableData = false;
@@ -111,7 +111,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getWordReportReadOn = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableDataReadOn = [];
 		$scope.showDynamicTableData = false;
@@ -138,7 +138,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getTopicsReportLastUpdated = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableDataTopicsLastUpdated = [];
 		$scope.showDynamicTableData = false;
@@ -159,7 +159,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getTopicsReportCreatedOn = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=CREATEDON";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableDataTopicsCreatedOn = [];
 		$scope.showDynamicTableData = false;
@@ -180,7 +180,7 @@ app.controller("words-reportsController", function (
 
 	$scope.getTopicsReportReadOn = function () {
 		var urrrlll =
-			"http://127.0.0.1:8080/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
+			"http://127.0.0.1:8090/word-meaning-db-backup-service/reports/datewise/LastUpdated?columnName=READON";
 		$scope.dynamicQueryResponse = {};
 		$scope.dynamicTableDataTopicsReadOn = [];
 		$scope.showDynamicTableData = false;

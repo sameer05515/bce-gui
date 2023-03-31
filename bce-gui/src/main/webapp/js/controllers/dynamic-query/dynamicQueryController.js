@@ -44,7 +44,7 @@ app
 						};
 					
 					$scope.executeQuery=function () {
-						var urrrlll="http://127.0.0.1:8080/Exporter/excuteQuery";
+						var urrrlll="http://127.0.0.1:8090/Exporter/excuteQuery";
 						$scope.dynamicQueryResponse={};
 						$scope.dynamicTableData=[];
 						$scope.showDynamicTableData=false;
